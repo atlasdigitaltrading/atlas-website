@@ -1,26 +1,64 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@plugin "@tailwindcss/typography";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-atlas-bg: #09090b;
+  --color-atlas-bg-alt: #0f0f12;
+  --color-atlas-card: #18181b;
+  --color-atlas-card-hover: #1f1f23;
+  --color-atlas-border: #27272a;
+  --color-atlas-accent: #3b82f6;
+  --color-atlas-accent-light: #60a5fa;
+  --color-atlas-white: #f1f5f9;
+  --color-atlas-offwhite: #e2e8f0;
+  --color-atlas-gray: #94a3b8;
+  --color-atlas-gray-dark: #64748b;
+  --color-atlas-gray-darker: #475569;
+  --color-atlas-green: #22c55e;
+  --color-atlas-red: #ef4444;
+  --color-atlas-orange: #f59e0b;
+  --color-atlas-purple: #a78bfa;
+  --color-atlas-cyan: #06b6d4;
+  --font-display: var(--font-instrument);
+  --font-body: var(--font-dm);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-atlas-bg);
+  color: var(--color-atlas-white);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+@keyframes atlas-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-atlas-pulse {
+  animation: atlas-pulse 2s infinite;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-atlas-gray-darker);
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
 }
