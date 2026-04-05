@@ -16,7 +16,10 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.atlasdigitaltrading.com"),
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/apple-touch-icon.png",
+  },
   title:
     "Atlas Digital Trading | Institutional Execution for Digital Assets",
   description:

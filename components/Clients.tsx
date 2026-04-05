@@ -6,29 +6,39 @@ const segs = [
     title: "Buy Side",
     color: "#3b82f6",
     list: [
-      "Asset Managers",
+      "Crypto Hedge Funds",
+      "Crypto Asset Managers",
       "ETF Issuers",
-      "Hedge Funds",
-      "Crypto Funds",
-      "Proprietary Trading Firms",
+      "Wealth Management Firms",
+      "Family Offices",
+      "Crypto VCs and Foundations",
       "Token Holders & Projects",
+      "Proprietary Trading Firms",
+      "Market Makers",
     ],
   },
   {
     title: "Sell Side",
     color: "#06b6d4",
     list: [
-      "Banks",
-      "Retail Investment Platforms",
+      "Crypto Brokers",
       "OTC Desks",
-      "Broker-Dealers",
+      "Agency Trading Desks",
+      "Banks",
       "Prime Brokers",
+      "Retail Platforms",
     ],
   },
   {
-    title: "Service Providers",
+    title: "Others",
     color: "#a78bfa",
-    list: ["Custodians", "Payment Service Providers"],
+    list: [
+       "Payment Service Providers",
+       "FinTechs",
+       "Custodians",     
+       "Tier-3 Exchanges",
+
+    ],
   },
 ];
 

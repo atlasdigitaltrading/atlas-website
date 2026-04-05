@@ -34,20 +34,16 @@ export function WhyAtlas() {
           <div>
             <SectionLabel>Why Atlas</SectionLabel>
             <SectionHeading>
-              Built by a practitioner,
-              <br />
-              not a pitch deck
+              Built by a practitioner
             </SectionHeading>
             <p className="mb-7 mt-5 text-[15px] leading-relaxed text-atlas-gray">
               Atlas is founded by Kiran Pingali, who spent 25 years building
-              electronic trading infrastructure at Citigroup, Thomson
+              electronic trading infrastructure at Citigroup, Lehman Brothers, Thomson
               Reuters/Refinitiv, and Bloomberg — then brought that expertise to
               institutional crypto as a CEO and CPO.
             </p>
             <p className="mb-7 text-[15px] leading-relaxed text-atlas-gray">
-              This isn&apos;t a repackaged TradFi system or a crypto-native tool
-              that ignores decades of execution science. Atlas combines
-              quantitative execution models with crypto-native infrastructure —
+              Atlas combines quantitative execution models with crypto-native infrastructure —
               real-time CLOB aggregation, cross-venue margin monitoring, and
               Almgren-Chriss impact modeling.
             </p>
@@ -56,11 +52,19 @@ export function WhyAtlas() {
                 Kiran Pingali
               </div>
               <div className="flex flex-col gap-1 text-[13px] text-atlas-gray">
-                <span>Cornell M.Eng · Columbia MBA · CFA</span>
                 <span>
-                  Ex-Citigroup · Ex-Thomson Reuters/Refinitiv · Ex-Bloomberg
+                  - Masters in Engineering (Computer Science), Cornell University 
+                  </span>
+                  <span>
+                  - Masters in Business Administration, Columbia University
+                  </span>
+                  <span>
+                  - Chartered Financial Analyst (CFA), CFA Institute
+                  </span>
+                <span>
+                  - Ex-Citigroup · Ex-Lehman Brothers · Ex-Thomson Reuters/Refinitiv · Ex-Bloomberg
                 </span>
-                <span>25+ years in electronic trading & market structure</span>
+                <span>- 25+ years in electronic trading & market structure</span>
               </div>
               <a
                 href="https://www.linkedin.com/in/kiran-pingali/"

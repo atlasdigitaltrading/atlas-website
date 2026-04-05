@@ -37,7 +37,7 @@ export function Hero() {
       >
         <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-atlas-accent/30 bg-[rgba(59,130,246,0.12)] px-3.5 py-1.5 text-xs font-semibold tracking-wide text-atlas-accent">
           <span className="h-1.5 w-1.5 animate-atlas-pulse rounded-full bg-atlas-accent shadow-[0_0_8px_#3b82f6]" />
-          Now Live — Design Partner Program
+          Atlas is now live — Institutional firms can request access
         </div>
 
         <h1 className="font-display m-0 mb-6 text-[clamp(38px,5.2vw,68px)] font-extrabold leading-[1.08] tracking-tight text-atlas-white">
@@ -70,9 +70,10 @@ export function Hero() {
 
         <div className="mt-14 flex flex-wrap justify-center gap-[clamp(28px,5vw,60px)] border-t border-atlas-border pt-9">
           {[
-            { v: 10, s: "+", l: "Connected Exchanges" },
-            { v: 3, s: "", l: "Execution Modes" },
-            { v: 25, s: "+", l: "Years TradFi Expertise" },
+            { v: 15, s: "+", l: "Connected Exchanges" },
+            { v: 10, s: "+", l: "Execution Modes" },
+            { v: 20, s: "+", l: "Years TradFi Expertise" },
+            { v: 4, s: "+", l: "Years Institutional Crypto Expertise" },
           ].map((s, i) => (
             <div key={i} className="text-center">
               <div className="font-display text-[clamp(26px,2.8vw,38px)] font-extrabold tracking-tight text-atlas-accent">

@@ -10,7 +10,7 @@ export function Footer() {
         <div>
           <Logo size={20} />
           <p className="mt-2.5 text-xs text-atlas-gray-darker">
-            Atlas Digital Markets LLC · Jersey City, NJ
+            Atlas Digital Markets LLC
           </p>
         </div>
         <div className="flex gap-7">

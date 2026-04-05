@@ -14,18 +14,6 @@ import { SectionLabel } from "./SectionLabel";
 
 const tabs = [
   {
-    label: "Trading",
-    desc: "Multi-venue price charts with real-time data from Binance, Coinbase, Kraken, OKX and more. Consolidated order book (CLOB) aggregates liquidity across all venues. Smart Order Router with Aggressive, Passive, and Neutral execution modes. Full order ticket with market, limit, and stop-limit order types.",
-    features: [
-      "Multi-venue price charts & order books",
-      "Consolidated Limit Order Book (CLOB)",
-      "Smart Order Router (SOR) with 3 execution modes",
-      "Real-time trade history across all venues",
-      "Standard & TWAP execution strategies",
-    ],
-    image: "/screenshots/trading.png",
-  },
-  {
     label: "Pre-Trade Analytics",
     desc: "Comprehensive pre-trade cost estimation powered by Almgren-Chriss impact models. Analyze spread, temporary impact, book depth walk, timing risk, and opportunity cost — broken down by basis points and USD. Includes per-venue 24h volume data and illustrative execution schedules for TWAP orders.",
     features: [
@@ -37,6 +25,19 @@ const tabs = [
     ],
     image: "/screenshots/pre-trade.png",
   },
+  {
+    label: "Trading",
+    desc: "Multi-venue price charts with real-time data from Binance, Coinbase, Kraken, OKX and more. Consolidated order book (CLOB) aggregates liquidity across all venues. Smart Order Router with Aggressive, Passive, and Neutral execution modes. Full order ticket with market, limit, and stop-limit order types.",
+    features: [
+      "Multi-venue price charts & order books",
+      "Consolidated Limit Order Book (CLOB)",
+      "Smart Order Router (SOR) with 3 execution modes",
+      "Real-time trade history across all venues",
+      "Standard & TWAP execution strategies",
+    ],
+    image: "/screenshots/trading.png",
+  },
+
   {
     label: "Post-Trade TCA",
     desc: "Post-trade Transaction Cost Analysis with implementation shortfall decomposition, strategy comparison (Direct vs SOR vs TWAP), venue volume mix visualization, and slippage benchmarking. Drill into order-level detail with full execution audit trails.",
@@ -76,16 +77,16 @@ const tabs = [
 ];
 
 const captions = [
-  "Trading view — multi-venue charts, order books, CLOB, order ticket, trade history",
   "Pre-Trade analytics — cost estimation with execution schedule",
+  "Trading view — multi-venue charts, order books, CLOB, order ticket, trade history",
   "Post-Trade TCA — strategy comparison, venue mix, slippage",
   "Orders & Executions — fill tracking, multi-exchange routing",
   "Exchange Information — venue volume, per-instrument detail",
 ];
 
 const MOCKS = [
-  TradingScreenMock,
   PreTradeScreenMock,
+  TradingScreenMock,
   PostTradeTCAMock,
   OrdersScreenMock,
   VenueAnalyticsMock,
@@ -114,8 +115,9 @@ function PlatformVisual({ activeTab }: { activeTab: number }) {
         <Image
           src={tab.image}
           alt={captions[activeTab]}
-          width={880}
-          height={520}
+          width={1200}
+          height={720}
+          unoptimized
           className="h-auto w-full rounded-md object-contain object-top"
           priority={activeTab === 0}
           onError={() => setUseMock(true)}
@@ -194,9 +196,10 @@ export function Platform() {
               </span>
               <div className="flex flex-wrap gap-1">
                 {NAV.map((t, i) => {
+                  // NAV indices: 1=Pre-Trade, 2=Trading, 3=Post-Trade (must match `tabs` order).
                   const isActive =
-                    (activeTab === 0 && i === 2) ||
-                    (activeTab === 1 && i === 1) ||
+                    (activeTab === 0 && i === 1) ||
+                    (activeTab === 1 && i === 2) ||
                     (activeTab >= 2 && activeTab <= 4 && i === 3);
                   return (
                     <span
