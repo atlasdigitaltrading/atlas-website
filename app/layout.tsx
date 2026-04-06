@@ -14,28 +14,45 @@ const dmSans = DM_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
+const siteTitle =
+  "Atlas Digital Trading | Institutional Execution for Digital Assets";
+const siteDescription =
+  "Smart Order Routing, Execution Algorithms, and Pre-trade/Post-Trade TCA — the institutional execution infrastructure for digital assets.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.atlasdigitaltrading.com"),
   icons: {
     icon: "/favicon.svg",
     apple: "/apple-touch-icon.png",
   },
-  title:
-    "Atlas Digital Trading | Institutional Execution for Digital Assets",
-  description:
-    "Smart Order Routing, Execution Algorithms, and Pre-trade/Post-Trade TCA — the institutional execution infrastructure for digital assets.",
+  title: siteTitle,
+  description: siteDescription,
   openGraph: {
-    title: "Atlas Digital Trading",
-    description: "Institutional Execution for Digital Assets",
+    title: siteTitle,
+    description: siteDescription,
     url: "https://www.atlasdigitaltrading.com",
     siteName: "Atlas Digital Trading",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Atlas Digital Trading — institutional EMS for digital assets",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Atlas Digital Trading",
-    description: "Institutional Execution for Digital Assets",
+    title: siteTitle,
+    description: siteDescription,
+    images: {
+      url: "/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "Atlas Digital Trading — institutional EMS for digital assets",
+    },
   },
 };
 

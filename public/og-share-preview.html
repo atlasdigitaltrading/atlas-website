@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OG share image — preview (draft)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Sans:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        background: #18181b;
+        font-family: "DM Sans", system-ui, sans-serif;
+        color: #94a3b8;
+      }
+      p.hint {
+        max-width: 640px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0 16px;
+      }
+      /* Exact 1200×630 export frame */
+      .frame {
+        width: 1200px;
+        height: 630px;
+        background: radial-gradient(
+            ellipse 90% 70% at 15% 40%,
+            rgba(59, 130, 246, 0.12) 0%,
+            transparent 55%
+          ),
+          #09090b;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+        border: 1px solid #27272a;
+      }
+      .inner {
+        position: absolute;
+        inset: 0;
+        padding: 72px 80px;
+        display: flex;
+        align-items: center;
+        gap: 56px;
+      }
+      .mark {
+        flex-shrink: 0;
+      }
+      .mark svg {
+        display: block;
+        width: 140px;
+        height: 140px;
+      }
+      .copy {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 8px;
+      }
+      .wordmark {
+        font-family: "Instrument Sans", system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 42px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #f1f5f9;
+        line-height: 1;
+      }
+      .headline {
+        font-family: "Instrument Sans", system-ui, sans-serif;
+        font-weight: 600;
+        font-size: 38px;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        color: #e2e8f0;
+        max-width: 14ch;
+      }
+      code {
+        background: #27272a;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="hint">
+      Live preview only. To write <code>public/og-image.png</code> (1200×630) from
+      <code>og-export.html</code>, run <code>npm run og:export</code> (uses Chrome
+      headless, or <code>sharp</code> + <code>scripts/og-image.svg</code> as
+      fallback).
+    </p>
+    <div class="frame" id="og" aria-label="Open Graph preview 1200 by 630">
+      <div class="inner">
+        <div class="mark" aria-hidden="true">
+          <!-- Same geometry as components/Logo.tsx, scaled to 140px -->
+          <svg width="140" height="140" viewBox="0 0 40 40" fill="none">
+            <polygon
+              points="20,2 38,34 2,34"
+              fill="none"
+              stroke="#3b82f6"
+              stroke-width="2.5"
+            />
+            <polygon
+              points="20,12 30,30 10,30"
+              fill="#3b82f6"
+              fill-opacity="0.2"
+            />
+            <line
+              x1="20"
+              y1="2"
+              x2="20"
+              y2="30"
+              stroke="#3b82f6"
+              stroke-width="1.5"
+              opacity="0.4"
+            />
+            <line
+              x1="10"
+              y1="30"
+              x2="30"
+              y2="30"
+              stroke="#3b82f6"
+              stroke-width="1.5"
+              opacity="0.4"
+            />
+          </svg>
+        </div>
+        <div class="copy">
+          <div class="wordmark">Atlas</div>
+          <div class="headline">
+            Institutional<br />
+            Execution Infrastructure
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
