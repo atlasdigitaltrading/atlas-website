@@ -6,6 +6,7 @@ import { NavBar } from "@/components/NavBar";
 import { reader } from "@/lib/keystatic-reader";
 
 type Props = { params: Promise<{ slug: string }> };
+type BlogDocument = Parameters<typeof DocumentRenderer>[0]["document"];
 
 export async function generateStaticParams() {
   const slugs = await reader.collections.posts.list();
@@ -29,10 +30,17 @@ export default async function BlogPostPage(props: Props) {
   });
   if (!post) notFound();
 
-  const root = post.content.node as unknown as {
-    children?: Parameters<typeof DocumentRenderer>[0]["document"];
-  };
-  const documentBody = root.children ?? [];
+  /** Keystatic stores Markdoc as a top-level `Element[]`; older snippets used `{ node: { children } }`. */
+  const content = post.content as unknown;
+  const documentBody: BlogDocument = Array.isArray(content)
+    ? (content as BlogDocument)
+    : content &&
+        typeof content === "object" &&
+        content !== null &&
+        "node" in content &&
+        Array.isArray((content as { node: { children: unknown[] } }).node.children)
+      ? (content as { node: { children: BlogDocument } }).node.children
+      : [];
 
   return (
     <div className="min-h-screen bg-atlas-bg">
@@ -56,7 +64,20 @@ export default async function BlogPostPage(props: Props) {
           </time>
           <span>{post.readTime}</span>
         </div>
-        <div className="prose prose-invert prose-headings:font-display mt-10 max-w-none prose-p:text-atlas-gray prose-a:text-atlas-accent prose-strong:text-atlas-white">
+        <div
+          className={[
+            "prose prose-invert mt-12 max-w-[65ch]",
+            "prose-lg font-body",
+            "prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-balance",
+            "prose-h2:mt-14 prose-h2:mb-4 prose-h2:border-b prose-h2:border-atlas-border prose-h2:pb-3 prose-h2:text-atlas-white prose-h2:text-[1.35rem] sm:prose-h2:text-[1.5rem]",
+            "prose-h3:mt-10 prose-h3:mb-3 prose-h3:text-atlas-offwhite prose-h3:text-[1.15rem]",
+            "prose-p:leading-[1.75] prose-p:text-atlas-gray prose-p:my-5",
+            "prose-a:font-medium prose-a:text-atlas-accent prose-a:no-underline hover:prose-a:underline",
+            "prose-strong:font-semibold prose-strong:text-atlas-white",
+            "prose-hr:my-12 prose-hr:border-atlas-border",
+            "prose-blockquote:border-atlas-accent prose-blockquote:text-atlas-gray",
+          ].join(" ")}
+        >
           <DocumentRenderer document={documentBody} />
         </div>
       </article>

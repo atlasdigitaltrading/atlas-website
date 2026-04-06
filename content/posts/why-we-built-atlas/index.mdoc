@@ -9,14 +9,98 @@ excerpt: >-
 readTime: 8 min read
 ---
 
-## From Wall Street to digital assets
+I spent 25 years building the plumbing of institutional trading.
 
-The same fragmentation you learned to manage in equities and FX appeared in crypto—without the institutional-grade execution stack to match.
+At Citigroup and Lehman Brothers, I helped build electronic trading infrastructure that routed billions in daily volume. At Thomson Reuters/Refinitiv, I led product for execution platforms used by the world's largest asset managers. At Bloomberg, I worked on the liquidity solutions that connected institutional order flow to the deepest pools in the market.
 
-## One platform
+Across all of these roles, the fundamental problem was always the same: liquidity is fragmented, execution is hard, and the firms that trade without the right infrastructure leave money on the table.
 
-Atlas brings **Smart Order Routing**, execution algorithms, and pre-/post-trade **TCA** into a single EMS so your desk can plan, execute, and measure in one place.
+Then I moved into crypto. And I saw the same problem — only worse.
 
-## Design partners
+## The institutional moment is here
 
-We are onboarding a small set of design partners with dedicated support and early pricing. [Book a demo](/#demo) if you would like to explore fit.
+The total crypto market cap currently stands at around $2.4 trillion. But the real story isn't crypto alone — it's tokenization.
+
+BCG and Ripple forecast that tokenized real-world assets will grow at 53% annually, reaching $18.9 trillion by 2033, driven primarily by institutional adoption. If even a fraction of the global equities market moves onto blockchain rails, we're looking at a market that's orders of magnitude larger than what exists today.
+
+And the infrastructure is already being built. The SEC approved Nasdaq's framework for trading tokenized securities on blockchain rails in March 2026. NYSE announced a platform for 24/7 onchain trading and settlement of U.S. equities and ETFs. DTCC received SEC clearance to pilot tokenized securities settlement in the second half of 2026. Coinbase is becoming an "everything exchange" — adding tokenized equities, derivatives, and prediction markets alongside crypto. Franklin Templeton launched Franklin Crypto just last week, its dedicated institutional digital asset management unit, with Chris Perkins stating plainly: "Crypto's institutional moment has arrived."
+
+More institutions are entering this market every month. They will require sophisticated trading tools to meet their evolving needs: smart order routing, execution algorithms, OTC block trading, pre- and post-trade transaction cost analysis, and integrated order and execution management systems.
+
+The institutional era isn't coming. It's here. But the execution infrastructure hasn't kept up.
+
+## Crypto doesn't have a liquidity problem. It has a fragmentation problem.
+
+Crypto liquidity is spread across hundreds of venues — centralized exchanges like Binance, Coinbase, Kraken, and OKX, decentralized protocols, ECNs, market makers, RFQ networks, OTC desks — each with its own order books, pricing, fee structures, and execution dynamics.
+
+In traditional equities, this problem was solved decades ago. Best execution is mandated by regulation, enforced by compliance, and enabled by an entire ecosystem of smart order routers, execution algorithms, and transaction cost analysis tools. Institutional traders don't manually check three exchanges before placing an order. The infrastructure does it for them.
+
+In crypto, that infrastructure layer is still largely missing.
+
+For institutional participants — hedge funds, asset managers, ETF issuers, proprietary trading firms, banks, broker-dealers — this creates real, measurable problems: inconsistent pricing and excessive slippage, missed liquidity across venues they're not connected to, capital inefficiencies from maintaining balances across fragmented accounts, and a complete lack of standardized execution analytics.
+
+What's missing isn't another exchange. It's the institutional execution infrastructure for digital assets.
+
+## What Atlas does
+
+Atlas is the institutional execution infrastructure for digital assets.
+
+We aggregate liquidity across centralized exchanges, decentralized venues, ECNs, and RFQ networks into a single platform — and we give institutional traders the tools to execute with precision, transparency, and accountability.
+
+### Smart Order Routing
+
+Atlas routes orders across 10+ connected venues in real-time, scoring each on fill probability, latency, fees, and estimated market impact. Three execution modes — Aggressive, Passive, and Neutral — let traders optimize for speed, cost, or a balance of both. Our low-latency infrastructure ensures that routing decisions and order submissions happen at the speed the market demands — because in fragmented markets, the difference between a good fill and a missed opportunity is measured in milliseconds.
+
+### Execution algorithms
+
+VWAP, TWAP, and Volume Participation algorithms with adaptive scheduling, participation rate capping, and catch-up logic. Designed for large orders that need to be worked across time and venues without moving the market.
+
+### Pre-trade analytics
+
+Before you trade, Atlas shows you what it will cost. Our pre-trade cost estimator breaks down expected execution costs into their components — spread, temporary market impact, book depth walk, timing risk, and opportunity cost — using quantitative models derived from Almgren-Chriss market impact frameworks. You see the total estimated cost in both basis points and dollars, along with trade difficulty classification, per-venue ADV data, and illustrative execution schedules.
+
+### Post-trade transaction cost analysis (TCA)
+
+After you trade, Atlas shows you how you did. Implementation shortfall decomposition, strategy comparison (Direct vs. SOR vs. TWAP), venue volume analysis, VWAP slippage benchmarking, and markout analytics. This isn't a static report — our TCA feeds back into the pre-trade models, continuously calibrating cost predictions based on actual execution outcomes. The more you trade through Atlas, the more accurate your cost estimates become.
+
+### Order management
+
+Full OMS with multi-venue state management, parent/child order tracking, partial fill handling, and sub-account allocation with complete audit trails.
+
+### Margin and collateral monitoring
+
+Real-time margin health scores across all connected exchange accounts, with proactive alerts and one-click collateral transfers.
+
+## What makes Atlas different
+
+There are other platforms in this space. Here's why Atlas exists alongside them — and why it's built differently.
+
+**Built by a practitioner.** I didn't come from venture capital or DeFi. I came from two and a half decades on the institutional side of electronic trading — building the platforms that route orders, measure execution quality, and help traders prove best execution to their investors and regulators. Atlas is built from that experience. Every feature reflects a real problem I've seen institutional traders face.
+
+**Pre-trade to post-trade feedback loop.** Most competitors offer either execution or analytics, but not the calibration loop between them. Atlas's pre-trade cost models are continuously refined by post-trade TCA outcomes. This creates a compounding advantage: the more volume flows through the platform, the more accurate the cost predictions become for everyone using it.
+
+**Low-latency, high-performance infrastructure.** Atlas is built for speed. Our low-latency routing engine ensures that order submissions, venue scoring, and fill processing happen at the speed institutional trading demands. In fragmented markets where liquidity appears and disappears in milliseconds, infrastructure performance isn't a nice-to-have — it's a requirement for best execution.
+
+**Venue-agnostic, unconflicted.** Atlas is a pure technology provider. We don't operate an exchange. We don't run a prop trading desk. We don't internalize order flow. There are no conflicts of interest between our business model and your execution quality. Agency-only, aligned with your best outcome.
+
+**Modular architecture.** You don't have to buy the entire stack. Need just smart order routing? Just TCA? Atlas's microservices architecture lets you deploy what you need without buying capabilities you don't.
+
+## The bigger picture
+
+The convergence of crypto and traditional finance isn't theoretical anymore. It's happening in real time.
+
+As more asset classes move onto blockchain rails — crypto, tokenized equities, tokenized credit, tokenized treasuries — the execution infrastructure needs to evolve with them. The firms that trade across these converging markets will need smart order routing that spans both crypto-native and tokenized traditional assets. They'll need TCA that measures execution quality across venue types that didn't exist five years ago. They'll need an execution layer built for a world where markets are always on and liquidity is everywhere.
+
+Atlas is a bet on that future. We're building the execution infrastructure for a world where digital assets aren't a niche — they're the default.
+
+## What's next
+
+Atlas is live. We're currently working with institutional firms who get early access.
+
+If you're an institutional trader, asset manager, broker, or anyone thinking seriously about best execution in digital assets — I'd welcome the conversation.
+
+[Book a demo](/#demo)
+
+---
+
+*Kiran Pingali is the founder and CEO of Atlas Digital Trading, an institutional execution infrastructure for digital assets. He has 25 years of experience building electronic trading platforms at Citigroup, Lehman Brothers, Thomson Reuters/Refinitiv, and Bloomberg. He holds a Master of Engineering from Cornell University, an MBA from Columbia Business School, and is a CFA charterholder.*

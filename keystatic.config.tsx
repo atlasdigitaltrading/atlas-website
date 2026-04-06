@@ -26,7 +26,8 @@ export default config({
     posts: collection({
       label: "Blog Posts",
       slugField: "title",
-      path: "content/posts/*",
+      /* Trailing `/` = one folder per slug with `index.mdoc` inside (not flat `slug.mdoc`). */
+      path: "content/posts/*/",
       format: { contentField: "content" },
       schema: {
         title: fields.slug({ name: { label: "Title" } }),
@@ -40,7 +41,9 @@ export default config({
           label: "Read Time",
           defaultValue: "5 min read",
         }),
-        content: fields.markdoc({
+        /* `document` → reader uses fromMarkdoc + deserializeFiles (DocumentRenderer format).
+           `fields.markdoc` reader returns `{ node: raw AST }` only suited to the Prose editor. */
+        content: fields.document({
           label: "Content",
         }),
       },

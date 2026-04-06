@@ -64,6 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${instrument.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-atlas-bg font-body text-atlas-white">
