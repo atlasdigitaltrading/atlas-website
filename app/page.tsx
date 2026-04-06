@@ -2,6 +2,7 @@ import { BlogSection } from "@/components/BlogSection";
 import { Clients } from "@/components/Clients";
 import { DemoForm } from "@/components/DemoForm";
 import { Footer } from "@/components/Footer";
+import { HashScroll } from "@/components/HashScroll";
 import { Hero } from "@/components/Hero";
 import { NavBar } from "@/components/NavBar";
 import { Platform } from "@/components/Platform";
@@ -14,6 +15,7 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-atlas-bg text-atlas-white">
+      <HashScroll />
       <NavBar />
       <Hero />
       <Platform />

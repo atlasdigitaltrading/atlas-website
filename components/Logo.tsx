@@ -3,9 +3,15 @@
 type LogoProps = {
   size?: number;
   onClickTop?: () => void;
+  /** @default "Scroll to top" */
+  "aria-label"?: string;
 };
 
-export function Logo({ size = 24, onClickTop }: LogoProps) {
+export function Logo({
+  size = 24,
+  onClickTop,
+  "aria-label": ariaLabel = "Scroll to top",
+}: LogoProps) {
   return (
     <button
       type="button"
@@ -13,7 +19,7 @@ export function Logo({ size = 24, onClickTop }: LogoProps) {
       onClick={() =>
         onClickTop ? onClickTop() : window.scrollTo({ top: 0, behavior: "smooth" })
       }
-      aria-label="Scroll to top"
+      aria-label={ariaLabel}
     >
       <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
         <polygon

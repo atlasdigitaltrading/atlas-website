@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { Logo } from "./Logo";
 
 const LINKS: [string, string][] = [
@@ -17,8 +18,31 @@ function scrollToId(id: string) {
 }
 
 export function NavBar() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const isHome = pathname === "/";
+
+  function goToSection(id: string) {
+    if (id === "blog" && pathname.startsWith("/blog")) {
+      router.push("/blog");
+      return;
+    }
+    if (isHome) {
+      scrollToId(id);
+      return;
+    }
+    router.push(`/#${id}`);
+  }
+
+  function goHomeOrTop() {
+    if (isHome) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      router.push("/");
+    }
+  }
 
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 40);
@@ -36,14 +60,17 @@ export function NavBar() {
       style={{ padding: "0 clamp(16px, 4vw, 56px)" }}
     >
       <div className="mx-auto flex h-[68px] max-w-[1260px] items-center justify-between">
-        <Logo />
+        <Logo
+          onClickTop={goHomeOrTop}
+          aria-label={isHome ? "Scroll to top" : "Back to home"}
+        />
         <div className="hidden items-center gap-7 min-[900px]:flex">
           {LINKS.map(([label, id]) => (
             <button
               key={id}
               type="button"
               className="cursor-pointer border-none bg-transparent text-[13px] font-medium tracking-wide text-atlas-gray-dark transition-colors hover:text-atlas-accent"
-              onClick={() => scrollToId(id)}
+              onClick={() => goToSection(id)}
             >
               {label}
             </button>
@@ -51,7 +78,7 @@ export function NavBar() {
           <button
             type="button"
             className="cursor-pointer rounded-md border-none bg-atlas-accent px-[22px] py-2 text-[13px] font-bold tracking-wide text-white transition-all hover:-translate-y-px hover:bg-atlas-accent-light"
-            onClick={() => scrollToId("demo")}
+            onClick={() => goToSection("demo")}
           >
             Book a Demo
           </button>
@@ -74,7 +101,7 @@ export function NavBar() {
               type="button"
               className="w-full py-2 text-left text-sm text-atlas-offwhite"
               onClick={() => {
-                scrollToId(id);
+                goToSection(id);
                 setOpen(false);
               }}
             >
@@ -85,7 +112,7 @@ export function NavBar() {
             type="button"
             className="mt-2 w-full rounded-md bg-atlas-accent py-3 text-sm font-bold text-white"
             onClick={() => {
-              scrollToId("demo");
+              goToSection("demo");
               setOpen(false);
             }}
           >

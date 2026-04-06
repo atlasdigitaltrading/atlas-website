@@ -26,8 +26,6 @@ function formatDate(iso: string) {
 }
 
 export function BlogSection({ latest }: Props) {
-  const placeholders = Math.max(0, 3 - latest.length);
-
   return (
     <section id="blog" className="bg-atlas-bg px-[clamp(16px,4vw,56px)] py-[100px]">
       <div className="mx-auto max-w-[1200px]">
@@ -62,17 +60,6 @@ export function BlogSection({ latest }: Props) {
                 </div>
               </div>
             </Link>
-          ))}
-          {Array.from({ length: placeholders }).map((_, i) => (
-            <div
-              key={`ph-${i}`}
-              className="flex min-h-[340px] flex-col items-center justify-center gap-2 rounded-[14px] border border-dashed border-atlas-border bg-atlas-card/30"
-            >
-              <span className="text-3xl opacity-20">📝</span>
-              <span className="text-[13px] text-atlas-gray-darker">
-                More insights coming soon
-              </span>
-            </div>
           ))}
         </div>
         <div className="mt-10 text-center">
