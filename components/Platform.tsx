@@ -74,6 +74,22 @@ const tabs = [
     ],
     image: "/screenshots/venue-analytics.png",
   },
+  {
+    label: "Portfolio",
+    desc: "Unified portfolio view across all venues and instruments. Track balances, positions, and PnL in real time with a consolidated NAV, exposure breakdowns, and venue-level allocation. Drill into individual holdings to understand cost basis, realized vs. unrealized PnL, and concentration risk.",
+    features: [
+      "Consolidated NAV across all venues",
+      "Real-time positions & PnL tracking",
+      "Exposure & concentration breakdowns",
+      "Cost basis with realized / unrealized PnL",
+      "Venue-level allocation & balance detail",
+    ],
+    image: [
+      "/screenshots/portfolio-1.png",
+      "/screenshots/portfolio-2.png",
+      "/screenshots/portfolio-3.png",
+    ],
+  },
 ];
 
 const captions = [
@@ -82,6 +98,7 @@ const captions = [
   "Post-Trade TCA — strategy comparison, venue mix, slippage",
   "Orders & Executions — fill tracking, multi-exchange routing",
   "Exchange Information — venue volume, per-instrument detail",
+  "Portfolio — consolidated NAV, positions, PnL, and venue allocation",
 ];
 
 const MOCKS = [
@@ -90,6 +107,7 @@ const MOCKS = [
   PostTradeTCAMock,
   OrdersScreenMock,
   VenueAnalyticsMock,
+  null,
 ];
 
 const NAV = [
@@ -106,22 +124,28 @@ function PlatformVisual({ activeTab }: { activeTab: number }) {
   const [useMock, setUseMock] = useState(false);
   const tab = tabs[activeTab];
   const Mock = MOCKS[activeTab];
+  const images = Array.isArray(tab.image) ? tab.image : [tab.image];
 
   return (
     <div className="relative min-h-[320px] overflow-hidden rounded-lg border border-atlas-border bg-atlas-bg p-6">
-      {useMock ? (
+      {useMock && Mock ? (
         <Mock />
       ) : (
-        <Image
-          src={tab.image}
-          alt={captions[activeTab]}
-          width={1200}
-          height={720}
-          unoptimized
-          className="h-auto w-full rounded-md object-contain object-top"
-          priority={activeTab === 0}
-          onError={() => setUseMock(true)}
-        />
+        <div className="flex flex-col gap-4">
+          {images.map((src, i) => (
+            <Image
+              key={src}
+              src={src}
+              alt={captions[activeTab]}
+              width={1200}
+              height={720}
+              unoptimized
+              className="h-auto w-full rounded-md object-contain object-top"
+              priority={activeTab === 0 && i === 0}
+              onError={() => Mock && setUseMock(true)}
+            />
+          ))}
+        </div>
       )}
     </div>
   );
@@ -196,11 +220,12 @@ export function Platform() {
               </span>
               <div className="flex flex-wrap gap-1">
                 {NAV.map((t, i) => {
-                  // NAV indices: 1=Pre-Trade, 2=Trading, 3=Post-Trade (must match `tabs` order).
+                  // NAV indices: 1=Pre-Trade, 2=Trading, 3=Post-Trade, 4=Portfolio (must match `tabs` order).
                   const isActive =
                     (activeTab === 0 && i === 1) ||
                     (activeTab === 1 && i === 2) ||
-                    (activeTab >= 2 && activeTab <= 4 && i === 3);
+                    (activeTab >= 2 && activeTab <= 4 && i === 3) ||
+                    (activeTab === 5 && i === 4);
                   return (
                     <span
                       key={t}
