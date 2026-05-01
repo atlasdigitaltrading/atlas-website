@@ -90,6 +90,23 @@ const tabs = [
       "/screenshots/portfolio-3.png",
     ],
   },
+  {
+    label: "Margin",
+    desc: "Real-time margin and collateral monitoring across all venues. Track initial and maintenance margin, available buying power, leverage, and liquidation thresholds in one unified view. Stress-test positions against price moves and surface concentration or cross-venue funding risk before it becomes a problem.",
+    features: [
+      "Initial & maintenance margin by venue",
+      "Buying power & leverage utilization",
+      "Liquidation price & risk thresholds",
+      "Scenario / stress-test analysis",
+      "Cross-venue collateral & funding view",
+    ],
+    image: [
+      "/screenshots/margin-1.png",
+      "/screenshots/margin-2.png",
+      "/screenshots/margin-3.png",
+      "/screenshots/margin-4.png",
+    ],
+  },
 ];
 
 const captions = [
@@ -99,6 +116,7 @@ const captions = [
   "Orders & Executions — fill tracking, multi-exchange routing",
   "Exchange Information — venue volume, per-instrument detail",
   "Portfolio — consolidated NAV, positions, PnL, and venue allocation",
+  "Margin — initial/maintenance margin, leverage, liquidation, stress-tests",
 ];
 
 const MOCKS = [
@@ -107,6 +125,7 @@ const MOCKS = [
   PostTradeTCAMock,
   OrdersScreenMock,
   VenueAnalyticsMock,
+  null,
   null,
 ];
 
@@ -220,12 +239,13 @@ export function Platform() {
               </span>
               <div className="flex flex-wrap gap-1">
                 {NAV.map((t, i) => {
-                  // NAV indices: 1=Pre-Trade, 2=Trading, 3=Post-Trade, 4=Portfolio (must match `tabs` order).
+                  // NAV indices: 1=Pre-Trade, 2=Trading, 3=Post-Trade, 4=Portfolio, 5=Margin (must match `tabs` order).
                   const isActive =
                     (activeTab === 0 && i === 1) ||
                     (activeTab === 1 && i === 2) ||
                     (activeTab >= 2 && activeTab <= 4 && i === 3) ||
-                    (activeTab === 5 && i === 4);
+                    (activeTab === 5 && i === 4) ||
+                    (activeTab === 6 && i === 5);
                   return (
                     <span
                       key={t}
