@@ -76,6 +76,11 @@ export default async function BlogPostPage(props: Props) {
             "prose-strong:font-semibold prose-strong:text-atlas-white",
             "prose-hr:my-12 prose-hr:border-atlas-border",
             "prose-blockquote:border-atlas-accent prose-blockquote:text-atlas-gray",
+            "prose-em:text-atlas-gray-darker",
+            "prose-table:my-8 prose-table:w-full prose-table:border-collapse prose-table:text-[0.95em]",
+            "prose-thead:border-b prose-thead:border-atlas-border",
+            "prose-th:px-3 prose-th:py-2 prose-th:text-left prose-th:font-semibold prose-th:text-atlas-white",
+            "prose-td:border-b prose-td:border-atlas-border/50 prose-td:px-3 prose-td:py-2 prose-td:text-atlas-gray",
           ].join(" ")}
         >
           <DocumentRenderer document={documentBody} />
