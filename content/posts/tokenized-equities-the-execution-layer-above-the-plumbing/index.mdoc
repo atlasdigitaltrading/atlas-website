@@ -1,0 +1,87 @@
+---
+title: "Tokenized Equities: The Execution Layer Above the Plumbing"
+publishedDate: 2026-06-04
+tag: Insights
+excerpt: "After 25 years of building electronic trading infrastructure at Citi, Lehman, Refinitiv, and Bloomberg, the pattern emerging in tokenized equities looks familiar. The plumbing is being built. The execution layer above the plumbing is not — and that's the binding constraint on Citi's $5.5 trillion 2030 forecast. Part 2 of a series."
+readTime: "7 min read"
+---
+
+![Tokenized Equities: The Execution Layer Above the Plumbing](/blog/tokenization-part2.svg)
+
+I've spent the last 25 years building electronic trading infrastructure. At Citi, Lehman Brothers, Thomson Reuters/Refinitiv, and Bloomberg, I worked on pieces of what eventually became the institutional execution layer of US equity markets — the layer above the venues that lets institutional capital actually trade at scale across fragmented liquidity without breaking on operational cost.
+
+Looking at tokenized equities in 2026, the pattern is unmistakably familiar.
+
+The plumbing is being built. DTCC begins production trades through its tokenization service in July 2026, with full rollout in October. Canton Network — the institutional chain DTCC selected under the SEC's no-action framework — already hosts hundreds of billions in tokenized institutional capital. BlackRock, Goldman Sachs, JPMorgan, Anchorage, Circle, and roughly 50 other firms sit in the DTCC consortium. JPMorgan's Kinexys has processed over $1.5 trillion in transaction volume. Goldman's GS DAP is live. Citi published its long-anticipated "Tokenization 2030: Wall Street On-Chain" report two days ago with a $5.5 trillion base case for 2030, an $8.2 trillion bull case, and a $2.7 trillion bear case.
+
+What is not being built at comparable scale is the layer that has to sit above that plumbing before institutional capital can actually deploy across tokenized venues without unacceptable cost. The fragmentation concerns that Nasdaq, NYSE, Cboe, Tiger Research, and FG Nexus raised when the SEC paused the innovation exemption on May 22 are not a regulatory problem in disguise. They are a description of the specific execution-quality gap that US equities spent roughly thirty years filling.
+
+Tokenized equities will not wait thirty years to fill the same gap. But until the layer exists, Citi's $5.5 trillion forecast will not clear.
+
+## What the last thirty days actually showed
+
+Tokenized stocks crossed $1.4 billion in aggregate market capitalization in May, with peak daily trading volume of $3.57 billion the same week. Ondo Global Markets, which launched in September 2025, crossed $1 billion in TVL in eight months — faster than stablecoins (which took three years) or tokenized Treasuries (two years). Pantera Capital's Q1 2026 State of Tokenization report, published in May, scored the broader $321 billion tokenization market at an average maturity of 2.04 out of 5, with 77.6% of assets still functioning as wrappers around traditional infrastructure rather than native onchain instruments. Pantera called the current state the "newspaper-on-a-website phase."
+
+That's the diagnosis from a credible institutional source: the category is real and growing, but the depth is not following the breadth.
+
+The SEC pulled its innovation exemption from the release schedule on May 22 — the framework had been expected around May 18 — after Nasdaq, NYSE, and Cboe leadership flagged market structure and fragmentation concerns in closed-door meetings. Carlos Domingo, CEO of Securitize, publicly supported the delay. Tiger Research's Ryan Yoon called fragmented liquidity "a serious structural threat." FG Nexus CEO Maja Vujinovic warned of "disconnected pools" creating "tracking errors and shadow-shorting vulnerabilities where there aren't enough localized buyers to stabilize a specific token's price."
+
+All of this happened in the same thirty days the category posted its biggest growth numbers. The friction and the growth are not contradicting each other. They are describing the same thing from two angles.
+
+## The fragmentation problem, concretely
+
+Apple stock currently exists as a tokenized asset on Solana through xStocks, on Solana through Ondo, on Ethereum through Ondo, on BNB Chain through Ondo, on Arbitrum through Robinhood, and shortly on DTCC's Canton-based service for institutional participants. Six different tokenized representations of the same security, six different liquidity pools, six different sets of operational mechanics — and that's one US stock on platforms that are live today.
+
+This is what the exchanges were pushing back on. An institutional trader executing a meaningful Apple position across tokenized venues today cannot trust any single quoted price. Best execution is operationally undefined. Price discovery degrades on the long tail of names. Markouts get worse. Internal compliance has no defensible basis for documenting that the trade was executed well.
+
+The Tiger Research critique is correct. The exchanges' concern is correct. None of it is a reason to stop tokenization. All of it is a description of the gap.
+
+## What 25 years in electronic trading taught me about this gap
+
+US equities solved this problem the long way.
+
+The arc is well-understood inside the industry. ECN proliferation in the 1990s — Island, Archipelago, BRUT, and the dozens of crossing networks that followed — created the venue fragmentation problem in the first place. Almgren and Chriss formalized the mathematics of optimal execution across fragmented venues in 2000. Perold's implementation shortfall framework was already a decade old by then. Reg NMS in 2005 made best execution a regulatory output. Algorithmic execution — TWAP, VWAP, POV, implementation shortfall — matured through the late 2000s. Third-party transaction cost analysis emerged as an institutional discipline in the early 2010s. MiFID II in 2018 made TCA a regulatory deliverable in Europe. AI-driven routing and real-time implementation shortfall attribution have continued to develop through the 2020s.
+
+What got built was not faster venues. Faster venues already existed. What got built was the layer above the venues: pre-trade cost decomposition calibrated to per-venue liquidity, smart order routing across heterogeneous destinations, post-trade analytics that decomposed implementation shortfall by venue and time horizon, and a calibrated feedback loop between what the pre-trade models predicted and what actually happened in execution.
+
+I built pieces of this layer at Citi and Lehman, and worked on the data and analytics infrastructure that supported it at Refinitiv and Bloomberg. The thirty-year arc was not driven by regulators or by issuers. It was driven by institutional capital refusing to deploy at scale across fragmented venues until the execution-quality layer existed to handle them.
+
+That same dynamic now applies to tokenized assets. The institutions buying tokenized Apple bring institutional execution expectations on day one. Their compliance teams will ask the same questions, their TCA teams will need the same documentation, their PMs will need the same pre-trade cost confidence.
+
+## What the execution layer for tokenized equities actually requires
+
+The specifics are not abstract. They are the same primitives that took thirty years to build in equities, applied to a venue topology that is fundamentally similar — fragmented, 24/7, with displayed-versus-executable liquidity gaps that are routine rather than exceptional.
+
+Pre-trade cost decomposition — spread, temporary market impact, displayed-versus-executable book walk, timing risk, opportunity cost — calibrated to per-venue tokenized liquidity in real time, in basis points and dollars, before any order is committed.
+
+Smart order routing that treats different tokenized representations of the same underlying security as routable child orders across venues, applying the same analytical framework regardless of which chain or which issuer the token sits on.
+
+Post-trade transaction cost analysis with implementation shortfall decomposition, per-venue attribution, markout analysis at multiple horizons, and an audit-replayable record of every routing decision the system made.
+
+A calibrated feedback loop between pre-trade prediction and post-trade outcome, so that the execution intelligence improves with every trade, per firm, per venue, per instrument. Static models calibrated on pooled aggregate data are starting points. They are not what institutional flow runs on at scale.
+
+These exist for US equities. They exist in limited form for institutional crypto execution today. They do not yet exist for tokenized equities in any institutionally usable form.
+
+## The plumbing is necessary but not sufficient
+
+The institutional rails being built right now are real and important. DTCC's July production launch covering Russell 1000 constituents and major ETFs. Canton Network's $300 million raise reportedly led by a16z Crypto at a $2 billion valuation, with Moody's, Visa, and Japan's securities clearing corporation already integrated. Hamilton Lane leading tokenized private market funds. Citi projecting tokenized money market funds alone could surpass $400 billion by 2030. The Bullish acquisition of Equiniti for $4.2 billion building transfer-agent capability.
+
+This is the plumbing layer. Stablecoin rails, custody, settlement, issuance, primary distribution. It is being built by the most credible institutions in the financial system and it will continue to develop on a clear trajectory through 2030.
+
+What it does not do is solve the execution-quality problem above it. The plumbing makes tokenized assets settle. It does not make them tradeable at institutional scale across the fragmented venue topology that tokenization inherently produces.
+
+## Where this leaves the $5.5 trillion forecast
+
+Citi's $5.5 trillion 2030 base case is defensible if — and only if — the execution layer above the rails materializes. The bear case at $2.7 trillion is what happens if the plumbing gets built but the execution-quality layer doesn't. The bull case at $8.2 trillion is what happens if both layers get built faster than the current trajectory suggests.
+
+The forecasts are not asking whether tokenization happens. They are asking how much friction sits between the plumbing layer and institutional flow at scale. That friction is the execution layer.
+
+It will not take thirty years to build this time. The institutions don't have the patience for that, and the infrastructure primitives don't need to be invented from scratch — the equity execution stack maps cleanly onto digital asset venues with structural modifications for the specifics of crypto-native liquidity, displayed-versus-executable gaps, and 24/7 venue dynamics.
+
+But the layer has to be built. This is the layer Atlas is being built around — and it's where Part 3 of this series will spend its time.
+
+For now, the question worth holding: tokenization's binding constraint isn't regulation, fragmentation, or issuance. It's the absence of the execution-quality infrastructure that took US equities thirty years to build. The plumbing is the visible layer. The execution layer above it is the unbuilt one.
+
+---
+
+*Kiran Pingali, CFA is the founder and CEO of Atlas Digital Markets, building institutional execution infrastructure for digital asset markets. Previously at Citigroup, Lehman Brothers, Thomson Reuters/Refinitiv, and Bloomberg. Cornell M.Eng., Columbia MBA, CFA charterholder.*

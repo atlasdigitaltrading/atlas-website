@@ -68,7 +68,7 @@ export default async function BlogPostPage(props: Props) {
           className={[
             "prose prose-invert mt-12 max-w-[65ch]",
             "prose-lg font-body",
-            "prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-balance",
+            "prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-pretty",
             "prose-h2:mt-14 prose-h2:mb-4 prose-h2:border-b prose-h2:border-atlas-border prose-h2:pb-3 prose-h2:text-atlas-white prose-h2:text-[1.35rem] sm:prose-h2:text-[1.5rem]",
             "prose-h3:mt-10 prose-h3:mb-3 prose-h3:text-atlas-offwhite prose-h3:text-[1.15rem]",
             "prose-p:leading-[1.75] prose-p:text-atlas-gray prose-p:my-5",
