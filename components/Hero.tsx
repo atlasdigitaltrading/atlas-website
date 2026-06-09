@@ -69,15 +69,20 @@ export function Hero() {
         </div>
 
         <div className="mt-14 flex flex-wrap justify-center gap-[clamp(28px,5vw,60px)] border-t border-atlas-border pt-9">
-          {[
-            { v: 15, s: "+", l: "Connected Exchanges" },
-            { v: 10, s: "+", l: "Execution Modes" },
-            { v: 20, s: "+", l: "Years TradFi Expertise" },
-            { v: 4, s: "+", l: "Years Institutional Crypto Expertise" },
-          ].map((s, i) => (
+          {(
+            [
+              { v: 15, s: "+", l: "Connected Exchanges" },
+              { v: 10, s: "+", l: "Execution Algorithms" },
+              { v: "24/7", s: "", l: "High Availability" },
+            ] as const
+          ).map((s, i) => (
             <div key={i} className="text-center">
               <div className="font-display text-[clamp(26px,2.8vw,38px)] font-extrabold tracking-tight text-atlas-accent">
-                <Counter end={s.v} suffix={s.s} />
+                {typeof s.v === "number" ? (
+                  <Counter end={s.v} suffix={s.s} />
+                ) : (
+                  s.v
+                )}
               </div>
               <div className="mt-1 text-xs font-medium text-atlas-gray-darker">
                 {s.l}

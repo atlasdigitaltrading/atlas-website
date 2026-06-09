@@ -1,6 +1,32 @@
 import { SectionHeading } from "./SectionHeading";
 import { SectionLabel } from "./SectionLabel";
 
+const leaders = [
+  {
+    name: "Kiran Pingali",
+    title: "Founder & CEO",
+    credentials: [
+      "Masters in Engineering (Computer Science), Cornell University",
+      "Masters in Business Administration, Columbia University",
+      "Chartered Financial Analyst (CFA), CFA Institute",
+      "Ex-Citigroup · Ex-Lehman Brothers · Ex-Thomson Reuters/Refinitiv · Ex-Bloomberg",
+      "25+ years in electronic trading & market structure",
+    ],
+    linkedin: "https://www.linkedin.com/in/kiran-pingali/",
+  },
+  {
+    name: "Paul Weiss",
+    title: "Head of Engineering",
+    credentials: [
+      "Ex-UBS · Ex-Barclays · Ex-AllianceBernstein · Ex-Bloomberg",
+      "TradeBlock (acquired by CoinDesk) · IOHK (Cardano)",
+      "20+ years building institutional electronic trading systems",
+      "Expertise: fault-tolerant order routing, low-latency systems, deterministic algo engines",
+    ],
+    linkedin: "https://www.linkedin.com/in/pauljweiss/",
+  },
+];
+
 const diffs = [
   {
     t: "Pre-Trade ↔ Post-Trade Feedback Loop",
@@ -30,67 +56,60 @@ export function WhyAtlas() {
       }}
     >
       <div className="mx-auto max-w-[1200px]">
-        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-[72px]">
-          <div>
-            <SectionLabel>Why Atlas</SectionLabel>
-            <SectionHeading>
-              Built by a practitioner
-            </SectionHeading>
-            <p className="mb-7 mt-5 text-[15px] leading-relaxed text-atlas-gray">
-              Atlas is founded by Kiran Pingali, who spent 25 years building
-              electronic trading infrastructure at Citigroup, Lehman Brothers, Thomson
-              Reuters/Refinitiv, and Bloomberg — then brought that expertise to
-              institutional crypto as a CEO and CPO.
-            </p>
-            <p className="mb-7 text-[15px] leading-relaxed text-atlas-gray">
-              Atlas combines quantitative execution models with crypto-native infrastructure —
-              real-time CLOB aggregation, cross-venue margin monitoring, and
-              Almgren-Chriss impact modeling.
-            </p>
-            <div className="rounded-xl border border-atlas-border bg-atlas-card p-[22px]">
-              <div className="mb-2.5 text-[15px] font-bold text-atlas-white">
-                Kiran Pingali
+        <SectionLabel>Why Atlas</SectionLabel>
+        <SectionHeading>
+          Built by practitioners
+        </SectionHeading>
+        <p className="mb-12 mt-5 max-w-[820px] text-[15px] leading-relaxed text-atlas-gray">
+          Atlas is built by a team that spent decades on the institutional side
+          of electronic trading — building the platforms that route orders,
+          measure execution quality, and help traders prove best execution.
+          That experience is the foundation of every feature in the platform.
+        </p>
+
+        <div className="mb-14 grid grid-cols-1 gap-5 md:grid-cols-2">
+          {leaders.map((l) => (
+            <div
+              key={l.name}
+              className="flex flex-col rounded-xl border border-atlas-border bg-atlas-card p-[22px]"
+            >
+              <div className="text-[15px] font-bold text-atlas-white">
+                {l.name}
               </div>
-              <div className="flex flex-col gap-1 text-[13px] text-atlas-gray">
-                <span>
-                  - Masters in Engineering (Computer Science), Cornell University 
-                  </span>
-                  <span>
-                  - Masters in Business Administration, Columbia University
-                  </span>
-                  <span>
-                  - Chartered Financial Analyst (CFA), CFA Institute
-                  </span>
-                <span>
-                  - Ex-Citigroup · Ex-Lehman Brothers · Ex-Thomson Reuters/Refinitiv · Ex-Bloomberg
-                </span>
-                <span>- 25+ years in electronic trading & market structure</span>
+              <div className="mt-1 text-[13px] font-semibold text-atlas-accent">
+                {l.title}
               </div>
+              <ul className="mt-3 flex flex-col gap-1 text-[13px] text-atlas-gray">
+                {l.credentials.map((c) => (
+                  <li key={c}>- {c}</li>
+                ))}
+              </ul>
               <a
-                href="https://www.linkedin.com/in/kiran-pingali/"
+                href={l.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-1 text-[13px] font-semibold text-atlas-accent no-underline hover:underline"
+                className="mt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-atlas-accent no-underline hover:underline"
               >
                 LinkedIn Profile →
               </a>
             </div>
-          </div>
-          <div className="flex flex-col gap-5">
-            {diffs.map((d) => (
-              <div
-                key={d.t}
-                className="rounded-xl border border-atlas-border bg-atlas-card p-[22px] transition-colors duration-300 hover:border-[rgba(59,130,246,0.35)]"
-              >
-                <h4 className="font-display mb-2 text-base font-bold text-atlas-white">
-                  {d.t}
-                </h4>
-                <p className="m-0 text-[13px] leading-relaxed text-atlas-gray">
-                  {d.d}
-                </p>
-              </div>
-            ))}
-          </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+          {diffs.map((d) => (
+            <div
+              key={d.t}
+              className="rounded-xl border border-atlas-border bg-atlas-card p-[22px] transition-colors duration-300 hover:border-[rgba(59,130,246,0.35)]"
+            >
+              <h4 className="font-display mb-2 text-base font-bold text-atlas-white">
+                {d.t}
+              </h4>
+              <p className="m-0 text-[13px] leading-relaxed text-atlas-gray">
+                {d.d}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

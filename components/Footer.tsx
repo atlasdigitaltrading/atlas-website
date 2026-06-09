@@ -9,9 +9,6 @@ export function Footer() {
       <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-5">
         <div>
           <Logo size={20} />
-          <p className="mt-2.5 text-xs text-atlas-gray-darker">
-            Atlas Digital Markets LLC
-          </p>
         </div>
         <div className="flex gap-7">
           <a
@@ -30,7 +27,7 @@ export function Footer() {
           </a>
         </div>
         <div className="text-[11px] text-atlas-gray-darker">
-          © 2026 Atlas Digital Markets LLC. All rights reserved.
+          © 2026 Atlas Digital Markets, Inc. All rights reserved.
         </div>
       </div>
     </footer>
