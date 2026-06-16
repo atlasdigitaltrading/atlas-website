@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     const resend = new Resend(apiKey);
     const from =
       process.env.DEMO_EMAIL_FROM ??
-      "Atlas <info@atlasdigitaltrading.com>";
+      "Atlas Demo Request <info@atlasdigitaltrading.com>";
 
     const { error } = await resend.emails.send({
       from,
