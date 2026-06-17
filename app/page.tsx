@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { HashScroll } from "@/components/HashScroll";
 import { Hero } from "@/components/Hero";
 import { NavBar } from "@/components/NavBar";
+import { TickerStrip } from "@/components/TickerStrip";
 import { Platform } from "@/components/Platform";
 import { Solutions } from "@/components/Solutions";
 import { WhyAtlas } from "@/components/WhyAtlas";
@@ -17,6 +18,9 @@ export default async function Home() {
     <div className="min-h-screen bg-atlas-bg text-atlas-white">
       <HashScroll />
       <NavBar />
+      <div className="mt-[68px] sticky top-[68px] z-[999]">
+        <TickerStrip />
+      </div>
       <Hero />
       <Platform />
       <Solutions />
