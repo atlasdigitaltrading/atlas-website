@@ -41,15 +41,20 @@ function Tile({ product, ticker }: { product: string; ticker: Ticker }) {
     <div className="flex items-center gap-2 px-4 h-full shrink-0 border-r border-atlas-border">
       <CoinIcon sym={sym} />
       <span className="text-[11px] font-semibold text-atlas-gray tracking-wide">{sym}</span>
-      <span className="text-[12px] font-semibold tabular-nums text-atlas-white">
+      {/* Fixed min-width (right-aligned): a digit-count change on refresh (e.g. 999.99 ->
+          1,000.00) must not resize the tile — the marquee's -50% loop animation is relative
+          to the row's own width, so any width change snaps the running animation. */}
+      <span className="text-[12px] font-semibold tabular-nums text-atlas-white min-w-[64px] text-right">
         {price != null ? `$${fmtPrice(sym, price)}` : '—'}
       </span>
-      {chg != null && (
+      {chg != null ? (
         <span
-          className={`text-[11px] font-semibold tabular-nums ${isUp ? 'text-atlas-green' : 'text-atlas-red'}`}
+          className={`text-[11px] font-semibold tabular-nums min-w-[48px] text-right ${isUp ? 'text-atlas-green' : 'text-atlas-red'}`}
         >
           {chg >= 0 ? '+' : ''}{chg.toFixed(2)}%
         </span>
+      ) : (
+        <span className="text-[11px] font-semibold tabular-nums min-w-[48px] text-right text-atlas-gray">·</span>
       )}
     </div>
   );
