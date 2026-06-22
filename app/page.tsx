@@ -1,9 +1,11 @@
 import { BlogSection } from "@/components/BlogSection";
 import { Clients } from "@/components/Clients";
+import { ClobSection } from "@/components/ClobSection";
 import { DemoForm } from "@/components/DemoForm";
 import { Footer } from "@/components/Footer";
 import { HashScroll } from "@/components/HashScroll";
 import { Hero } from "@/components/Hero";
+import { MarketMap } from "@/components/MarketMap";
 import { NavBar } from "@/components/NavBar";
 import { TickerStrip } from "@/components/TickerStrip";
 import { Platform } from "@/components/Platform";
@@ -22,6 +24,8 @@ export default async function Home() {
         <TickerStrip />
       </div>
       <Hero />
+      <MarketMap />
+      <ClobSection />
       <Platform />
       <Solutions />
       <Clients />

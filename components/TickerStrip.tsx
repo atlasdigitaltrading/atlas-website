@@ -1,16 +1,10 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { MarketData, useMarketData } from '@/lib/marketData';
 
-const API_URL =
-  process.env.NEXT_PUBLIC_TICKER_API ??
-  'https://mainnet.atlasdigitalmarkets.xyz/public/ticker/24h';
+const TOP_N = 20;
 
-const POLL_MS = 60_000;
-
-type Ticker = { last_price?: number; change_24h_pct?: number };
-
-function fmtPrice(sym: string, price: number): string {
+export function fmtPrice(sym: string, price: number): string {
   if (sym === 'BTC' || sym === 'ETH')
     return price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   if (price >= 1000) return price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -18,67 +12,49 @@ function fmtPrice(sym: string, price: number): string {
   return price.toFixed(4);
 }
 
-function CoinIcon({ sym }: { sym: string }) {
+export function CoinIcon({ sym, size = 16 }: { sym: string; size?: number }) {
   return (
     <img
       src={`https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons@master/svg/color/${sym.toLowerCase()}.svg`}
       alt={sym}
-      width={16}
-      height={16}
+      width={size}
+      height={size}
       className="rounded-full shrink-0"
       onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
     />
   );
 }
 
-function Tile({ product, ticker }: { product: string; ticker: Ticker }) {
-  const sym = product.replace('-USD', '');
-  const price = ticker.last_price ?? null;
-  const chg = ticker.change_24h_pct ?? null;
-  const isUp = chg != null ? chg >= 0 : null;
+function Tile({ symbol, data }: { symbol: string; data: MarketData }) {
+  const isUp = data.change24h >= 0;
 
   return (
     <div className="flex items-center gap-2 px-4 h-full shrink-0 border-r border-atlas-border">
-      <CoinIcon sym={sym} />
-      <span className="text-[11px] font-semibold text-atlas-gray tracking-wide">{sym}</span>
+      <CoinIcon sym={symbol} />
+      <span className="text-[11px] font-semibold text-atlas-gray tracking-wide">{symbol}</span>
       <span className="text-[12px] font-semibold tabular-nums text-atlas-white">
-        {price != null ? `$${fmtPrice(sym, price)}` : '—'}
+        ${fmtPrice(symbol, data.price)}
       </span>
-      {chg != null && (
-        <span
-          className={`text-[11px] font-semibold tabular-nums ${isUp ? 'text-atlas-green' : 'text-atlas-red'}`}
-        >
-          {chg >= 0 ? '+' : ''}{chg.toFixed(2)}%
-        </span>
-      )}
+      <span
+        className={`text-[11px] font-semibold tabular-nums ${isUp ? 'text-atlas-green' : 'text-atlas-red'}`}
+      >
+        {data.change24h >= 0 ? '+' : ''}{data.change24h.toFixed(2)}%
+      </span>
     </div>
   );
 }
 
 export function TickerStrip() {
-  const [tickers, setTickers] = useState<Record<string, Ticker>>({});
-  const products = Object.keys(tickers);
-  const aliveRef = useRef(true);
+  const data = useMarketData();
+  const symbols = Object.entries(data)
+    .sort((a, b) => b[1].marketCap - a[1].marketCap)
+    .slice(0, TOP_N)
+    .map(([symbol]) => symbol);
 
-  useEffect(() => {
-    aliveRef.current = true;
-    const poll = async () => {
-      try {
-        const res = await fetch(API_URL);
-        if (!res.ok || !aliveRef.current) return;
-        const data = await res.json();
-        if (aliveRef.current) setTickers(data);
-      } catch { /* ignore */ }
-    };
-    poll();
-    const id = setInterval(poll, POLL_MS);
-    return () => { aliveRef.current = false; clearInterval(id); };
-  }, []);
-
-  if (products.length === 0) return null;
+  if (symbols.length === 0) return null;
 
   const tiles = (prefix: string) =>
-    products.map((p) => <Tile key={`${prefix}-${p}`} product={p} ticker={tickers[p] ?? {}} />);
+    symbols.map((s) => <Tile key={`${prefix}-${s}`} symbol={s} data={data[s]} />);
 
   return (
     <div className="w-full h-9 bg-atlas-bg-alt border-b border-atlas-border overflow-hidden">
