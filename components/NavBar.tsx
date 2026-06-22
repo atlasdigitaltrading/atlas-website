@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { Logo } from "./Logo";
 
 const LINKS: [string, string][] = [
+  ["Map", "market-map"],
   ["Platform", "platform"],
   ["Solutions", "solutions"],
   ["Clients", "clients"],
