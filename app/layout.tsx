@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Instrument_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const instrument = Instrument_Sans({
@@ -69,6 +70,7 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-atlas-bg font-body text-atlas-white">
         {children}
+        <Analytics />
       </body>
     </html>
   );
