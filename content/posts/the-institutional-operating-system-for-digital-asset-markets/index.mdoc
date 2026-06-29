@@ -1,0 +1,109 @@
+---
+title: "The Institutional Operating System for Digital Asset Markets"
+publishedDate: 2026-06-29
+tag: Insights
+excerpt: "Part 1 sized the universe. Part 2 examined the fragmentation problem. Part 3 is about what we're building — and why the execution layer above the plumbing is the institutional opportunity of the decade. By Kiran Pingali and Paul Weiss, Atlas Digital Markets."
+readTime: "8 min read"
+---
+
+![The total addressable market: $191 trillion — the investable universe, everything eventually tokenized](/blog/part3-tam.svg)
+
+This is the final piece in a three-part series. The first sized the $191 trillion investable universe and where tokenization sits inside it. The second examined tokenized equities and the fragmentation problem that surfaced when the SEC paused its innovation exemption. This piece is about what we are building, and why we think it is the institutional opportunity of the decade.
+
+We will start with the market that exists today, not the one in the forecasts.
+
+## The market that exists today
+
+Institutional digital asset trading is already a large, real, revenue-generating market — before a single additional dollar of tokenization happens.
+
+Spot crypto trades hundreds of billions of dollars a day across more than a dozen meaningful venues. Crypto derivatives — perpetual futures, dated futures, and options — are several times larger than spot by volume; perpetuals alone are the deepest, most actively traded instrument in the entire asset class, and the options market on venues like Deribit is overwhelmingly institutional. CME runs a regulated, institutional futures and options complex. Prediction markets crossed from novelty into a genuine asset class over the past eighteen months. And the tokenized real-world asset market — Treasuries, money market funds, private credit, commodities, and the first equities — has grown to roughly $24-30 billion and is compounding at triple-digit annual rates.
+
+Every one of those markets shares the same structural feature: it is fragmented across many venues, it trades continuously, and the displayed price is not the executable price. That is the condition that makes execution quality the binding problem. It is also the condition that, in every prior asset class, eventually produced a dedicated execution infrastructure layer sitting above the venues.
+
+In equities, that layer is worth tens of billions of dollars a year and is dominated by a small number of franchises. In FX, the same. In digital assets, it is being contested right now by a handful of platforms, and it is nowhere near settled.
+
+That is the market we are building for. Not the 2030 forecast. The market that is trading, today, with an execution layer that has not yet been built to institutional standard.
+
+## What we are building
+
+Atlas is an institutional operating system for digital asset markets. Three products, one engine.
+
+**AtlasX** is the institutional buy-side platform — the order and execution management system for hedge funds, asset managers, and proprietary trading firms. It is the broker-neutral, venue-neutral order-entry and execution surface. Smart order routing across 16+ centralized and decentralized venues, execution algorithms (TWAP, VWAP, POV, implementation shortfall), pre-trade cost analysis, and post-trade transaction cost analysis, in one system.
+
+**Atlas DESK** is the institutional sell-side platform — for crypto brokers and OTC desks. Unified principal and agency workflow, a low-touch / high-touch broker rules engine as the product spine, inventory management and auto-hedging, client-specific pricing and fee schedules, and a generic street-side API, built crypto-native from the ground up.
+
+**Atlas Pro** is the advanced surface for professional and sophisticated retail traders, and the home for prediction markets and the more autonomous, strategy-level agentic trading tools.
+
+AtlasX is live and onboarding a select cohort of institutional partners today. Atlas DESK is onboarding design partners. Atlas Pro is in active development. The sequence is deliberate: prove the engine on the hardest institutional buy-side and sell-side problems first, then extend it across the rest of the market.
+
+Underneath all three sits the same engine, and the engine is the point.
+
+![Atlas architecture: three products — AtlasX, Atlas DESK, Atlas Pro — over one closed-loop calibration engine, spanning every instrument](/blog/part3-architecture.svg)
+
+## The engine: a closed-loop calibration system
+
+Most execution platforms are built around routing. Route the order to the venue with the best displayed price, log the fill, move on. That is table stakes, and it is not where the value is.
+
+Atlas is built around a closed feedback loop. Before a trade, the system decomposes expected cost — spread, market impact, the real cost of walking a thin book, timing risk, opportunity cost — calibrated to the specific venues and the specific liquidity conditions that order will encounter. It routes and executes against that prediction. After the trade, it decomposes what actually happened — implementation shortfall, per-venue attribution, markouts at multiple horizons — and feeds the difference between predicted and realized cost back into the model. Per firm. Per venue. Per instrument.
+
+The result is execution intelligence that improves with every order, specific to each client's own flow. Pooled, aggregate models — calibrated on everyone's data and applied to no one in particular — are a reasonable starting point and a poor finishing one, because the cost that matters is the cost on the venues a specific firm actually trades, at the sizes it actually trades, and that only comes from closing the loop. This firm-specific calibration is the core of what we are building and the part that compounds: the longer a client runs on Atlas, the more accurately Atlas executes for them, and the harder that advantage is to replicate.
+
+The calibration is machine learning, not a static rules engine. A gradient-boosted residual model corrects the analytic cost estimate against realized fills; an online coefficient fitter updates the per-firm liquidity parameters continuously as new fills arrive; a learned venue-ranking model scores destinations on realized execution quality rather than displayed price alone. The roadmap extends from there into toxicity detection, market-regime classification, and short-horizon forecasting.
+
+This is the layer that took US equity markets roughly thirty years to build. We are building it for digital assets, across every instrument institutions trade, from the start.
+
+## AI across the platform, not bolted onto one product
+
+Agentic AI is not a feature of one Atlas product. It is a layer that runs across all three.
+
+The distinction we hold to is between AI in the execution path and AI around it. Inside the path — the moment-to-moment decisions about how to slice an order and where to route it — the intelligence is classical, explainable machine learning, because institutional execution has to be attributable: a compliance team and, eventually, a regulator must be able to reconstruct why every child order went where it did. Around the path is where agentic AI earns its place: natural-language pre-trade and post-trade analysis, automated TCA narrative generation, surveillance and anomaly flagging, conversational interrogation of a firm's own execution history, and eventually autonomous workflow agents that draft, check, and route the routine work a trading desk does around the trade itself.
+
+That layer spans AtlasX, Atlas DESK, and Atlas Pro. A buy-side desk on AtlasX asks why its implementation shortfall widened on a given venue last week and gets a decomposed answer in plain language. A sell-side desk on Atlas DESK has its client-pricing and inventory exposure continuously monitored by agents that flag the outliers. The professional surface in Atlas Pro is where the more autonomous, strategy-level agentic tooling lives. Same engine, same AI fabric, different surface for each seat in the market.
+
+## Every instrument, one framework
+
+The instruments institutions care about are not a single market. They are spot, perpetual futures, dated futures, options, prediction markets, and a rapidly expanding universe of tokenized assets — equities, fixed income, money market funds, commodities, private credit. Each has its own venues, its own microstructure, its own liquidity dynamics.
+
+What they have in common is that the execution problem is the same shape across all of them. Fragmented venues, continuous trading, displayed-versus-executable gaps, the need to decompose cost before and after the trade. An execution engine built correctly for one is an execution engine that extends to the others, because the analytical framework — predict, route, measure, recalibrate — does not change when the instrument does.
+
+That is why we are building the engine first and instrument-agnostic. Spot and derivatives are the institutional core today. Options and perpetuals are where the institutional volume already is. Prediction markets and agentic tooling sit in the professional tier. And tokenized assets — the subject of the first two pieces in this series — are the part of the map that is still being drawn, which is precisely why it is worth positioning for now rather than later.
+
+## On-chain execution, custody, and auditability
+
+Trading on-chain introduces problems that do not exist on a centralized order book, and an institutional platform has to take them seriously rather than wish them away.
+
+Execution quality on decentralized venues is genuinely harder. Displayed liquidity in an automated market maker is not executable liquidity once slippage, price impact, and the mechanics of the pool are accounted for; the gap between the quote and the fill is wider and more variable than on a centralized venue, and it is worse precisely when it matters most, in size and under stress. Our calibration engine is built for this: the displayed-versus-executable correction that the model learns per venue is not a refinement on a DEX, it is the difference between a usable cost estimate and a misleading one. Routing on-chain without that correction is how institutional orders get quietly taxed.
+
+Security is the second problem. On-chain execution carries exposure that centralized trading does not — smart-contract risk, MEV and front-running, settlement-finality assumptions, and the operational risk of key management. An institutional platform has to route around these deliberately: venue and contract vetting, MEV-aware execution, and routing logic that prices these risks rather than ignoring them.
+
+Custody is the third, and here we think there is a real opportunity rather than only a risk. For institutions that require it, Atlas is architected to support non-custodial and self-custody execution — the client retains control of assets while still getting full smart order routing, execution algorithms, and the same closed-loop calibration, with complete on-chain auditability of every routing and settlement decision. The institution never has to choose between control of its assets and quality of its execution. For many of the most sophisticated digital-asset desks, that combination — self-custody with institutional-grade execution and a fully auditable trail — is not a nice-to-have. It is the precondition for trading on-chain at all.
+
+## Positioning for the day everything tokenizes
+
+Here is the throughline of this entire series.
+
+Today, the institutional execution market is crypto-native — spot and derivatives across fragmented venues. Over the next decade, the forecasts say a meaningful slice of the $191 trillion investable universe migrates onto tokenized rails: Citi at $5.5 trillion by 2030, BCG and Ripple at $18.9 trillion by 2033, Standard Chartered at $30 trillion by 2034. When that happens, tokenized equities, tokenized bonds, and tokenized funds will trade on infrastructure that looks structurally identical to what crypto-native assets trade on today — fragmented, continuous, multi-venue, multi-representation.
+
+The plumbing for that future is being built by the largest institutions in finance — DTCC, Canton, JPMorgan, Goldman, the major exchanges. That is exactly as it should be; settlement and custody at that scale is their work, not ours.
+
+The execution layer above the plumbing is the part almost nobody is building. It is the layer that determines whether institutional capital can actually deploy across the resulting venue topology without unacceptable cost. It is the binding constraint on every trillion-dollar forecast. And it is the same layer, whether the instrument is a perpetual future today or a tokenized equity in 2030.
+
+We are building that layer now, for the markets that trade today, in a way that extends natively to every market that tokenizes tomorrow. An institution that runs its crypto execution on Atlas in 2026 is running on the same engine that will execute its tokenized equities in 2030 — with years of firm-specific calibration already compounding by the time that market arrives.
+
+## Why us
+
+Between us, we have spent decades building this exact kind of infrastructure. Twenty-five years across Citigroup, Lehman Brothers, Thomson Reuters/Refinitiv, and Bloomberg on one side — order routing, execution analytics, and the market-data and trading systems that institutions run on. Engineering leadership across UBS, Barclays, AllianceBernstein, Bloomberg, and crypto-native infrastructure on the other. We have built the buy-side and sell-side execution stack in traditional markets, and we are building it again, crypto-native, for the markets that are replacing them.
+
+We did not build Atlas because tokenization is fashionable. We built it because fragmented, continuously trading, multi-venue markets require an execution layer before institutional capital deploys into them at scale — and that has been true in every asset class that ever fragmented. Digital assets are simply the next one, and tokenization is the bridge that brings the rest of the $191 trillion across.
+
+The plumbing is being built. The execution layer above it is the opportunity. That is what we are building, and we think it is the institutional infrastructure story of the decade.
+
+We are assembling the team, the partners, and the backing to build it now.
+
+If you are building, trading, or investing in this market, we would like to talk.
+
+---
+
+*Kiran Pingali, CFA is the founder and CEO of Atlas Digital Markets. Previously at Citigroup, Lehman Brothers, Thomson Reuters/Refinitiv, and Bloomberg. Cornell M.Eng., Columbia MBA, CFA charterholder.*
+
+*Paul Weiss is Head of Engineering at Atlas Digital Markets, with prior engineering leadership across UBS, Barclays, AllianceBernstein, Bloomberg, and crypto-native infrastructure.*

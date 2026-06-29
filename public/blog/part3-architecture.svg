@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 627" width="1200" height="627">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="engineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0f1f33"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#3b82f6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="627" fill="#09090b"/>
+  <rect width="1200" height="627" fill="url(#glow)"/>
+
+  <!-- Top-left: Atlas logo -->
+  <g transform="translate(60, 48)">
+    <polygon points="0,28 16,0 32,28" fill="none" stroke="#3b82f6" stroke-width="2"/>
+    <polygon points="8,24 16,10 24,24" fill="#3b82f6" fill-opacity="0.2"/>
+    <text x="44" y="22" font-family="'Instrument Sans','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="2.4" fill="#f1f5f9">ATLAS</text>
+    <text x="44" y="40" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="400" font-size="11" letter-spacing="2.0" fill="#94a3b8">DIGITAL MARKETS</text>
+  </g>
+
+  <!-- Top-right: series tag -->
+  <text x="1140" y="60" text-anchor="end" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="13" letter-spacing="2.0" fill="#94a3b8">PART 3 OF A SERIES</text>
+  <text x="1140" y="78" text-anchor="end" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="400" font-size="11" letter-spacing="1.5" fill="#64748b">JUNE 2026</text>
+
+  <!-- Title -->
+  <text x="600" y="138" text-anchor="middle" font-family="'Instrument Sans','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="30" letter-spacing="0.5" fill="#f1f5f9">The Institutional Operating System</text>
+  <text x="600" y="172" text-anchor="middle" font-family="'Instrument Sans','Helvetica Neue',Arial,sans-serif" font-weight="400" font-size="20" letter-spacing="0.5" fill="#94a3b8">for Digital Asset Markets</text>
+
+  <!-- Three product cards -->
+  <!-- AtlasX -->
+  <g transform="translate(115, 215)">
+    <rect width="290" height="92" rx="10" fill="#13131a" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="145" y="38" text-anchor="middle" font-family="'Instrument Sans','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="24" fill="#f1f5f9">AtlasX</text>
+    <text x="145" y="62" text-anchor="middle" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="400" font-size="13" fill="#94a3b8">Institutional Buy-Side</text>
+    <text x="145" y="80" text-anchor="middle" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="11" letter-spacing="1.2" fill="#3b82f6">LIVE</text>
+  </g>
+  <!-- Atlas DESK -->
+  <g transform="translate(455, 215)">
+    <rect width="290" height="92" rx="10" fill="#13131a" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="145" y="38" text-anchor="middle" font-family="'Instrument Sans','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="24" fill="#f1f5f9">Atlas DESK</text>
+    <text x="145" y="62" text-anchor="middle" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="400" font-size="13" fill="#94a3b8">Sell-Side &amp; OTC</text>
+    <text x="145" y="80" text-anchor="middle" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="11" letter-spacing="1.2" fill="#3b82f6">ONBOARDING PARTNERS</text>
+  </g>
+  <!-- Atlas Pro -->
+  <g transform="translate(795, 215)">
+    <rect width="290" height="92" rx="10" fill="#13131a" stroke="#2a2a35" stroke-width="1.5"/>
+    <text x="145" y="38" text-anchor="middle" font-family="'Instrument Sans','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="24" fill="#f1f5f9">Atlas Pro</text>
+    <text x="145" y="62" text-anchor="middle" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="400" font-size="13" fill="#94a3b8">Advanced / Professional</text>
+    <text x="145" y="80" text-anchor="middle" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="11" letter-spacing="1.2" fill="#64748b">IN DEVELOPMENT</text>
+  </g>
+
+  <!-- Connectors from cards down to engine -->
+  <g stroke="#3b82f6" stroke-width="1.5" fill="none" opacity="0.5">
+    <path d="M260,307 L260,330 L600,330 L600,352"/>
+    <path d="M600,307 L600,352"/>
+    <path d="M940,307 L940,330 L600,330"/>
+  </g>
+
+  <!-- Engine box -->
+  <g transform="translate(300, 352)">
+    <rect width="600" height="120" rx="12" fill="url(#engineGrad)" stroke="#3b82f6" stroke-width="2"/>
+    <text x="300" y="38" text-anchor="middle" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="12" letter-spacing="2.5" fill="#7eb0f0">ONE ENGINE</text>
+    <text x="300" y="68" text-anchor="middle" font-family="'Instrument Sans','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="23" fill="#f1f5f9">Closed-Loop Calibration</text>
+    <text x="300" y="96" text-anchor="middle" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="400" font-size="14" fill="#aebfd4">predict · route · measure · recalibrate</text>
+  </g>
+
+  <!-- per firm/venue/instrument tag -->
+  <text x="600" y="495" text-anchor="middle" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="13" letter-spacing="1.5" fill="#64748b">PER FIRM · PER VENUE · PER INSTRUMENT</text>
+
+  <!-- Accent divider -->
+  <rect x="300" y="520" width="600" height="1" fill="url(#accentLine)"/>
+
+  <!-- Instruments row -->
+  <text x="600" y="556" text-anchor="middle" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="400" font-size="15" fill="#94a3b8">spot · perpetuals · futures · options · prediction markets · tokenized assets</text>
+
+  <!-- Bottom URL -->
+  <text x="600" y="600" text-anchor="middle" font-family="'DM Sans','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="12" letter-spacing="2.5" fill="#475569">ATLASDIGITALTRADING.COM</text>
+</svg>
