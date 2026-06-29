@@ -37,7 +37,7 @@ const items = [
 export function Solutions() {
   return (
     <section
-      id="solutions"
+      id="capabilities"
       className="px-[clamp(16px,4vw,56px)] py-[100px]"
       style={{
         background: "linear-gradient(180deg, #0f0f12 0%, #09090b 100%)",
@@ -45,7 +45,7 @@ export function Solutions() {
     >
       <div className="mx-auto max-w-[1200px]">
         <div className="mb-[60px] text-center">
-          <SectionLabel>Solutions</SectionLabel>
+          <SectionLabel>Capabilities</SectionLabel>
           <SectionHeading center>The complete execution stack</SectionHeading>
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

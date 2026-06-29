@@ -1,6 +1,5 @@
 import { BlogSection } from "@/components/BlogSection";
 import { Clients } from "@/components/Clients";
-import { ClobSection } from "@/components/ClobSection";
 import { DemoForm } from "@/components/DemoForm";
 import { Footer } from "@/components/Footer";
 import { HashScroll } from "@/components/HashScroll";
@@ -8,6 +7,7 @@ import { Hero } from "@/components/Hero";
 import { MarketMap } from "@/components/MarketMap";
 import { NavBar } from "@/components/NavBar";
 import { TickerStrip } from "@/components/TickerStrip";
+import { Products } from "@/components/Products";
 import { Platform } from "@/components/Platform";
 import { Solutions } from "@/components/Solutions";
 import { WhyAtlas } from "@/components/WhyAtlas";
@@ -25,7 +25,7 @@ export default async function Home() {
       </div>
       <Hero />
       <MarketMap />
-      <ClobSection />
+      <Products />
       <Platform />
       <Solutions />
       <Clients />

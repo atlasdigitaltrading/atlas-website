@@ -6,8 +6,9 @@ import { Logo } from "./Logo";
 
 const LINKS: [string, string][] = [
   ["Map", "market-map"],
+  ["Products", "products"],
   ["Platform", "platform"],
-  ["Solutions", "solutions"],
+  ["Capabilities", "capabilities"],
   ["Clients", "clients"],
   ["Why Atlas", "why-atlas"],
   ["Insights", "blog"],

@@ -6,11 +6,11 @@ const leaders = [
     name: "Kiran Pingali",
     title: "Founder & CEO",
     credentials: [
+      "Ex-Citigroup · Ex-Lehman Brothers · Ex-Thomson Reuters/Refinitiv · Ex-Bloomberg",
+      "25+ years in electronic trading & market structure",
       "Masters in Engineering (Computer Science), Cornell University",
       "Masters in Business Administration, Columbia University",
       "Chartered Financial Analyst (CFA), CFA Institute",
-      "Ex-Citigroup · Ex-Lehman Brothers · Ex-Thomson Reuters/Refinitiv · Ex-Bloomberg",
-      "25+ years in electronic trading & market structure",
     ],
     linkedin: "https://www.linkedin.com/in/kiran-pingali/",
   },

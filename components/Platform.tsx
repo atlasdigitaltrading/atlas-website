@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   OrdersScreenMock,
   PostTradeTCAMock,
@@ -11,6 +11,7 @@ import {
 } from "./platform-mocks";
 import { SectionHeading } from "./SectionHeading";
 import { SectionLabel } from "./SectionLabel";
+import { TopOfBook } from "./TopOfBook";
 
 const tabs = [
   {
@@ -36,6 +37,19 @@ const tabs = [
       "Standard & TWAP execution strategies",
     ],
     image: "/screenshots/trading.png",
+  },
+
+  {
+    label: "Consolidated Order Book",
+    desc: "Atlas aggregates order book depth from every connected exchange into a single consolidated view, so you're always trading against the full market — not one venue's slice of it. Smart Order Routing works the consolidated book in real time, and every fill is benchmarked against it at the moment of execution.",
+    features: [
+      "Aggregated depth across all connected venues",
+      "Live top-of-book across Binance, Coinbase, Kraken & more",
+      "Smart Order Routing against the full market",
+      "Fills benchmarked to the consolidated book, not one quote",
+      "Real, executable liquidity — not displayed depth",
+    ],
+    image: "",
   },
 
   {
@@ -112,6 +126,7 @@ const tabs = [
 const captions = [
   "Pre-Trade analytics — cost estimation with execution schedule",
   "Trading view — multi-venue charts, order books, CLOB, order ticket, trade history",
+  "Consolidated Order Book — live top-of-book aggregated across venues",
   "Post-Trade TCA — strategy comparison, venue mix, slippage",
   "Orders & Executions — fill tracking, multi-exchange routing",
   "Exchange Information — venue volume, per-instrument detail",
@@ -122,6 +137,7 @@ const captions = [
 const MOCKS = [
   PreTradeScreenMock,
   TradingScreenMock,
+  null, // Consolidated Order Book renders the live TopOfBook widget, not a screenshot
   PostTradeTCAMock,
   OrdersScreenMock,
   VenueAnalyticsMock,
@@ -144,6 +160,16 @@ function PlatformVisual({ activeTab }: { activeTab: number }) {
   const tab = tabs[activeTab];
   const Mock = MOCKS[activeTab];
   const images = Array.isArray(tab.image) ? tab.image : [tab.image];
+
+  // The Consolidated Order Book tab shows the live top-of-book widget rather
+  // than a static screenshot.
+  if (tab.label === "Consolidated Order Book") {
+    return (
+      <div className="relative min-h-[320px] overflow-hidden rounded-lg border border-atlas-border bg-atlas-bg p-6">
+        <TopOfBook />
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-[320px] overflow-hidden rounded-lg border border-atlas-border bg-atlas-bg p-6">
@@ -172,9 +198,45 @@ function PlatformVisual({ activeTab }: { activeTab: number }) {
 
 export function Platform() {
   const [activeTab, setActiveTab] = useState(0);
+  // Auto-advance the highlighted tab while the section is on screen, so a
+  // visitor sees the full trade lifecycle without interacting. A manual tab
+  // click ends the auto-tour for the rest of the session — we never fight the
+  // user's own selection.
+  const sectionRef = useRef<HTMLElement>(null);
+  const [autoPlay, setAutoPlay] = useState(true);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.35 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!autoPlay || !inView) return;
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReduced) return;
+    const id = window.setInterval(() => {
+      setActiveTab((t) => (t + 1) % tabs.length);
+    }, 3500);
+    return () => window.clearInterval(id);
+  }, [autoPlay, inView]);
+
+  function selectTab(i: number) {
+    setAutoPlay(false);
+    setActiveTab(i);
+  }
 
   return (
     <section
+      ref={sectionRef}
       id="platform"
       className="px-[clamp(16px,4vw,56px)] py-[100px]"
       style={{ background: "#09090b" }}
@@ -192,7 +254,7 @@ export function Platform() {
             <button
               key={t.label}
               type="button"
-              onClick={() => setActiveTab(i)}
+              onClick={() => selectTab(i)}
               className={`rounded-md px-[18px] py-2 text-[13px] font-semibold transition-all whitespace-nowrap ${
                 activeTab === i
                   ? "border border-atlas-accent/30 bg-[rgba(59,130,246,0.12)] text-atlas-accent"
@@ -239,13 +301,15 @@ export function Platform() {
               </span>
               <div className="flex flex-wrap gap-1">
                 {NAV.map((t, i) => {
-                  // NAV indices: 1=Pre-Trade, 2=Trading, 3=Post-Trade, 4=Portfolio, 5=Margin (must match `tabs` order).
+                  // NAV pills: 1=Pre-Trade, 2=Trading, 3=Post-Trade, 4=Portfolio, 5=Margin.
+                  // tabs order: 0 Pre-Trade, 1 Trading, 2 Consolidated Order Book,
+                  // 3 Post-Trade, 4 Orders, 5 Venue Analytics, 6 Portfolio, 7 Margin.
                   const isActive =
                     (activeTab === 0 && i === 1) ||
-                    (activeTab === 1 && i === 2) ||
-                    (activeTab >= 2 && activeTab <= 4 && i === 3) ||
-                    (activeTab === 5 && i === 4) ||
-                    (activeTab === 6 && i === 5);
+                    (activeTab >= 1 && activeTab <= 2 && i === 2) ||
+                    (activeTab >= 3 && activeTab <= 5 && i === 3) ||
+                    (activeTab === 6 && i === 4) ||
+                    (activeTab === 7 && i === 5);
                   return (
                     <span
                       key={t}
