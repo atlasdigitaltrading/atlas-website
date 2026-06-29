@@ -156,9 +156,8 @@ export function MarketMap() {
       <div className="mx-auto max-w-[1200px]">
         <SectionLabel>Live Markets</SectionLabel>
         <SectionHeading>Market at a glance</SectionHeading>
-        <p className="mb-10 mt-4 max-w-[560px] text-[15px] leading-relaxed text-atlas-gray">
-          Tile size scales with the square root of market cap; color tracks
-          24h price change.
+        <p className="mb-10 mt-4 text-[15px] leading-relaxed text-atlas-gray">
+          Tile size scales with the square root of market cap; color tracks 24h price change.
         </p>
 
         <div
