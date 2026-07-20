@@ -22,6 +22,12 @@ export async function POST(request: Request) {
     const email = String(body.email ?? "").trim();
     const company = String(body.company ?? "").trim();
     const role = String(body.role ?? "").trim();
+    const businessType = String(body.businessType ?? "").trim();
+    const country = String(body.country ?? "").trim();
+    const timeline = String(body.timeline ?? "").trim();
+    const products = Array.isArray(body.products)
+      ? body.products.map((p: unknown) => String(p)).join(", ")
+      : "";
     const message = String(body.message ?? "").trim();
 
     if (!firstName || !email) {
@@ -39,13 +45,17 @@ export async function POST(request: Request) {
     const { error } = await resend.emails.send({
       from,
       to: [to],
-      subject: `Demo Request: ${firstName} ${lastName} — ${company || "No company"}`,
+      subject: `Demo Request: ${firstName} ${lastName} — ${company || businessType || "No company"}`,
       html: `
         <h2>New Demo Request</h2>
         <p><strong>Name:</strong> ${firstName} ${lastName}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Company:</strong> ${company || "Not provided"}</p>
         <p><strong>Role:</strong> ${role || "Not provided"}</p>
+        <p><strong>Firm Type:</strong> ${businessType || "Not provided"}</p>
+        <p><strong>Country:</strong> ${country || "Not provided"}</p>
+        <p><strong>Products of Interest:</strong> ${products || "Not provided"}</p>
+        <p><strong>Implementation Timeline:</strong> ${timeline || "Not provided"}</p>
         <p><strong>Message:</strong> ${message || "None"}</p>
         <hr />
         <p><em>Submitted via atlasdigitaltrading.com</em></p>
