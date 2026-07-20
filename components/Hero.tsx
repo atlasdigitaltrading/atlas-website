@@ -41,16 +41,17 @@ export function Hero() {
         </div>
 
         <h1 className="font-display m-0 mb-6 text-[clamp(38px,5.2vw,68px)] font-extrabold leading-[1.08] tracking-tight text-atlas-white">
-          Institutional{" "}
-          <span className="text-atlas-accent">Execution</span>
+          Execution{" "}
+          <span className="text-atlas-accent">Intelligence</span>
           <br />
           for Digital Assets
         </h1>
 
         <p className="mx-auto mb-9 max-w-[660px] text-[clamp(15px,1.4vw,18px)] leading-relaxed text-atlas-gray">
-          The institutional execution infrastructure for digital assets: Smart
-          Order Routing, Execution Algorithms, and Pre-trade/Post-Trade
-          Transaction Cost Analysis (TCA) — unified in a single platform.
+          The only OEMS whose cost models calibrate to each firm&rsquo;s own
+          execution flow. Smart order routing, institutional execution
+          algorithms, and pre-trade/post-trade TCA that learns your costs from
+          your own trades — so it gets more accurate every time you use it.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3.5">
