@@ -16,7 +16,7 @@ const dmSans = DM_Sans({
 });
 
 const siteTitle =
-  "Atlas Digital Trading | Institutional Execution for Digital Assets";
+  "Atlas Digital Trading | Execution Intelligence for Digital Assets";
 const siteDescription =
   "Smart Order Routing, Execution Algorithms, and Pre-trade/Post-Trade TCA — the institutional execution intelligence for digital assets.";
 
