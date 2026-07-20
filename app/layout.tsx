@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 const siteTitle =
   "Atlas Digital Trading | Institutional Execution for Digital Assets";
 const siteDescription =
-  "Smart Order Routing, Execution Algorithms, and Pre-trade/Post-Trade TCA — the institutional execution infrastructure for digital assets.";
+  "Smart Order Routing, Execution Algorithms, and Pre-trade/Post-Trade TCA — the institutional execution intelligence for digital assets.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.atlasdigitaltrading.com"),

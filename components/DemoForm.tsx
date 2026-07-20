@@ -65,7 +65,7 @@ export function DemoForm() {
           <p className="mt-3.5 text-base leading-relaxed text-atlas-gray">
             See how Atlas can transform your digital asset execution.
             <br />
-            Design partner pricing available for early adopters.
+            Pricing available for a select cohort of institutional partners.
           </p>
         </div>
 
