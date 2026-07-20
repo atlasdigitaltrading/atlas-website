@@ -35,7 +35,7 @@ const products = [
       "Client-specific pricing, fee schedules, and a street-side API",
       "AI-assisted desk intelligence",
     ],
-    cta: "Now onboarding design partners",
+    cta: "Now onboarding a select cohort of institutional partners",
   },
 ];
 

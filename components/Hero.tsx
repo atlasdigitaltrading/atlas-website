@@ -35,22 +35,18 @@ export function Hero() {
           vis ? "translate-y-0 opacity-100" : "translate-y-7 opacity-0"
         }`}
       >
-        <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-atlas-accent/30 bg-[rgba(59,130,246,0.12)] px-3.5 py-1.5 text-xs font-semibold tracking-wide text-atlas-accent">
-          <span className="h-1.5 w-1.5 animate-atlas-pulse rounded-full bg-atlas-accent shadow-[0_0_8px_#3b82f6]" />
-          Atlas is now live — Institutional firms can request access
-        </div>
-
         <h1 className="font-display m-0 mb-6 text-[clamp(38px,5.2vw,68px)] font-extrabold leading-[1.08] tracking-tight text-atlas-white">
-          Institutional{" "}
-          <span className="text-atlas-accent">Execution</span>
+          Execution{" "}
+          <span className="text-atlas-accent">Intelligence</span>
           <br />
           for Digital Assets
         </h1>
 
         <p className="mx-auto mb-9 max-w-[660px] text-[clamp(15px,1.4vw,18px)] leading-relaxed text-atlas-gray">
-          The institutional execution infrastructure for digital assets: Smart
-          Order Routing, Execution Algorithms, and Pre-trade/Post-Trade
-          Transaction Cost Analysis (TCA) — unified in a single platform.
+          The only OEMS whose trading models calibrate to each firm&rsquo;s own
+          execution flow. Smart order routing, institutional execution
+          algorithms, and pre-trade/post-trade TCA that learns your costs from
+          your own trades — so it gets more accurate every time you use it.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3.5">
