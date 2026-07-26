@@ -4,6 +4,7 @@ import { DemoForm } from "@/components/DemoForm";
 import { Footer } from "@/components/Footer";
 import { HashScroll } from "@/components/HashScroll";
 import { Hero } from "@/components/Hero";
+import { Intelligence } from "@/components/Intelligence";
 import { MarketMap } from "@/components/MarketMap";
 import { NavBar } from "@/components/NavBar";
 import { TickerStrip } from "@/components/TickerStrip";
@@ -25,6 +26,7 @@ export default async function Home() {
       </div>
       <Hero />
       <MarketMap />
+      <Intelligence />
       <Products />
       <Platform />
       <Solutions />
