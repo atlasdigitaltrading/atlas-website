@@ -11,9 +11,11 @@ export async function POST(request: Request) {
   }
 
   let email = "";
+  let list = "intelligence";
   try {
     const body = await request.json();
     email = String(body.email ?? "").trim().toLowerCase();
+    if (body.list === "pro") list = "pro";
   } catch {
     /* fall through to validation */
   }
@@ -22,7 +24,10 @@ export async function POST(request: Request) {
   }
 
   const resend = new Resend(apiKey);
-  const audienceId = process.env.RESEND_AUDIENCE_ID;
+  const audienceId =
+    list === "pro"
+      ? process.env.RESEND_AUDIENCE_ID_PRO
+      : process.env.RESEND_AUDIENCE_ID;
 
   // Preferred: store in the audience. If that fails for ANY reason (key
   // lacks full access, audience mismatch, transient error), fall back to the
@@ -52,8 +57,8 @@ export async function POST(request: Request) {
     const { error } = await resend.emails.send({
       from,
       to: [to],
-      subject: `Intelligence subscriber: ${email}`,
-      html: `<p>New Intelligence briefing subscriber: <strong>${email}</strong></p><p><em>${audienceId ? "Audience write FAILED — check the API key has Full access and the audience ID matches. Contact captured via this email only." : "Add RESEND_AUDIENCE_ID to store contacts in an audience automatically."}</em></p>`,
+      subject: `${list === "pro" ? "Atlas Pro waitlist" : "Intelligence"} subscriber: ${email}`,
+      html: `<p>New ${list === "pro" ? "Atlas Pro waitlist" : "Intelligence briefing"} subscriber: <strong>${email}</strong></p><p><em>${audienceId ? "Audience write FAILED — check the API key has Full access and the audience ID matches. Contact captured via this email only." : "Add RESEND_AUDIENCE_ID to store contacts in an audience automatically."}</em></p>`,
     });
     if (error) throw new Error(error.message);
     return NextResponse.json({ success: true });
