@@ -5,10 +5,10 @@ import { usePathname, useRouter } from "next/navigation";
 import { Logo } from "./Logo";
 
 const LINKS: [string, string][] = [
-  ["Map", "market-map"],
   ["Products", "products"],
   ["Platform", "platform"],
   ["Capabilities", "capabilities"],
+  ["Intelligence", "intelligence"],
   ["Clients", "clients"],
   ["Why Atlas", "why-atlas"],
   ["Insights", "blog"],
@@ -27,6 +27,10 @@ export function NavBar() {
   const isHome = pathname === "/";
 
   function goToSection(id: string) {
+    if (id === "intelligence") {
+      router.push("/intelligence");
+      return;
+    }
     if (id === "blog" && pathname.startsWith("/blog")) {
       router.push("/blog");
       return;
