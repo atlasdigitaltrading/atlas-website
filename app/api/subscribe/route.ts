@@ -24,30 +24,38 @@ export async function POST(request: Request) {
   const resend = new Resend(apiKey);
   const audienceId = process.env.RESEND_AUDIENCE_ID;
 
-  try {
-    if (audienceId) {
+  // Preferred: store in the audience. If that fails for ANY reason (key
+  // lacks full access, audience mismatch, transient error), fall back to the
+  // notification email — a signup must never be lost.
+  if (audienceId) {
+    try {
       const { error } = await resend.contacts.create({
         email,
         audienceId,
         unsubscribed: false,
       });
-      if (error) throw new Error(error.message);
-    } else {
-      const to = process.env.DEMO_EMAIL_RECIPIENT;
-      if (!to) {
-        return NextResponse.json({ error: "Not configured" }, { status: 503 });
-      }
-      const from =
-        process.env.DEMO_EMAIL_FROM ??
-        "Atlas Demo Request <info@atlasdigitaltrading.com>";
-      const { error } = await resend.emails.send({
-        from,
-        to: [to],
-        subject: `Intelligence subscriber: ${email}`,
-        html: `<p>New Intelligence briefing subscriber: <strong>${email}</strong></p><p><em>Add RESEND_AUDIENCE_ID to store contacts in an audience automatically.</em></p>`,
-      });
-      if (error) throw new Error(error.message);
+      if (!error) return NextResponse.json({ success: true });
+      console.error("subscribe: contacts.create failed", error);
+    } catch (e) {
+      console.error("subscribe: contacts.create threw", e);
     }
+  }
+
+  try {
+    const to = process.env.DEMO_EMAIL_RECIPIENT;
+    if (!to) {
+      return NextResponse.json({ error: "Not configured" }, { status: 503 });
+    }
+    const from =
+      process.env.DEMO_EMAIL_FROM ??
+      "Atlas Demo Request <info@atlasdigitaltrading.com>";
+    const { error } = await resend.emails.send({
+      from,
+      to: [to],
+      subject: `Intelligence subscriber: ${email}`,
+      html: `<p>New Intelligence briefing subscriber: <strong>${email}</strong></p><p><em>${audienceId ? "Audience write FAILED — check the API key has Full access and the audience ID matches. Contact captured via this email only." : "Add RESEND_AUDIENCE_ID to store contacts in an audience automatically."}</em></p>`,
+    });
+    if (error) throw new Error(error.message);
     return NextResponse.json({ success: true });
   } catch (e) {
     console.error("subscribe error", e);
