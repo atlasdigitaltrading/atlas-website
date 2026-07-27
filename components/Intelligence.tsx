@@ -31,10 +31,18 @@ type BookVenue = {
   ask25_usd_m: number | null;
   bid_share_25_pct: number | null;
 };
+type MomentumCoin = {
+  product: string;
+  last: number | null;
+  chg_24h_pct: number | null;
+  chg_1h_pct: number | null;
+  chg_weekend_pct?: number;
+};
 type Panel = {
   schema: string;
   as_of_ms: number;
   refresh_s: number;
+  momentum?: { coins: MomentumCoin[] } | null;
   products: Record<
     string,
     {
@@ -217,6 +225,52 @@ export function Intelligence() {
           public exchange data — taker side independently verified against each
           venue&rsquo;s own mid. Descriptive of the tape. Context, not advice.
         </p>
+
+        {panel?.momentum?.coins?.length ? (
+          <div className="mb-5 flex flex-wrap gap-x-8 gap-y-2 rounded-xl border border-atlas-border bg-atlas-card px-5 py-3">
+            <span className="text-[10px] font-bold uppercase tracking-[0.12em] leading-6 text-atlas-gray-dark">
+              Momentum
+            </span>
+            {panel.momentum.coins.map((c) => (
+              <span key={c.product} className="flex items-baseline gap-2 text-[13px]">
+                <span className="font-semibold text-atlas-offwhite">
+                  {c.product.replace("-USD", "")}
+                </span>
+                {c.last != null ? (
+                  <span className="tabular-nums text-atlas-gray">
+                    ${c.last.toLocaleString("en-US", { maximumFractionDigits: c.last >= 1000 ? 0 : 2 })}
+                  </span>
+                ) : null}
+                <span
+                  className={`tabular-nums font-semibold ${
+                    (c.chg_24h_pct ?? 0) >= 0 ? "text-atlas-green" : "text-atlas-red"
+                  }`}
+                >
+                  {c.chg_24h_pct != null ? `${c.chg_24h_pct > 0 ? "+" : ""}${c.chg_24h_pct.toFixed(1)}%` : "—"}{" "}
+                  <span className="font-normal text-atlas-gray-dark">24h</span>
+                </span>
+                <span
+                  className={`tabular-nums ${
+                    (c.chg_1h_pct ?? 0) >= 0 ? "text-atlas-green" : "text-atlas-red"
+                  }`}
+                >
+                  {c.chg_1h_pct != null ? `${c.chg_1h_pct > 0 ? "+" : ""}${c.chg_1h_pct.toFixed(1)}%` : "—"}{" "}
+                  <span className="text-atlas-gray-dark">1h</span>
+                </span>
+                {c.chg_weekend_pct != null ? (
+                  <span
+                    className={`tabular-nums ${
+                      c.chg_weekend_pct >= 0 ? "text-atlas-green" : "text-atlas-red"
+                    }`}
+                  >
+                    {`${c.chg_weekend_pct > 0 ? "+" : ""}${c.chg_weekend_pct.toFixed(1)}%`}{" "}
+                    <span className="text-atlas-gray-dark">wknd</span>
+                  </span>
+                ) : null}
+              </span>
+            ))}
+          </div>
+        ) : null}
 
         {!sect ? (
           <div className="animate-pulse rounded-[14px] border border-atlas-border bg-atlas-card/60 p-16 text-center text-sm text-atlas-gray-dark">
