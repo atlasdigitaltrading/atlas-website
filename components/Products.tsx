@@ -17,7 +17,8 @@ const products = [
       "AI-assisted execution intelligence",
       "Multi-broker and multi-venue, with optional self-custody and full auditability",
     ],
-    cta: "Live today — book a demo",
+    cta: "Explore AtlasX",
+    href: "/atlasx",
   },
   {
     name: "Atlas DESK",
@@ -35,7 +36,8 @@ const products = [
       "Client-specific pricing, fee schedules, and a street-side API",
       "AI-assisted desk intelligence",
     ],
-    cta: "Now onboarding a select cohort of institutional partners",
+    cta: "Explore Atlas DESK",
+    href: "/atlas-desk",
   },
 ];
 
@@ -90,7 +92,7 @@ export function Products() {
                 ))}
               </div>
               <a
-                href="#demo"
+                href={p.href}
                 className="group/cta mt-auto inline-flex items-center gap-1.5 text-[13px] font-semibold tracking-wide no-underline transition-opacity hover:opacity-80"
                 style={{ color: p.color }}
               >
