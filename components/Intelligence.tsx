@@ -38,11 +38,21 @@ type MomentumCoin = {
   chg_1h_pct: number | null;
   chg_weekend_pct?: number;
 };
+type CarryRow = { venue: string; symbol: string; annualized_pct?: number; net_pct?: number };
+type Carry = {
+  lend: { label: string; apy_pct: number }[];
+  staking: { label: string; apy_pct: number } | null;
+  basis: { label: string; venue: string; annualized_pct: number }[];
+  funding: CarryRow[];
+  net_carry: CarryRow[];
+  definition: string;
+};
 type Panel = {
   schema: string;
   as_of_ms: number;
   refresh_s: number;
   momentum?: { coins: MomentumCoin[] } | null;
+  carry?: Carry | null;
   products: Record<
     string,
     {
@@ -470,6 +480,93 @@ export function Intelligence() {
             ) : null}
           </div>
         )}
+
+        {panel?.carry ? (
+          <div className="mt-5 rounded-[14px] border border-atlas-border bg-atlas-card p-5">
+            <div className="mb-3 flex items-center justify-between gap-2">
+              <h3 className="font-display m-0 text-[15px] font-bold text-atlas-white">
+                Rates &amp; Carry
+              </h3>
+              <span className="rounded border border-atlas-accent/30 bg-[rgba(59,130,246,0.12)] px-2 py-0.5 text-[10px] font-bold text-atlas-accent">
+                annualized
+              </span>
+            </div>
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.4fr_1fr]">
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse text-xs">
+                  <thead>
+                    <tr className="text-[10px] uppercase tracking-wider text-atlas-gray-dark">
+                      <th className="pb-1.5 text-left font-semibold">Perp funding leg</th>
+                      <th className="pb-1.5 text-right font-semibold">Funding (ann.)</th>
+                      <th className="pb-1.5 text-right font-semibold">vs USDC lend</th>
+                      <th className="pb-1.5 text-right font-semibold">Net carry</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {panel.carry.net_carry.map((r) => {
+                      const f = panel.carry!.funding.find(
+                        (x) => x.venue === r.venue && x.symbol === r.symbol,
+                      );
+                      const best =
+                        r.net_pct != null &&
+                        r.net_pct ===
+                          Math.max(...panel.carry!.net_carry.map((x) => x.net_pct ?? -Infinity));
+                      return (
+                        <tr key={`${r.venue}-${r.symbol}`} className="border-t border-atlas-border/60">
+                          <td className="py-1.5 font-semibold text-atlas-offwhite">
+                            {r.symbol} · {r.venue}
+                          </td>
+                          <td className="py-1.5 text-right tabular-nums text-atlas-gray">
+                            {f?.annualized_pct != null ? `${f.annualized_pct > 0 ? "+" : ""}${f.annualized_pct.toFixed(2)}%` : "—"}
+                          </td>
+                          <td className="py-1.5 text-right tabular-nums text-atlas-gray-dark">
+                            {panel.carry!.lend[0] ? `${panel.carry!.lend[0].apy_pct.toFixed(2)}%` : "—"}
+                          </td>
+                          <td
+                            className={`py-1.5 text-right tabular-nums font-bold ${
+                              best
+                                ? "text-atlas-accent"
+                                : (r.net_pct ?? 0) >= 0
+                                  ? "text-atlas-green"
+                                  : "text-atlas-red"
+                            }`}
+                          >
+                            {r.net_pct != null ? `${r.net_pct > 0 ? "+" : ""}${r.net_pct.toFixed(2)}%` : "—"}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              <div className="flex flex-col gap-2 text-xs">
+                {panel.carry.lend.map((l) => (
+                  <div key={l.label} className="flex justify-between border-b border-atlas-border/60 pb-1.5">
+                    <span className="text-atlas-gray">{l.label}</span>
+                    <span className="tabular-nums font-semibold text-atlas-white">{l.apy_pct.toFixed(2)}%</span>
+                  </div>
+                ))}
+                {panel.carry.staking ? (
+                  <div className="flex justify-between border-b border-atlas-border/60 pb-1.5">
+                    <span className="text-atlas-gray">{panel.carry.staking.label}</span>
+                    <span className="tabular-nums font-semibold text-atlas-white">{panel.carry.staking.apy_pct.toFixed(2)}%</span>
+                  </div>
+                ) : null}
+                {panel.carry.basis.map((b) => (
+                  <div key={b.label} className="flex justify-between border-b border-atlas-border/60 pb-1.5">
+                    <span className="text-atlas-gray">{b.label}</span>
+                    <span className="tabular-nums font-semibold text-atlas-white">
+                      {b.annualized_pct > 0 ? "+" : ""}{b.annualized_pct.toFixed(2)}%
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <p className="mb-0 mt-3 text-[10.5px] leading-relaxed text-atlas-gray-darker">
+              {panel.carry.definition}
+            </p>
+          </div>
+        ) : null}
 
         <p className="mb-0 mt-6 text-[10.5px] leading-relaxed text-atlas-gray-darker">
           All metrics derived from public exchange market data across the venues

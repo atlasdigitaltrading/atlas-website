@@ -7,10 +7,10 @@ import { useState } from "react";
 // contact in the matching Resend audience (or falls back to notifying us).
 const COPY = {
   intelligence: {
-    title: "Get the Atlas read, every morning.",
-    body: "The daily flow & markout briefing — who was buying, what it cost them, and what the book can absorb today. Free, from the team building institutional execution intelligence.",
+    title: "Get Atlas intelligence in your inbox.",
+    body: "New research, notable market reads, and platform updates from the team building institutional execution intelligence. Occasional and worth opening — no noise.",
     button: "Subscribe",
-    done: "You're on the list. First briefing lands tomorrow morning.",
+    done: "You're on the list.",
     cross: { pre: "Professional trader?", label: "Join the Atlas Pro waitlist", href: "/pro" },
   },
   pro: {
