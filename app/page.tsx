@@ -6,6 +6,7 @@ import { HashScroll } from "@/components/HashScroll";
 import { Hero } from "@/components/Hero";
 import { IntelligenceTeaser } from "@/components/IntelligenceTeaser";
 import { NavBar } from "@/components/NavBar";
+import { NetworkSection } from "@/components/NetworkSection";
 import { TickerStrip } from "@/components/TickerStrip";
 import { Products } from "@/components/Products";
 import { Platform } from "@/components/Platform";
@@ -26,6 +27,7 @@ export default async function Home() {
       <Hero />
       <IntelligenceTeaser />
       <Products />
+      <NetworkSection />
       <Platform />
       <Solutions />
       <Clients />

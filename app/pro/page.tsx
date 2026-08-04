@@ -33,16 +33,26 @@ export default function ProWaitlistPage() {
       <main className="px-[clamp(16px,4vw,56px)] pb-10 pt-32">
         <div className="mx-auto max-w-[880px] text-center">
           <SectionLabel>Atlas Pro</SectionLabel>
+          <div className="mb-5 mt-1 inline-flex items-center gap-2 rounded-full border border-atlas-orange/40 bg-atlas-orange/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-atlas-orange">
+            <span className="h-1.5 w-1.5 rounded-full bg-atlas-orange" />
+            In development — launching later this year
+          </div>
           <h1 className="font-display m-0 text-[clamp(30px,4.5vw,52px)] font-extrabold leading-[1.08] tracking-tight text-atlas-white">
             Institutional execution,
             <br />
             for <span className="text-atlas-accent">professional traders</span>
           </h1>
           <p className="mx-auto mb-0 mt-5 max-w-[620px] text-[clamp(14px,1.3vw,17px)] leading-relaxed text-atlas-gray">
-            Atlas Pro is the advanced surface of the Atlas platform — coming
-            later this year. Built on the same execution engine institutions
-            use, opened to professional and sophisticated traders.
+            Atlas Pro is the advanced surface of the Atlas platform. Built on
+            the same execution engine institutions use, opened to professional
+            and sophisticated traders.
           </p>
+          <a
+            href="#waitlist"
+            className="mt-7 inline-block rounded-lg bg-atlas-accent px-7 py-3 text-[15px] font-bold text-white no-underline shadow-[0_0_28px_rgba(59,130,246,0.3)] transition-all hover:bg-atlas-accent-light"
+          >
+            Join the waitlist
+          </a>
         </div>
         <div className="mx-auto mt-14 grid max-w-[1000px] grid-cols-1 gap-5 md:grid-cols-3">
           {POINTS.map((p) => (
@@ -67,7 +77,9 @@ export default function ProWaitlistPage() {
           .
         </p>
       </main>
-      <Subscribe variant="pro" />
+      <div id="waitlist">
+        <Subscribe variant="pro" />
+      </div>
       <Footer />
     </div>
   );
