@@ -5,7 +5,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { Logo } from "./Logo";
 
 const LINKS: [string, string][] = [
-  ["Products", "products"],
   ["Platform", "platform"],
   ["Capabilities", "capabilities"],
   ["Intelligence", "intelligence"],
@@ -71,6 +70,33 @@ export function NavBar() {
           aria-label={isHome ? "Scroll to top" : "Back to home"}
         />
         <div className="hidden items-center gap-7 min-[900px]:flex">
+          <div className="group relative">
+            <button
+              type="button"
+              className="cursor-pointer border-none bg-transparent text-[13px] font-medium tracking-wide text-atlas-gray-dark transition-colors group-hover:text-atlas-accent"
+              onClick={() => goToSection("products")}
+            >
+              Products ▾
+            </button>
+            <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+              <div className="w-[210px] rounded-xl border border-atlas-border bg-atlas-bg/95 p-2 shadow-[0_16px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+                {[
+                  ["AtlasX", "Buy-side OEMS", "/atlasx"],
+                  ["Atlas DESK", "Sell-side broker OMS/EMS", "/atlas-desk"],
+                  ["Atlas Pro", "In development — waitlist", "/pro"],
+                ].map(([name, sub, href]) => (
+                  <a
+                    key={href}
+                    href={href}
+                    className="block rounded-lg px-3 py-2.5 no-underline transition-colors hover:bg-atlas-card"
+                  >
+                    <span className="block text-[13px] font-semibold text-atlas-white">{name}</span>
+                    <span className="block text-[11px] text-atlas-gray-dark">{sub}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
           {LINKS.map(([label, id]) => (
             <button
               key={id}
@@ -101,6 +127,16 @@ export function NavBar() {
       </div>
       {open ? (
         <div className="flex min-[900px]:hidden flex-col gap-2 border-t border-atlas-border bg-atlas-bg/98 px-4 py-4 backdrop-blur-xl">
+          {[["AtlasX", "/atlasx"], ["Atlas DESK", "/atlas-desk"], ["Atlas Pro", "/pro"]].map(([label, href]) => (
+            <a
+              key={href}
+              href={href}
+              className="w-full py-2 text-left text-sm font-semibold text-atlas-white no-underline"
+              onClick={() => setOpen(false)}
+            >
+              {label}
+            </a>
+          ))}
           {LINKS.map(([label, id]) => (
             <button
               key={id}
