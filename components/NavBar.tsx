@@ -70,13 +70,14 @@ export function NavBar() {
           aria-label={isHome ? "Scroll to top" : "Back to home"}
         />
         <div className="hidden items-center gap-7 min-[900px]:flex">
-          <div className="group relative">
+          <div className="group relative flex items-center self-stretch">
             <button
               type="button"
-              className="cursor-pointer border-none bg-transparent text-[13px] font-medium tracking-wide text-atlas-gray-dark transition-colors group-hover:text-atlas-accent"
+              className="inline-flex cursor-pointer items-center gap-1 border-none bg-transparent text-[13px] font-medium leading-none tracking-wide text-atlas-gray-dark transition-colors group-hover:text-atlas-accent"
               onClick={() => goToSection("products")}
             >
-              Products ▾
+              Products
+              <span className="text-[9px] leading-none">▾</span>
             </button>
             <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
               <div className="w-[210px] rounded-xl border border-atlas-border bg-atlas-bg/95 p-2 shadow-[0_16px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl">
