@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   description:
     "Atlas Pro brings institutional-grade execution to professional and sophisticated traders — built on the same engine as AtlasX. Join the waitlist.",
   alternates: { canonical: "/pro" },
+  openGraph: {
+    images: [{ url: "/og/og-pro.png", width: 1200, height: 630 }],
+    title: "Atlas Pro — Waitlist | Atlas Digital Trading",
+  },
+  twitter: { card: "summary_large_image", images: ["/og/og-pro.png"] },
 };
 
 const POINTS = [
