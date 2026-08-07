@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og/og-home.png",
         width: 1200,
         height: 630,
-        alt: "Atlas Digital Trading — institutional EMS for digital assets",
+        alt: "Atlas Digital Trading — execution intelligence for digital assets: AtlasX and Atlas DESK",
       },
     ],
   },
@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
     images: {
-      url: "/og-image.png",
+      url: "/og/og-home.png",
       width: 1200,
       height: 630,
-      alt: "Atlas Digital Trading — institutional EMS for digital assets",
+      alt: "Atlas Digital Trading — execution intelligence for digital assets: AtlasX and Atlas DESK",
     },
   },
 };
