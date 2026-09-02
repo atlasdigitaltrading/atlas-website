@@ -21,7 +21,7 @@ const siteDescription =
   "Two products, both sides of the trade, one engine. The only OEMS whose trading models calibrate to each firm's own execution flow — so execution gets more accurate the more you trade.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.atlasdigitaltrading.com"),
+  metadataBase: new URL("https://atlasdigitaltrading.com"),
   icons: {
     icon: "/favicon.svg",
     apple: "/apple-touch-icon.png",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteTitle,
     description: siteDescription,
-    url: "https://www.atlasdigitaltrading.com",
+    url: "https://atlasdigitaltrading.com",
     siteName: "Atlas Digital Trading",
     type: "website",
     locale: "en_US",

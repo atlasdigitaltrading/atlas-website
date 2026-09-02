@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { reader } from "@/lib/keystatic-reader";
 
-const BASE = "https://www.atlasdigitaltrading.com";
+const BASE = "https://atlasdigitaltrading.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await reader.collections.posts.all();
