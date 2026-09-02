@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     "The broker platform for crypto desks and OTC dealers: low-touch/high-touch rules engine, principal and agency workflows, internal crossing, inventory auto-hedging, and per-client pricing — running today.",
   alternates: { canonical: "/atlas-desk" },
   openGraph: {
-    images: [{ url: "/og/og-atlas-desk.png", width: 1200, height: 630 }],
+    images: [{ url: "/og/og-atlas-desk-v2.png", width: 1200, height: 630 }],
     title: "Atlas DESK — Sell-Side Broker OMS/EMS | Atlas Digital Trading",
   },
-  twitter: { card: "summary_large_image", images: ["/og/og-atlas-desk.png"] },
+  twitter: { card: "summary_large_image", images: ["/og/og-atlas-desk-v2.png"] },
 };
 
 const PILLARS = [
