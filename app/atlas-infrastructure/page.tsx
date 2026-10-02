@@ -4,7 +4,7 @@ import { NavBar } from "@/components/NavBar";
 import { TickerStrip } from "@/components/TickerStrip";
 import { Footer } from "@/components/Footer";
 import { SectionLabel } from "@/components/SectionLabel";
-import { OptionADiagram, OptionBDiagram } from "@/components/InfraDiagram";
+import { DiagramPanel } from "@/components/DiagramPanel";
 
 export const metadata: Metadata = {
   title: "Atlas Infrastructure — White-Label Digital-Asset Execution | Atlas Digital Trading",
@@ -121,7 +121,7 @@ export default function AtlasInfrastructurePage() {
             </div>
 
             <div className="flex flex-col gap-10">
-              {/* Option A */}
+              {/* Option A — the industry-standard pattern, shown in full */}
               <div>
                 <div className="mb-4 max-w-[820px]">
                   <div className="mb-1 text-[11px] font-bold uppercase tracking-[0.12em]" style={{ color: GREEN }}>
@@ -138,10 +138,17 @@ export default function AtlasInfrastructurePage() {
                     OMS and risk layer. Fastest path to a first order.
                   </p>
                 </div>
-                <OptionADiagram />
+                <DiagramPanel
+                  src="/diagrams/integration-option-a.png"
+                  alt="Option A integration: the partner platform's front ends, OMS, risk and margin layer and existing venues stay unchanged; digital-asset orders cross to the Atlas-hosted execution engine over FIX 4.4, REST or WS, which routes to 16+ CEX and DEX venues, with execution reports, drop-copy and a position feed returning to the partner's OMS"
+                  caption="Option A — your stack untouched; only digital-asset orders cross the boundary, and assets stay with the client's own venue and custody relationships"
+                  width={1439}
+                  height={567}
+                />
               </div>
 
-              {/* Option B */}
+              {/* Option B — described, not drawn. The architecture is walked
+                  through in the scoped technical session rather than published. */}
               <div>
                 <div className="mb-4 max-w-[820px]">
                   <div className="mb-1 text-[11px] font-bold uppercase tracking-[0.12em]" style={{ color: GREEN }}>
@@ -157,10 +164,25 @@ export default function AtlasInfrastructurePage() {
                     own exchange managers; the TCA engine measures the
                     OMS&rsquo;s own order history from a scheduled warehouse
                     extract and serves results over REST into the partner&rsquo;s
-                    portal.
+                    portal. Nothing leaves your perimeter.
                   </p>
                 </div>
-                <OptionBDiagram />
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                  {[
+                    ["Your OMS keeps the order", "Routing and algorithm decisions are delegated; the OMS keeps its order state, its exchange managers, and its venue connectivity."],
+                    ["Both engines run inside", "Execution and TCA deploy in your environment with no outbound egress required."],
+                    ["Every asset class measured", "The TCA engine measures the OMS's full order history, not only what Atlas routed, rendered in your own portal."],
+                  ].map(([t, d]) => (
+                    <div key={t} className="rounded-[14px] border border-atlas-border bg-atlas-card p-5">
+                      <h4 className="font-display m-0 mb-2 text-[14px] font-bold">{t}</h4>
+                      <p className="m-0 text-[12.5px] leading-relaxed text-atlas-gray">{d}</p>
+                    </div>
+                  ))}
+                </div>
+                <p className="mb-0 mt-4 text-[12.5px] leading-relaxed text-atlas-gray-dark">
+                  The Option B architecture is walked through end to end in the
+                  scoped technical session, against your own stack.
+                </p>
               </div>
             </div>
 
@@ -191,7 +213,7 @@ export default function AtlasInfrastructurePage() {
           <section className="mb-14">
             <div className="mb-6">
               <SectionLabel>The integration path</SectionLabel>
-              <h2 className="font-display m-0 text-2xl font-bold">Three steps to a named first client</h2>
+              <h2 className="font-display m-0 text-2xl font-bold">Three steps towards integration</h2>
             </div>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
               {PATH.map((p, i) => (
@@ -206,10 +228,9 @@ export default function AtlasInfrastructurePage() {
             </div>
             <p className="mb-0 mt-5 text-[13px] leading-relaxed text-atlas-gray">
               <span className="font-semibold text-atlas-offwhite">Commercial structure:</span>{" "}
-              no development charge in either direction; a revenue share on
-              enabled clients with a per-client floor; the partner owns the
-              client relationship and the pricing. Terms scoped per partnership
-              against the first client readout.
+              the partner owns the client relationship and the pricing. Terms
+              are scoped per partnership against the first client readout and
+              discussed in the technical session.
             </p>
           </section>
 
