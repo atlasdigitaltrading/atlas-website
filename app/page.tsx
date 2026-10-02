@@ -1,6 +1,7 @@
 import { BlogSection } from "@/components/BlogSection";
 import { Clients } from "@/components/Clients";
 import { DemoForm } from "@/components/DemoForm";
+import { EventBanner } from "@/components/EventBanner";
 import { Footer } from "@/components/Footer";
 import { HashScroll } from "@/components/HashScroll";
 import { Hero } from "@/components/Hero";
@@ -25,6 +26,7 @@ export default async function Home() {
         <TickerStrip />
       </div>
       <Hero />
+      <EventBanner />
       <IntelligenceTeaser />
       <Products />
       <NetworkSection />

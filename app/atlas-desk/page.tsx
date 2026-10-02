@@ -159,8 +159,7 @@ export default function AtlasDeskPage() {
             <p className="mt-3 max-w-[760px] text-[14px] leading-relaxed text-atlas-gray">
               Funds running AtlasX can route orders directly to your desk —
               they appear in your blotter tagged ATLASX, priced by your rules,
-              covered by your workflow. Two products, both sides of the trade,
-              one engine:{" "}
+              covered by your workflow. One engine, every side of the trade:{" "}
               <Link href="/#network" className="text-atlas-accent no-underline hover:underline">
                 see how the network works
               </Link>

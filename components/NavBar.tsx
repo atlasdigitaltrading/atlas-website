@@ -80,11 +80,13 @@ export function NavBar() {
               <span className="text-[9px] leading-none">▾</span>
             </button>
             <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
-              <div className="w-[210px] rounded-xl border border-atlas-border bg-atlas-bg/95 p-2 shadow-[0_16px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+              <div className="w-[250px] rounded-xl border border-atlas-border bg-atlas-bg/95 p-2 shadow-[0_16px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl">
                 {[
                   ["AtlasX", "Buy-side OEMS", "/atlasx"],
                   ["Atlas DESK", "Sell-side broker OMS/EMS", "/atlas-desk"],
-                  ["Atlas Pro", "In development — waitlist", "/pro"],
+                  ["Atlas TCA", "Standalone execution measurement", "/atlas-tca"],
+                  ["Atlas Infrastructure", "White-label execution for platforms", "/atlas-infrastructure"],
+                  ["Atlas Pro", "In development · waitlist", "/pro"],
                 ].map(([name, sub, href]) => (
                   <a
                     key={href}
@@ -128,7 +130,7 @@ export function NavBar() {
       </div>
       {open ? (
         <div className="flex min-[900px]:hidden flex-col gap-2 border-t border-atlas-border bg-atlas-bg/98 px-4 py-4 backdrop-blur-xl">
-          {[["AtlasX", "/atlasx"], ["Atlas DESK", "/atlas-desk"], ["Atlas Pro", "/pro"]].map(([label, href]) => (
+          {[["AtlasX", "/atlasx"], ["Atlas DESK", "/atlas-desk"], ["Atlas TCA", "/atlas-tca"], ["Atlas Infrastructure", "/atlas-infrastructure"], ["Atlas Pro", "/pro"]].map(([label, href]) => (
             <a
               key={href}
               href={href}

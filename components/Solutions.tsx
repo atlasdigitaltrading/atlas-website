@@ -5,32 +5,32 @@ const items = [
   {
     icon: "⚡",
     title: "Smart Order Routing",
-    desc: "Route orders across 10+ venues with Aggressive, Passive, and Neutral execution modes. Real-time venue scoring on fill probability, latency, fees, and market impact.",
+    desc: "Route across 16+ CEX and DEX venues with Aggressive, Passive, and Neutral modes. Real-time venue scoring on fill probability, latency, fees, and market impact, with every decision logged and replayable.",
   },
   {
     icon: "📊",
-    title: "Execution Algorithms",
-    desc: "TWAP and VWAP algorithms with adaptive scheduling, participation rate capping, and catch-up logic. Minimize market impact on large orders.",
+    title: "Execution Algorithms & RFQ",
+    desc: "TWAP, VWAP, POV, Implementation Shortfall, Arrival Price, Liquidity Seeker, Iceberg, and Pegged, with adaptive scheduling and participation caps. RFQ for block liquidity and direct-to-broker routing into the Atlas DESK network.",
   },
   {
     icon: "🔍",
     title: "Pre-Trade Analytics",
-    desc: "Almgren-Chriss impact models, spread cost estimation, book depth analysis, per-venue ADV data, and illustrative execution schedules.",
+    desc: "Five-component cost decomposition (spread, temporary impact, book-depth walk, timing risk, opportunity cost) in bps and USD, live per-venue ADV and fees, execution schedules, and tape plus on-chain context on the ticket.",
   },
   {
     icon: "📈",
     title: "Post-Trade TCA",
-    desc: "Implementation shortfall decomposition, strategy comparison, venue analysis, markout analytics, and slippage benchmarking.",
+    desc: "Implementation-shortfall decomposition, per-venue attribution and markouts, strategy and broker comparison, and validation reports. Inside AtlasX and Atlas DESK, or standalone as Atlas TCA with a REST API.",
   },
   {
-    icon: "🏦",
-    title: "Order Management",
-    desc: "Full OMS with multi-venue state management, parent/child order tracking, partial fill handling, and sub-account allocation.",
+    icon: "🧭",
+    title: "Six Asset Classes",
+    desc: "Spot, perpetuals, options, prediction markets, tokenized stocks, and equities on one engine. A canonical order and fill contract means routing, analytics, and measurement work the same way across all of them.",
   },
   {
     icon: "🛡️",
-    title: "Margin & Collateral",
-    desc: "Real-time margin monitoring with health scores across all venues. Proactive alerts and one-click collateral transfers via Fireblocks.",
+    title: "Portfolio, Margin & Risk",
+    desc: "Consolidated positions and PnL across venues, gross and net exposure, VaR and concentration limits with alerts, real-time margin health scores, and one-click collateral transfers via Fireblocks.",
   },
 ];
 

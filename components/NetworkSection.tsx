@@ -43,13 +43,13 @@ export function NetworkSection() {
         <div className="mb-4 text-center">
           <SectionLabel>The Network</SectionLabel>
           <SectionHeading center>
-            Two products. Both sides of the trade.
+            AtlasX to Atlas DESK.
             <br />
-            One engine.
+            One order, both sides, one engine.
           </SectionHeading>
           <p className="mx-auto mb-0 mt-4 max-w-[680px] text-[14.5px] leading-relaxed text-atlas-gray">
             A buy-side order on AtlasX can route straight to a broker running
-            Atlas DESK — and both sides measure the trade with the same engine.
+            Atlas DESK, and both sides measure the trade with the same engine.
             This is not venue connectivity. It is the first execution network
             where both sides of the trade run on the same intelligence.
           </p>

@@ -112,7 +112,8 @@ export default function AtlasXPage() {
                   order routing with execution algorithms — TWAP, VWAP, POV,
                   Implementation Shortfall, Arrival, Liquidity Seeker, Iceberg,
                   Pegged and others — plus RFQ for block liquidity, and direct-to-broker
-                  routing into the Atlas DESK network. Spot, perpetuals, and options.
+                  routing into the Atlas DESK network. Spot, perpetuals, and options,
+                  with prediction markets and tokenized stocks on the same ticket.
                 </p>
               </div>
             </div>
@@ -194,12 +195,15 @@ export default function AtlasXPage() {
                 satisfied, then turn on production keys.
               </div>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               <Link href="/#demo" className="rounded-lg bg-atlas-accent px-5 py-2.5 text-sm font-bold text-white no-underline transition-all hover:bg-atlas-accent-light">
                 Book a demo
               </Link>
               <Link href="/atlas-desk" className="rounded-lg border border-atlas-border px-5 py-2.5 text-sm font-semibold text-atlas-offwhite no-underline transition-all hover:border-atlas-accent/40">
                 Sell side? Atlas DESK →
+              </Link>
+              <Link href="/atlas-tca" className="rounded-lg border border-atlas-border px-5 py-2.5 text-sm font-semibold text-atlas-offwhite no-underline transition-all hover:border-atlas-accent/40">
+                Keeping your OEMS? Atlas TCA →
               </Link>
             </div>
           </div>
