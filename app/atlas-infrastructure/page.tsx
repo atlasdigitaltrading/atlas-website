@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { NavBar } from "@/components/NavBar";
+import { TickerStrip } from "@/components/TickerStrip";
 import { Footer } from "@/components/Footer";
 import { SectionLabel } from "@/components/SectionLabel";
+import { OptionADiagram, OptionBDiagram } from "@/components/InfraDiagram";
 
 export const metadata: Metadata = {
   title: "Atlas Infrastructure — White-Label Digital-Asset Execution | Atlas Digital Trading",
@@ -61,40 +63,15 @@ const PATH = [
   },
 ];
 
-function Flow({ steps }: { steps: { t: string; s?: string; accent?: boolean; link?: string }[] }) {
-  return (
-    <div className="my-5 flex flex-col gap-1.5">
-      {steps.map((b, i) => (
-        <div key={b.t}>
-          <div
-            className="rounded-lg border px-4 py-2.5 text-[12.5px] font-semibold leading-tight"
-            style={{
-              borderColor: b.accent ? GREEN : "#27272a",
-              background: b.accent ? "rgba(34,197,94,0.10)" : "#18181b",
-              color: b.accent ? GREEN : "#e2e8f0",
-            }}
-          >
-            {b.t}
-            {b.s ? <span className="ml-2 font-normal text-atlas-gray-dark">{b.s}</span> : null}
-          </div>
-          {i < steps.length - 1 ? (
-            <div className="flex items-center gap-2 px-4 py-1 text-[10.5px] text-atlas-gray-dark">
-              <span className="text-atlas-gray-darker">⇅</span>
-              {b.link}
-            </div>
-          ) : null}
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export default function AtlasInfrastructurePage() {
   return (
     <div className="min-h-screen bg-atlas-bg text-atlas-white">
       <NavBar />
-      <main className="px-[clamp(16px,4vw,56px)] pb-16 pt-32">
-        <div className="mx-auto max-w-[1100px]">
+      <div className="mt-[68px] sticky top-[68px] z-[999]">
+        <TickerStrip />
+      </div>
+      <main className="px-[clamp(16px,4vw,56px)] pb-16 pt-12">
+        <div className="mx-auto max-w-[1180px]">
           {/* hero */}
           <div className="mb-12 max-w-[820px]">
             <SectionLabel>Atlas Infrastructure · Powered by Atlas · For Trading Platforms and Vendors</SectionLabel>
@@ -143,60 +120,52 @@ export default function AtlasInfrastructurePage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+            <div className="flex flex-col gap-10">
               {/* Option A */}
-              <div className="rounded-[14px] border border-atlas-border bg-atlas-card p-6">
-                <div className="mb-1 text-[11px] font-bold uppercase tracking-[0.12em]" style={{ color: GREEN }}>
-                  Option A · Loosely coupled
+              <div>
+                <div className="mb-4 max-w-[820px]">
+                  <div className="mb-1 text-[11px] font-bold uppercase tracking-[0.12em]" style={{ color: GREEN }}>
+                    Option A · Loosely coupled
+                  </div>
+                  <h3 className="font-display m-0 text-[20px] font-bold">
+                    Atlas as an execution destination over FIX 4.4
+                  </h3>
+                  <p className="mb-0 mt-2 text-[13.5px] leading-relaxed text-atlas-gray">
+                    The partner stack is unchanged. The OMS sends digital-asset
+                    orders to the Atlas-hosted engine over FIX 4.4 or REST; Atlas
+                    routes to its own venue connectivity; execution reports,
+                    drop-copy, and position feeds return to the partner&rsquo;s
+                    OMS and risk layer. Fastest path to a first order.
+                  </p>
                 </div>
-                <h3 className="font-display m-0 text-[17px] font-bold">
-                  Atlas as an execution destination over FIX 4.4
-                </h3>
-                <Flow
-                  steps={[
-                    { t: "Partner OMS", s: "unchanged", link: "orders out over FIX 4.4 / REST · execution reports, drop-copy, positions back" },
-                    { t: "Atlas-hosted engine", s: "SOR · algorithms · pre/post-trade TCA", accent: true, link: "Atlas's own venue connectivity" },
-                    { t: "16+ digital-asset venues" },
-                  ]}
-                />
-                <p className="m-0 text-[12.5px] leading-relaxed text-atlas-gray">
-                  The partner stack is unchanged. The OMS sends digital-asset
-                  orders to the Atlas-hosted engine over FIX 4.4 or REST; Atlas
-                  routes to its own venue connectivity; execution reports,
-                  drop-copy, and position feeds return to the partner&rsquo;s
-                  OMS and risk layer. Fastest path to a first order.
-                </p>
+                <OptionADiagram />
               </div>
 
               {/* Option B */}
-              <div className="rounded-[14px] border border-atlas-border bg-atlas-card p-6">
-                <div className="mb-1 text-[11px] font-bold uppercase tracking-[0.12em]" style={{ color: GREEN }}>
-                  Option B · Tightly coupled
+              <div>
+                <div className="mb-4 max-w-[820px]">
+                  <div className="mb-1 text-[11px] font-bold uppercase tracking-[0.12em]" style={{ color: GREEN }}>
+                    Option B · Tightly coupled
+                  </div>
+                  <h3 className="font-display m-0 text-[20px] font-bold">
+                    Atlas engines deployed inside your environment, beneath the OMS
+                  </h3>
+                  <p className="mb-0 mt-2 text-[13.5px] leading-relaxed text-atlas-gray">
+                    The Atlas execution engine and TCA engine run inside the
+                    partner&rsquo;s environment. The OMS delegates routing and
+                    algorithm decisions over one bidirectional link and keeps its
+                    own exchange managers; the TCA engine measures the
+                    OMS&rsquo;s own order history from a scheduled warehouse
+                    extract and serves results over REST into the partner&rsquo;s
+                    portal.
+                  </p>
                 </div>
-                <h3 className="font-display m-0 text-[17px] font-bold">
-                  Atlas engines deployed inside your environment, beneath the OMS
-                </h3>
-                <Flow
-                  steps={[
-                    { t: "Partner OMS", s: "keeps the order and its exchange managers", link: "routing and algorithm decisions over one bidirectional link" },
-                    { t: "Atlas execution engine + TCA engine", s: "inside your environment, no egress", accent: true, link: "scheduled warehouse extract in · results over REST out" },
-                    { t: "Partner portal", s: "results rendered under your brand" },
-                  ]}
-                />
-                <p className="m-0 text-[12.5px] leading-relaxed text-atlas-gray">
-                  The Atlas execution engine and TCA engine run inside the
-                  partner&rsquo;s environment. The OMS delegates routing and
-                  algorithm decisions over one bidirectional link and keeps its
-                  own exchange managers; the TCA engine measures the
-                  OMS&rsquo;s own order history from a scheduled warehouse
-                  extract and serves results over REST into the partner&rsquo;s
-                  portal.
-                </p>
+                <OptionBDiagram />
               </div>
             </div>
 
             {/* comparison table */}
-            <div className="mt-5 overflow-x-auto rounded-[14px] border border-atlas-border bg-atlas-card">
+            <div className="mt-10 overflow-x-auto rounded-[14px] border border-atlas-border bg-atlas-card">
               <table className="w-full border-collapse">
                 <thead>
                   <tr className="border-b border-atlas-border">

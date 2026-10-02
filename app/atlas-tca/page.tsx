@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { NavBar } from "@/components/NavBar";
+import { TickerStrip } from "@/components/TickerStrip";
 import { Footer } from "@/components/Footer";
 import { SectionLabel } from "@/components/SectionLabel";
 import { TcaScorecard } from "@/components/TcaScorecard";
@@ -69,7 +70,10 @@ export default function AtlasTcaPage() {
   return (
     <div className="min-h-screen bg-atlas-bg text-atlas-white">
       <NavBar />
-      <main className="px-[clamp(16px,4vw,56px)] pb-16 pt-32">
+      <div className="mt-[68px] sticky top-[68px] z-[999]">
+        <TickerStrip />
+      </div>
+      <main className="px-[clamp(16px,4vw,56px)] pb-16 pt-12">
         <div className="mx-auto max-w-[1100px]">
           {/* hero */}
           <div className="mb-10 max-w-[820px]">

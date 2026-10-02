@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { NavBar } from "@/components/NavBar";
+import { TickerStrip } from "@/components/TickerStrip";
 import { Footer } from "@/components/Footer";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SectionLabel } from "@/components/SectionLabel";
@@ -21,7 +22,10 @@ export default async function BlogIndexPage() {
   return (
     <div className="min-h-screen bg-atlas-bg">
       <NavBar />
-      <main className="mx-auto max-w-[800px] px-[clamp(16px,4vw,56px)] pb-24 pt-28">
+      <div className="mt-[68px] sticky top-[68px] z-[999]">
+        <TickerStrip />
+      </div>
+      <main className="mx-auto max-w-[800px] px-[clamp(16px,4vw,56px)] pb-24 pt-10">
         <SectionLabel>Insights</SectionLabel>
         <SectionHeading>Blog</SectionHeading>
         <p className="mt-4 text-atlas-gray">
