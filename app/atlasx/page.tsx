@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { NavBar } from "@/components/NavBar";
+import { TickerStrip } from "@/components/TickerStrip";
 import { Footer } from "@/components/Footer";
 import { ProductShot } from "@/components/ProductShot";
 import { SectionLabel } from "@/components/SectionLabel";
@@ -40,7 +41,10 @@ export default function AtlasXPage() {
   return (
     <div className="min-h-screen bg-atlas-bg text-atlas-white">
       <NavBar />
-      <main className="px-[clamp(16px,4vw,56px)] pb-16 pt-32">
+      <div className="mt-[68px] sticky top-[68px] z-[999]">
+        <TickerStrip />
+      </div>
+      <main className="px-[clamp(16px,4vw,56px)] pb-16 pt-12">
         <div className="mx-auto max-w-[1100px]">
           {/* hero */}
           <div className="mb-16 max-w-[820px]">
@@ -112,7 +116,8 @@ export default function AtlasXPage() {
                   order routing with execution algorithms — TWAP, VWAP, POV,
                   Implementation Shortfall, Arrival, Liquidity Seeker, Iceberg,
                   Pegged and others — plus RFQ for block liquidity, and direct-to-broker
-                  routing into the Atlas DESK network. Spot, perpetuals, and options.
+                  routing into the Atlas DESK network. Spot, perpetuals, and options,
+                  with prediction markets and tokenized stocks on the same ticket.
                 </p>
               </div>
             </div>
@@ -194,12 +199,15 @@ export default function AtlasXPage() {
                 satisfied, then turn on production keys.
               </div>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               <Link href="/#demo" className="rounded-lg bg-atlas-accent px-5 py-2.5 text-sm font-bold text-white no-underline transition-all hover:bg-atlas-accent-light">
                 Book a demo
               </Link>
               <Link href="/atlas-desk" className="rounded-lg border border-atlas-border px-5 py-2.5 text-sm font-semibold text-atlas-offwhite no-underline transition-all hover:border-atlas-accent/40">
                 Sell side? Atlas DESK →
+              </Link>
+              <Link href="/atlas-tca" className="rounded-lg border border-atlas-border px-5 py-2.5 text-sm font-semibold text-atlas-offwhite no-underline transition-all hover:border-atlas-accent/40">
+                Keeping your OEMS? Atlas TCA →
               </Link>
             </div>
           </div>

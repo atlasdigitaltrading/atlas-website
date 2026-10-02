@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { NavBar } from "@/components/NavBar";
+import { TickerStrip } from "@/components/TickerStrip";
 import { reader } from "@/lib/keystatic-reader";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -45,7 +46,10 @@ export default async function BlogPostPage(props: Props) {
   return (
     <div className="min-h-screen bg-atlas-bg">
       <NavBar />
-      <article className="mx-auto max-w-[720px] px-[clamp(16px,4vw,56px)] pb-24 pt-28">
+      <div className="mt-[68px] sticky top-[68px] z-[999]">
+        <TickerStrip />
+      </div>
+      <article className="mx-auto max-w-[720px] px-[clamp(16px,4vw,56px)] pb-24 pt-10">
         <Link
           href="/blog"
           className="text-sm font-semibold text-atlas-accent no-underline hover:underline"

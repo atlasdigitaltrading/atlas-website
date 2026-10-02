@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 import { SectionLabel } from "./SectionLabel";
 import { COUNTRIES } from "@/lib/countries";
@@ -50,6 +50,9 @@ const BUSINESS_TYPES: { group: string; options: string[] }[] = [
 const PRODUCTS: string[] = [
   "AtlasX (Buy-Side OEMS)",
   "Atlas DESK (Sell-Side)",
+  "Atlas TCA (Standalone Measurement)",
+  "Atlas Infrastructure (White-Label)",
+  "Execution Quality Scorecard",
   "Smart Order Routing",
   "Execution Algorithms",
   "Pre-Trade Analytics",
@@ -85,6 +88,26 @@ export function DemoForm() {
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  // Event/referral context: ?ref=token2049 in the URL, or the "atlas:ref"
+  // event the TOKEN2049 banner fires, pre-fills the message so the request
+  // arrives tagged. Only fills an empty message; never overwrites typing.
+  useEffect(() => {
+    const apply = (ref: string | null) => {
+      if (ref !== "token2049") return;
+      setForm((f) =>
+        f.message
+          ? f
+          : { ...f, message: "I'd like to meet at TOKEN2049 Singapore (7 to 8 October). " }
+      );
+    };
+    try {
+      apply(new URLSearchParams(window.location.search).get("ref"));
+    } catch {}
+    const h = (e: Event) => apply(String((e as CustomEvent).detail ?? ""));
+    window.addEventListener("atlas:ref", h);
+    return () => window.removeEventListener("atlas:ref", h);
+  }, []);
 
   const up = (k: keyof typeof form, v: string) => {
     setForm((p) => ({ ...p, [k]: v }));

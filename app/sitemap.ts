@@ -15,6 +15,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: BASE, changeFrequency: "weekly", priority: 1 },
     { url: `${BASE}/atlasx`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/atlas-desk`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/atlas-tca`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/atlas-infrastructure`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/intelligence`, changeFrequency: "daily", priority: 0.9 },
     { url: `${BASE}/pro`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/blog`, changeFrequency: "weekly", priority: 0.8 },

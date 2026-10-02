@@ -34,11 +34,11 @@ const diffs = [
   },
   {
     t: "Venue-Agnostic Smart Routing",
-    d: "Not tied to any single exchange or liquidity pool. Atlas routes across 10+ CEXs and DEXs, scoring venues in real-time on fill probability, latency, fees, and market impact.",
+    d: "Not tied to any single exchange or liquidity pool. Atlas routes across 16+ CEXs and DEXs, scoring venues in real-time on fill probability, latency, fees, and market impact.",
   },
   {
     t: "Modular Architecture",
-    d: "Use the full stack or integrate individual modules. Need just SOR? Just TCA? Atlas's microservices architecture lets you deploy what you need.",
+    d: "Use the full stack or integrate individual modules. Need just SOR? Just the measurement layer (Atlas TCA)? The engine behind your own platform (Atlas Infrastructure)? Atlas's microservices architecture lets you deploy what you need.",
   },
   {
     t: "Transparent, Unconflicted",

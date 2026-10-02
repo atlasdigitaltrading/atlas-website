@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Counter } from "./Counter";
+import { EVENT, isEventLive } from "@/lib/event";
 
 export function Hero() {
   const [vis, setVis] = useState(false);
@@ -35,6 +36,15 @@ export function Hero() {
           vis ? "translate-y-0 opacity-100" : "translate-y-7 opacity-0"
         }`}
       >
+        {isEventLive() ? (
+          <a
+            href={`#${EVENT.id}`}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-atlas-accent/40 bg-atlas-accent/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-atlas-accent no-underline transition-colors hover:bg-atlas-accent/20"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-atlas-accent" />
+            Meet us at {EVENT.name} · 7–8 Oct · {EVENT.booth}
+          </a>
+        ) : null}
         <h1 className="font-display m-0 mb-6 text-[clamp(38px,5.2vw,68px)] font-extrabold leading-[1.08] tracking-tight text-atlas-white">
           Execution{" "}
           <span className="text-atlas-accent">Intelligence</span>
@@ -43,10 +53,11 @@ export function Hero() {
         </h1>
 
         <p className="mx-auto mb-9 max-w-[660px] text-[clamp(15px,1.4vw,18px)] leading-relaxed text-atlas-gray">
-          The only OEMS whose trading models calibrate to each firm&rsquo;s own
-          execution flow. Smart order routing, institutional execution
-          algorithms, and pre-trade/post-trade TCA that learns your costs from
-          your own trades — so it gets more accurate every time you use it.
+          One engine, every side of the trade. AtlasX for the buy side, Atlas
+          DESK for the sell side, Atlas TCA for independent measurement, and
+          Atlas Infrastructure behind partner platforms. The only trading
+          models that calibrate to each firm&rsquo;s own execution flow, so
+          execution gets better the more you trade.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3.5">
@@ -67,10 +78,11 @@ export function Hero() {
         <div className="mt-14 flex flex-wrap justify-center gap-[clamp(28px,5vw,60px)] border-t border-atlas-border pt-9">
           {(
             [
-              { v: 15, s: "+", l: "Connected Exchanges" },
-              { v: 10, s: "+", l: "Execution Algorithms" },
-              { v: "24/7", s: "", l: "High Availability" },
-            ] as const
+              { v: 16, s: "+", l: "Connected Venues" },
+              { v: 10, s: "+", l: "Algorithms + SOR & RFQ" },
+              { v: 6, s: "", l: "Asset Classes" },
+              { v: 25, s: "+", l: "Years Institutional Infrastructure" },
+            ] as { v: number | string; s: string; l: string }[]
           ).map((s, i) => (
             <div key={i} className="text-center">
               <div className="font-display text-[clamp(26px,2.8vw,38px)] font-extrabold tracking-tight text-atlas-accent">

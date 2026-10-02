@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 const siteTitle =
   "Atlas Digital Trading | Execution Intelligence for Digital Assets";
 const siteDescription =
-  "Two products, both sides of the trade, one engine. The only OEMS whose trading models calibrate to each firm's own execution flow — so execution gets more accurate the more you trade.";
+  "One engine, every side of the trade: AtlasX for the buy side, Atlas DESK for the sell side, Atlas TCA as standalone measurement, and Atlas Infrastructure behind partner platforms. Trading models that calibrate to each firm's own execution flow, so execution gets better the more you trade.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://atlasdigitaltrading.com"),
@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og/og-home-v2.png",
+        url: "/og/og-home-v3.png",
         width: 1200,
         height: 630,
-        alt: "Atlas Digital Trading — execution intelligence for digital assets: AtlasX and Atlas DESK",
+        alt: "Atlas Digital Trading — execution intelligence for digital assets: AtlasX, Atlas DESK, Atlas TCA, Atlas Infrastructure",
       },
     ],
   },
@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
     images: {
-      url: "/og/og-home-v2.png",
+      url: "/og/og-home-v3.png",
       width: 1200,
       height: 630,
-      alt: "Atlas Digital Trading — execution intelligence for digital assets: AtlasX and Atlas DESK",
+      alt: "Atlas Digital Trading — execution intelligence for digital assets: AtlasX, Atlas DESK, Atlas TCA, Atlas Infrastructure",
     },
   },
 };

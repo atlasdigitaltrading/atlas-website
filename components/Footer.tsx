@@ -6,6 +6,24 @@ export function Footer() {
       className="border-t border-atlas-border px-[clamp(16px,4vw,56px)] pb-7 pt-10"
       style={{ background: "#050507" }}
     >
+      <div className="mx-auto mb-6 flex max-w-[1200px] flex-wrap items-center gap-x-6 gap-y-2 border-b border-atlas-border pb-6 text-xs">
+        {[
+          ["AtlasX", "/atlasx"],
+          ["Atlas DESK", "/atlas-desk"],
+          ["Atlas TCA", "/atlas-tca"],
+          ["Atlas Infrastructure", "/atlas-infrastructure"],
+          ["Market Intelligence", "/intelligence"],
+          ["Insights", "/blog"],
+        ].map(([label, href]) => (
+          <a
+            key={href}
+            href={href}
+            className="text-atlas-gray-dark no-underline transition-colors hover:text-atlas-accent"
+          >
+            {label}
+          </a>
+        ))}
+      </div>
       <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-5">
         <div>
           <Logo size={20} />

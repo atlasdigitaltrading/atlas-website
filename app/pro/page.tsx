@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { NavBar } from "@/components/NavBar";
+import { TickerStrip } from "@/components/TickerStrip";
 import { Footer } from "@/components/Footer";
 import { Subscribe } from "@/components/Subscribe";
 import { SectionLabel } from "@/components/SectionLabel";
@@ -35,7 +36,10 @@ export default function ProWaitlistPage() {
   return (
     <div className="min-h-screen bg-atlas-bg text-atlas-white">
       <NavBar />
-      <main className="px-[clamp(16px,4vw,56px)] pb-10 pt-32">
+      <div className="mt-[68px] sticky top-[68px] z-[999]">
+        <TickerStrip />
+      </div>
+      <main className="px-[clamp(16px,4vw,56px)] pb-10 pt-12">
         <div className="mx-auto max-w-[880px] text-center">
           <SectionLabel>Atlas Pro</SectionLabel>
           <div className="mb-5 mt-1 inline-flex items-center gap-2 rounded-full border border-atlas-orange/40 bg-atlas-orange/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-atlas-orange">
