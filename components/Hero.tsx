@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Counter } from "./Counter";
 import { EVENT, isEventLive } from "@/lib/event";
+import { ANNOUNCEMENT, isAnnouncementLive } from "@/lib/announcement";
 
 export function Hero() {
   const [vis, setVis] = useState(false);
@@ -43,6 +44,15 @@ export function Hero() {
           >
             <span className="h-1.5 w-1.5 rounded-full bg-atlas-accent" />
             Meet us at {EVENT.name} · 7–8 Oct · {EVENT.booth}
+          </a>
+        ) : isAnnouncementLive() ? (
+          <a
+            href={ANNOUNCEMENT.href}
+            className="mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-atlas-accent/40 bg-atlas-accent/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-atlas-accent no-underline transition-colors hover:bg-atlas-accent/20"
+          >
+            <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-atlas-accent" />
+            <span className="truncate">{ANNOUNCEMENT.label} · {ANNOUNCEMENT.text}</span>
+            <span className="flex-shrink-0">· {ANNOUNCEMENT.cta} →</span>
           </a>
         ) : null}
         <h1 className="font-display m-0 mb-6 text-[clamp(38px,5.2vw,68px)] font-extrabold leading-[1.08] tracking-tight text-atlas-white">
