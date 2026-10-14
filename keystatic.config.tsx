@@ -23,6 +23,21 @@ function storage():
 export default config({
   storage: storage(),
   collections: {
+    news: collection({
+      label: "News & Press Releases",
+      slugField: "title",
+      path: "content/news/*/",
+      format: { contentField: "content" },
+      schema: {
+        title: fields.slug({ name: { label: "Headline" } }),
+        subtitle: fields.text({ label: "Subheadline", multiline: true }),
+        publishedDate: fields.date({ label: "Date" }),
+        kind: fields.text({ label: "Kind", defaultValue: "Press release" }),
+        excerpt: fields.text({ label: "Excerpt (listing and share text)", multiline: true }),
+        ogImage: fields.text({ label: "Share image path (optional, e.g. /og/og-news-x.png)" }),
+        content: fields.document({ label: "Body" }),
+      },
+    }),
     posts: collection({
       label: "Blog Posts",
       slugField: "title",

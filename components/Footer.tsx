@@ -13,6 +13,7 @@ export function Footer() {
           ["Atlas TCA", "/atlas-tca"],
           ["Atlas Infrastructure", "/atlas-infrastructure"],
           ["Market Intelligence", "/intelligence"],
+          ["News", "/news"],
           ["Insights", "/blog"],
         ].map(([label, href]) => (
           <a

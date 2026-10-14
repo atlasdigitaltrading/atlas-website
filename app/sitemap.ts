@@ -5,6 +5,13 @@ const BASE = "https://atlasdigitaltrading.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await reader.collections.posts.all();
+  const news = await reader.collections.news.all();
+  const newsEntries: MetadataRoute.Sitemap = news.map(({ slug, entry }) => ({
+    url: `${BASE}/news/${slug}`,
+    lastModified: new Date(entry.publishedDate as string),
+    changeFrequency: "yearly",
+    priority: 0.8,
+  }));
   const postEntries: MetadataRoute.Sitemap = posts.map(({ slug, entry }) => ({
     url: `${BASE}/blog/${slug}`,
     lastModified: new Date(entry.publishedDate as string),
@@ -20,6 +27,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/intelligence`, changeFrequency: "daily", priority: 0.9 },
     { url: `${BASE}/pro`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/blog`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/news`, changeFrequency: "weekly", priority: 0.8 },
+    ...newsEntries,
     ...postEntries,
   ];
 }

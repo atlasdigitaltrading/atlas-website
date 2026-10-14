@@ -10,6 +10,7 @@ const LINKS: [string, string][] = [
   ["Intelligence", "intelligence"],
   ["Clients", "clients"],
   ["Why Atlas", "why-atlas"],
+  ["News", "news"],
   ["Insights", "blog"],
 ];
 
@@ -28,6 +29,10 @@ export function NavBar() {
   function goToSection(id: string) {
     if (id === "intelligence") {
       router.push("/intelligence");
+      return;
+    }
+    if (id === "news") {
+      router.push("/news");
       return;
     }
     if (id === "blog" && pathname.startsWith("/blog")) {

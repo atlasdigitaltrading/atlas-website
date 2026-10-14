@@ -166,12 +166,21 @@ export default function AtlasTcaPage() {
             <div className="rounded-[14px] border border-atlas-border bg-atlas-card p-7">
               <h2 className="font-display m-0 text-xl font-bold">Asset coverage</h2>
               <p className="mt-3 text-[14px] leading-relaxed text-atlas-gray">
-                Digital assets: live in production. US cash equities: in build
-                with a platform partner. The engine is asset-class agnostic by
-                architecture: a canonical fill contract, benchmark mathematics
-                with golden test fixtures, and per-client column-mapped
-                ingestion, with no dependency on any other Atlas service.
+                Digital assets: live in production. US equities and options:
+                available to Sterling Trading Tech clients inside Sterling OMS
+                360 and the Sterling Data Warehouse from Q4 2026, extending to
+                digital assets and prediction markets on the same engine. The
+                engine is asset-class agnostic by architecture: a canonical fill
+                contract, benchmark mathematics with golden test fixtures, and
+                per-client column-mapped ingestion, with no dependency on any
+                other Atlas service.
               </p>
+              <Link
+                href="/news/sterling-trading-tech-and-atlas-digital-markets-turn-order-data-into-best-execution-evidence"
+                className="mt-3 inline-block text-[13px] font-semibold text-atlas-accent no-underline hover:underline"
+              >
+                Read the Sterling Trading Tech announcement →
+              </Link>
             </div>
             <div
               className="rounded-[14px] border border-atlas-purple/40 p-7"
