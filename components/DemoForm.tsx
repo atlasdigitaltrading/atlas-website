@@ -83,6 +83,7 @@ export function DemoForm() {
     country: "",
     timeline: "",
     message: "",
+    website: "", // honeypot: hidden from people, filled by bots
   });
   const [products, setProducts] = useState<string[]>([]);
   const [done, setDone] = useState(false);
@@ -205,6 +206,20 @@ export function DemoForm() {
               </div>
             </div>
 
+            {/* Honeypot. Off-screen and skipped by the tab order; the API
+                drops any submission that fills it. */}
+            <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+              <label htmlFor="demo-website">Website</label>
+              <input
+                id="demo-website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                value={form.website}
+                onChange={(e) => up("website", e.target.value)}
+              />
+            </div>
             <div className="mb-4">
               <label className={labelCls}>Work Email *</label>
               <input
