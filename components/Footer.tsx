@@ -31,12 +31,20 @@ export function Footer() {
         </div>
         <div className="flex gap-7">
           <a
-            href="https://www.linkedin.com/in/kiran-pingali/"
+            href="https://www.linkedin.com/company/atlasdigitaltrading/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs text-atlas-gray-darker no-underline transition-colors hover:text-atlas-accent"
           >
             LinkedIn
+          </a>
+          <a
+            href="https://www.linkedin.com/in/kiran-pingali/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-atlas-gray-darker no-underline transition-colors hover:text-atlas-accent"
+          >
+            Founder
           </a>
           <a
             href="mailto:kiran@atlasdigitaltrading.com"

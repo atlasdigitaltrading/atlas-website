@@ -44,7 +44,7 @@ export default function ProWaitlistPage() {
           <SectionLabel>Atlas Pro</SectionLabel>
           <div className="mb-5 mt-1 inline-flex items-center gap-2 rounded-full border border-atlas-orange/40 bg-atlas-orange/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-atlas-orange">
             <span className="h-1.5 w-1.5 rounded-full bg-atlas-orange" />
-            In development — launching later this year
+            In development · launching in 2027
           </div>
           <h1 className="font-display m-0 text-[clamp(30px,4.5vw,52px)] font-extrabold leading-[1.08] tracking-tight text-atlas-white">
             Institutional execution,
