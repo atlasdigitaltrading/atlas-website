@@ -8,7 +8,7 @@ import { SectionLabel } from "@/components/SectionLabel";
 import { formatNewsDate, getNews } from "@/lib/news";
 
 export const metadata: Metadata = {
-  title: "News | Atlas Digital Trading",
+  title: "News | Atlas Digital Markets",
   description:
     "Press releases and company announcements from Atlas Digital Markets.",
   alternates: { canonical: "/news" },

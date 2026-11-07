@@ -19,8 +19,8 @@ export async function generateStaticParams() {
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const { slug } = await props.params;
   const item = await reader.collections.news.read(slug);
-  if (!item) return { title: "News | Atlas Digital Trading" };
-  const title = `${item.title} | Atlas Digital Trading`;
+  if (!item) return { title: "News | Atlas Digital Markets" };
+  const title = `${item.title} | Atlas Digital Markets`;
   const image = item.ogImage || "/og/og-home-v3.png";
   return {
     title,
