@@ -7,13 +7,13 @@ import { ProductShot } from "@/components/ProductShot";
 import { SectionLabel } from "@/components/SectionLabel";
 
 export const metadata: Metadata = {
-  title: "Atlas DESK — Sell-Side Broker OMS/EMS | Atlas Digital Markets",
+  title: "Atlas DESK: Sell-Side Broker OMS/EMS | Atlas Digital Markets",
   description:
     "The broker platform for crypto desks and OTC dealers: low-touch/high-touch rules engine, principal and agency workflows, internal crossing, inventory auto-hedging, and per-client pricing — running today.",
   alternates: { canonical: "/atlas-desk" },
   openGraph: {
     images: [{ url: "/og/og-atlas-desk-v2.png", width: 1200, height: 630 }],
-    title: "Atlas DESK — Sell-Side Broker OMS/EMS | Atlas Digital Markets",
+    title: "Atlas DESK: Sell-Side Broker OMS/EMS | Atlas Digital Markets",
   },
   twitter: { card: "summary_large_image", images: ["/og/og-atlas-desk-v2.png"] },
 };

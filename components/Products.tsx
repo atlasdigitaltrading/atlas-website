@@ -58,7 +58,7 @@ const products = [
     eyebrow: "Powered by Atlas · Platforms & Vendors",
     color: "#22c55e",
     tagline:
-      "White-labelled digital-asset execution behind trading platforms, OMS/EMS vendors, and brokerages adding a new asset class.",
+      "White-labeled execution and TCA behind trading platforms, OMS/EMS vendors, and brokerages adding a new asset class.",
     features: [
       "Your clients trade digital assets inside the front ends they already use",
       "Loosely coupled over FIX 4.4 or REST, or Atlas engines deployed beneath your OMS",

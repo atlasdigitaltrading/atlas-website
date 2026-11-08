@@ -21,7 +21,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const item = await reader.collections.news.read(slug);
   if (!item) return { title: "News | Atlas Digital Markets" };
   const title = `${item.title} | Atlas Digital Markets`;
-  const image = item.ogImage || "/og/og-home-v3.png";
+  const image = item.ogImage || "/og/og-home-v4.png";
   return {
     title,
     description: item.excerpt,

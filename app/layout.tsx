@@ -16,9 +16,9 @@ const dmSans = DM_Sans({
 });
 
 const siteTitle =
-  "Atlas Digital Markets | Execution Intelligence for Digital Assets";
+  "Atlas Digital Markets | Execution Intelligence for Institutional Trading";
 const siteDescription =
-  "One engine, every side of the trade: AtlasX for the buy side, Atlas DESK for the sell side, Atlas TCA as standalone measurement, and Atlas Infrastructure behind partner platforms. Trading models that calibrate to each firm's own execution flow, so execution gets better the more you trade.";
+  "Execution intelligence for institutional trading: equities, options, digital assets, tokenized stocks and prediction markets on one engine. AtlasX for the buy side, Atlas DESK for the sell side, Atlas TCA as standalone measurement, and Atlas Infrastructure behind partner platforms. Models that calibrate to each firm's own execution flow, so execution gets better the more you trade.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://atlasdigitaltrading.com"),
@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og/og-home-v3.png",
+        url: "/og/og-home-v4.png",
         width: 1200,
         height: 630,
-        alt: "Atlas Digital Markets — execution intelligence for digital assets: AtlasX, Atlas DESK, Atlas TCA, Atlas Infrastructure",
+        alt: "Atlas Digital Markets: execution intelligence for institutional trading. AtlasX, Atlas DESK, Atlas TCA, Atlas Infrastructure",
       },
     ],
   },
@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
     images: {
-      url: "/og/og-home-v3.png",
+      url: "/og/og-home-v4.png",
       width: 1200,
       height: 630,
-      alt: "Atlas Digital Markets — execution intelligence for digital assets: AtlasX, Atlas DESK, Atlas TCA, Atlas Infrastructure",
+      alt: "Atlas Digital Markets: execution intelligence for institutional trading. AtlasX, Atlas DESK, Atlas TCA, Atlas Infrastructure",
     },
   },
 };

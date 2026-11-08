@@ -32,7 +32,7 @@ export function Hero() {
       />
 
       <div
-        className={`relative z-[1] max-w-[880px] text-center transition-all duration-[800ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
+        className={`relative z-[1] w-full max-w-[880px] text-center transition-all duration-[800ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
           vis ? "translate-y-0 opacity-100" : "translate-y-7 opacity-0"
         }`}
       >
@@ -50,7 +50,7 @@ export function Hero() {
             className="mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-atlas-accent/40 bg-atlas-accent/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-atlas-accent no-underline transition-colors hover:bg-atlas-accent/20"
           >
             <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-atlas-accent" />
-            <span className="truncate">{ANNOUNCEMENT.label} · {ANNOUNCEMENT.text}</span>
+            <span className="min-w-0 truncate">{ANNOUNCEMENT.label} · {ANNOUNCEMENT.text}</span>
             <span className="flex-shrink-0">· {ANNOUNCEMENT.cta} →</span>
           </a>
         ) : null}
@@ -58,8 +58,12 @@ export function Hero() {
           Execution{" "}
           <span className="text-atlas-accent">Intelligence</span>
           <br />
-          for Digital Assets
+          for Institutional Trading
         </h1>
+
+        <p className="font-display mx-auto mb-4 max-w-[820px] text-[clamp(17px,1.8vw,24px)] font-semibold leading-snug tracking-tight text-atlas-offwhite">
+          Equities, options, digital assets, tokenized stocks and prediction markets on&nbsp;one&nbsp;engine.
+        </p>
 
         <p className="mx-auto mb-9 max-w-[660px] text-[clamp(15px,1.4vw,18px)] leading-relaxed text-atlas-gray">
           One engine, every side of the trade. AtlasX for the buy side, Atlas
