@@ -11,7 +11,7 @@ import { SectionLabel } from "@/components/SectionLabel";
 export const metadata: Metadata = {
   title: "Live Market Intelligence | Atlas Digital Markets",
   description:
-    "Live crypto microstructure across major venues: verified taker order flow, per-venue markout, and book absorption — derived from public exchange data. Context, not advice.",
+    "Live crypto microstructure across major venues: verified taker order flow, per-venue markout, and book absorption, derived from public exchange data. Context, not advice.",
   alternates: { canonical: "/intelligence" },
   openGraph: {
     images: [{ url: "/og/og-intelligence-v2.png", width: 1200, height: 630 }],
@@ -32,7 +32,7 @@ export default function IntelligencePage() {
           <SectionLabel>Market Intelligence</SectionLabel>
           <SectionHeading>The market, measured</SectionHeading>
           <p className="mb-0 mt-4 max-w-[720px] text-[15px] leading-relaxed text-atlas-gray">
-            The live read across the venues Atlas captures — prices and market
+            The live read across the venues Atlas captures: prices and market
             structure above, execution microstructure below. Everything on this
             page is derived from public exchange data and refreshes
             automatically.

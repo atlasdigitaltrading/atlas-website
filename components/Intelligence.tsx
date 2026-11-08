@@ -232,7 +232,7 @@ export function Intelligence() {
         </div>
         <p className="mb-9 max-w-[720px] text-[14px] leading-relaxed text-atlas-gray">
           Live microstructure across the venues Atlas captures, derived from
-          public exchange data — taker side independently verified against each
+          public exchange data, taker side independently verified against each
           venue&rsquo;s own mid. Descriptive of the tape. Context, not advice.
         </p>
 
@@ -298,7 +298,7 @@ export function Intelligence() {
                     {sect.flow.label}
                   </span>
                 }
-                foot={`Buy = taker lifted the offer (trade above the venue's own mid — reported side fields are not trusted). Labels guarded: BUYERS >52%, SELLERS <48%, else BALANCED. Window: ${sect.flow.window_min}m.`}
+                foot={`Buy = taker lifted the offer (trade above the venue's own mid; reported side fields are not trusted). Labels guarded: BUYERS >52%, SELLERS <48%, else BALANCED. Window: ${sect.flow.window_min}m.`}
               >
                 <div className="mb-3 grid grid-cols-3 gap-2">
                   <StatTile label="Taker buying" value={fmtM(sect.flow.buy_usd_m)} tone="up" />
@@ -364,7 +364,7 @@ export function Intelligence() {
                 </div>
                 {!sect.markout.weightings_agree ? (
                   <p className="mb-2 text-[10.5px] text-atlas-orange">
-                    Weightings disagree — one venue may dominate; read with care.
+                    Weightings disagree: one venue may dominate. Read with care.
                   </p>
                 ) : null}
                 <table className="w-full border-collapse text-xs">
@@ -406,7 +406,7 @@ export function Intelligence() {
 
             {sect.book ? (
               <Card
-                title="Book Imbalance — Absorption"
+                title="Book Imbalance · Absorption"
                 badge={
                   sect.book.bid_share_25_pct != null ? (
                     <span
@@ -422,7 +422,7 @@ export function Intelligence() {
                     </span>
                   ) : null
                 }
-                foot="Resting USD notional within ±25 bps of mid — how much aggressive flow the book can absorb before price moves. Snapshot at publish time."
+                foot="Resting USD notional within ±25 bps of mid: how much aggressive flow the book can absorb before price moves. Snapshot at publish time."
               >
                 <div className="mb-3 grid grid-cols-2 gap-2">
                   <StatTile
@@ -571,7 +571,7 @@ export function Intelligence() {
         <p className="mb-0 mt-6 text-[10.5px] leading-relaxed text-atlas-gray-darker">
           All metrics derived from public exchange market data across the venues
           Atlas captures. Markout convention: positive = cost to the aggressor.
-          Reads are descriptive of the tape — context, not advice. Nothing here
+          Reads are descriptive of the tape: context, not advice. Nothing here
           is a trading recommendation or a representation of execution results.
         </p>
       </div>

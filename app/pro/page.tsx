@@ -8,7 +8,7 @@ import { SectionLabel } from "@/components/SectionLabel";
 export const metadata: Metadata = {
   title: "Atlas Pro: Waitlist | Atlas Digital Markets",
   description:
-    "Atlas Pro brings institutional-grade execution to professional and sophisticated traders — built on the same engine as AtlasX. Join the waitlist.",
+    "Atlas Pro brings institutional-grade execution to professional and sophisticated traders, built on the same engine as AtlasX. Join the waitlist.",
   alternates: { canonical: "/pro" },
   openGraph: {
     images: [{ url: "/og/og-pro-v2.png", width: 1200, height: 630 }],
@@ -20,11 +20,11 @@ export const metadata: Metadata = {
 const POINTS = [
   {
     t: "The institutional engine, your seat",
-    d: "The same smart order routing, execution algorithms, and pre/post-trade analytics that power AtlasX for institutions — in a platform built for professional traders.",
+    d: "The same smart order routing, execution algorithms, and pre/post-trade analytics that power AtlasX for institutions, in a platform built for professional traders.",
   },
   {
     t: "Execution intelligence, not just charts",
-    d: "Verified taker flow, per-venue markout, and book absorption — the live measurement stack behind our Intelligence feed, wired into how you trade.",
+    d: "Verified taker flow, per-venue markout, and book absorption: the live measurement stack behind our Intelligence feed, wired into how you trade.",
   },
   {
     t: "Costs that get measured, then get smaller",
@@ -79,7 +79,7 @@ export default function ProWaitlistPage() {
           ))}
         </div>
         <p className="mx-auto mb-0 mt-10 max-w-[620px] text-center text-xs text-atlas-gray-darker">
-          In the meantime, the live read is free for everyone —{" "}
+          In the meantime, the live read is free for everyone:{" "}
           <a href="/intelligence" className="text-atlas-accent no-underline hover:underline">
             see today&rsquo;s Market Intelligence
           </a>

@@ -8,7 +8,7 @@ import { useState } from "react";
 const COPY = {
   intelligence: {
     title: "Get Atlas intelligence in your inbox.",
-    body: "New research, notable market reads, and platform updates from the team building institutional execution intelligence. Occasional and worth opening — no noise.",
+    body: "New research, notable market reads, and platform updates from the team building institutional execution intelligence. Occasional and worth opening. No noise.",
     button: "Subscribe",
     done: "You're on the list.",
     cross: { pre: "Professional trader?", label: "Join the Atlas Pro waitlist", href: "/pro" },
@@ -101,7 +101,7 @@ export function Subscribe({
         </div>
         {state === "error" ? (
           <p className="mb-0 mt-3 text-xs text-atlas-red">
-            Something went wrong — please try again.
+            Something went wrong. Please try again.
           </p>
         ) : null}
       </div>

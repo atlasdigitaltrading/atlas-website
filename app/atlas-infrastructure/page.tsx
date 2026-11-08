@@ -141,7 +141,7 @@ export default function AtlasInfrastructurePage() {
                 <DiagramPanel
                   src="/diagrams/integration-option-a.png"
                   alt="Option A integration: the partner platform's front ends, OMS, risk and margin layer and existing venues stay unchanged; digital-asset orders cross to the Atlas-hosted execution engine over FIX 4.4, REST or WS, which routes to 16+ CEX and DEX venues, with execution reports, drop-copy and a position feed returning to the partner's OMS"
-                  caption="Option A — your stack untouched; only digital-asset orders cross the boundary, and assets stay with the client's own venue and custody relationships"
+                  caption="Option A: your stack untouched; only digital-asset orders cross the boundary, and assets stay with the client's own venue and custody relationships"
                   width={1439}
                   height={567}
                 />
