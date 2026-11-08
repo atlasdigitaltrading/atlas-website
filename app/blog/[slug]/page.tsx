@@ -19,7 +19,7 @@ export async function generateMetadata(props: Props) {
   const post = await reader.collections.posts.read(slug);
   if (!post) return { title: "Post" };
   return {
-    title: `${post.title} | Atlas Digital Trading`,
+    title: `${post.title} | Atlas Digital Markets`,
     description: post.excerpt,
   };
 }

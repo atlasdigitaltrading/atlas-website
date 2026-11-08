@@ -9,13 +9,13 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { SectionLabel } from "@/components/SectionLabel";
 
 export const metadata: Metadata = {
-  title: "Live Market Intelligence | Atlas Digital Trading",
+  title: "Live Market Intelligence | Atlas Digital Markets",
   description:
     "Live crypto microstructure across major venues: verified taker order flow, per-venue markout, and book absorption — derived from public exchange data. Context, not advice.",
   alternates: { canonical: "/intelligence" },
   openGraph: {
     images: [{ url: "/og/og-intelligence-v2.png", width: 1200, height: 630 }],
-    title: "Live Market Intelligence | Atlas Digital Trading",
+    title: "Live Market Intelligence | Atlas Digital Markets",
   },
   twitter: { card: "summary_large_image", images: ["/og/og-intelligence-v2.png"] },
 };

@@ -7,8 +7,8 @@ import { SectionLabel } from "@/components/SectionLabel";
 import { reader } from "@/lib/keystatic-reader";
 
 export const metadata = {
-  title: "Insights | Atlas Digital Trading",
-  description: "News and perspectives from Atlas Digital Trading.",
+  title: "Insights | Atlas Digital Markets",
+  description: "News and perspectives from Atlas Digital Markets.",
 };
 
 export default async function BlogIndexPage() {

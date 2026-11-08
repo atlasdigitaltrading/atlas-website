@@ -7,13 +7,13 @@ import { ProductShot } from "@/components/ProductShot";
 import { SectionLabel } from "@/components/SectionLabel";
 
 export const metadata: Metadata = {
-  title: "AtlasX — Buy-Side OEMS | Atlas Digital Trading",
+  title: "AtlasX — Buy-Side OEMS | Atlas Digital Markets",
   description:
     "The institutional OEMS whose trading models calibrate to each firm's own execution flow. Smart order routing, execution algorithms, RFQ, and pre/post-trade analytics across spot, perps, and options.",
   alternates: { canonical: "/atlasx" },
   openGraph: {
     images: [{ url: "/og/og-atlasx-v2.png", width: 1200, height: 630 }],
-    title: "AtlasX — Buy-Side OEMS | Atlas Digital Trading",
+    title: "AtlasX — Buy-Side OEMS | Atlas Digital Markets",
   },
   twitter: { card: "summary_large_image", images: ["/og/og-atlasx-v2.png"] },
 };

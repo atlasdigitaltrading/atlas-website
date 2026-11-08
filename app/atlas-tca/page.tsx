@@ -7,13 +7,13 @@ import { SectionLabel } from "@/components/SectionLabel";
 import { TcaScorecard } from "@/components/TcaScorecard";
 
 export const metadata: Metadata = {
-  title: "Atlas TCA — Standalone Execution Measurement | Atlas Digital Trading",
+  title: "Atlas TCA — Standalone Execution Measurement | Atlas Digital Markets",
   description:
     "Independent transaction cost analysis for desks that keep the OEMS they already run: implementation-shortfall decomposition, venue attribution and markouts, strategy and broker comparison, calibrated to your own fills. Atlas never touches the order flow.",
   alternates: { canonical: "/atlas-tca" },
   openGraph: {
     images: [{ url: "/og/og-atlas-tca-v2.png", width: 1200, height: 630 }],
-    title: "Atlas TCA — Standalone Execution Measurement | Atlas Digital Trading",
+    title: "Atlas TCA — Standalone Execution Measurement | Atlas Digital Markets",
   },
   twitter: { card: "summary_large_image", images: ["/og/og-atlas-tca-v2.png"] },
 };

@@ -1,4 +1,4 @@
-# Atlas Digital Trading — marketing website
+# Atlas Digital Markets — marketing website
 
 Next.js (App Router) + Tailwind CSS v4 + [Keystatic](https://keystatic.com/) (Git-backed blog) + Vercel.
 

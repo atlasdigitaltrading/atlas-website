@@ -7,13 +7,13 @@ import { SectionLabel } from "@/components/SectionLabel";
 import { DiagramPanel } from "@/components/DiagramPanel";
 
 export const metadata: Metadata = {
-  title: "Atlas Infrastructure — White-Label Digital-Asset Execution | Atlas Digital Trading",
+  title: "Atlas Infrastructure — White-Label Digital-Asset Execution | Atlas Digital Markets",
   description:
     "Add digital assets to your trading platform, OMS/EMS, or brokerage without building the stack: white-labelled, non-custodial execution over FIX 4.4 or REST, or Atlas engines deployed beneath your OMS. Execution reports, drop-copy and position feeds into your own risk layer.",
   alternates: { canonical: "/atlas-infrastructure" },
   openGraph: {
     images: [{ url: "/og/og-atlas-infrastructure-v2.png", width: 1200, height: 630 }],
-    title: "Atlas Infrastructure — White-Label Digital-Asset Execution | Atlas Digital Trading",
+    title: "Atlas Infrastructure — White-Label Digital-Asset Execution | Atlas Digital Markets",
   },
   twitter: { card: "summary_large_image", images: ["/og/og-atlas-infrastructure-v2.png"] },
 };
