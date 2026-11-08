@@ -66,7 +66,7 @@ const tabs = [
   },
   {
     label: "Orders & Execution",
-    desc: "Complete order lifecycle management with real-time fill tracking, parent/child order relationships, multi-exchange execution detail, and full audit trail. View trades, closed orders, balances, positions, and cancelled orders in one unified blotter.",
+    desc: "Complete order lifecycle management with real-time fill tracking, parent/child order relationships, multi-exchange execution detail, and full audit trail. View trades, closed orders, balances, positions, and canceled orders in one unified blotter.",
     features: [
       "Real-time fill tracking across venues",
       "Parent/child order relationships",

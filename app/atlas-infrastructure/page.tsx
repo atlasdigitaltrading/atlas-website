@@ -9,7 +9,7 @@ import { DiagramPanel } from "@/components/DiagramPanel";
 export const metadata: Metadata = {
   title: "Atlas Infrastructure: White-Label Execution and TCA | Atlas Digital Markets",
   description:
-    "Add digital assets to your trading platform, OMS/EMS, or brokerage without building the stack: white-labelled, non-custodial execution over FIX 4.4 or REST, or Atlas engines deployed beneath your OMS. Execution reports, drop-copy and position feeds into your own risk layer.",
+    "Add digital assets to your trading platform, OMS/EMS, or brokerage without building the stack: white-labeled, non-custodial execution over FIX 4.4 or REST, or Atlas engines deployed beneath your OMS. Execution reports, drop-copy and position feeds into your own risk layer.",
   alternates: { canonical: "/atlas-infrastructure" },
   openGraph: {
     images: [{ url: "/og/og-atlas-infrastructure-v2.png", width: 1200, height: 630 }],
@@ -88,7 +88,7 @@ export default function AtlasInfrastructurePage() {
               a market-data plant, routing, algorithms, analytics, and 24/7
               operations: a multi-year build a long way from your core product.
               Atlas Infrastructure delivers it as infrastructure: your platform
-              stays as it is, white-labelled under your brand, and Atlas
+              stays as it is, white-labeled under your brand, and Atlas
               becomes the execution destination for one more asset class,
               non-custodial end to end.
             </p>

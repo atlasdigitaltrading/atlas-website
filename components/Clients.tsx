@@ -59,7 +59,7 @@ const segs = [
     href: "/atlas-infrastructure",
     color: "#22c55e",
     blurb:
-      "Platforms adding digital assets behind their own front end.",
+      "Platforms adding execution and TCA behind their own front end.",
     list: [
       "Trading Platforms",
       "OMS/EMS Vendors",
