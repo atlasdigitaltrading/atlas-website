@@ -71,3 +71,11 @@ textarea::placeholder {
 .animate-marquee {
   animation: marquee 60s linear infinite;
 }
+
+/* Market-map tooltip: rendered only on hover (an invisible but laid-out
+   tooltip beside a right-edge tile widened /intelligence past a phone
+   screen), with a short fade so desktop feels the same as before. */
+@keyframes tooltip-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

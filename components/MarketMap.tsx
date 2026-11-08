@@ -120,7 +120,7 @@ function MapTile({
       </div>
 
       <div
-        className={`pointer-events-none absolute left-1/2 z-50 w-max -translate-x-1/2 whitespace-nowrap rounded-md border border-atlas-border bg-atlas-card px-3 py-2 opacity-0 shadow-[0_8px_24px_rgba(0,0,0,0.5)] transition-opacity duration-150 group-hover:opacity-100 ${
+        className={`pointer-events-none absolute left-1/2 z-50 w-max -translate-x-1/2 whitespace-nowrap rounded-md border border-atlas-border bg-atlas-card px-3 py-2 hidden shadow-[0_8px_24px_rgba(0,0,0,0.5)] group-hover:block motion-safe:animate-[tooltip-in_150ms_ease-out] ${
           tooltipBelow ? "top-full mt-2" : "bottom-full mb-2"
         }`}
       >
