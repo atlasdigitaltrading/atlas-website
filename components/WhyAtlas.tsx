@@ -14,17 +14,6 @@ const leaders = [
     ],
     linkedin: "https://www.linkedin.com/in/kiran-pingali/",
   },
-  {
-    name: "Paul Weiss",
-    title: "Head of Engineering",
-    credentials: [
-      "Ex-UBS · Ex-Barclays · Ex-AllianceBernstein · Ex-Bloomberg",
-      "TradeBlock (acquired by CoinDesk) · IOHK (Cardano)",
-      "20+ years building institutional electronic trading systems",
-      "Expertise: fault-tolerant order routing, low-latency systems, deterministic algo engines",
-    ],
-    linkedin: "https://www.linkedin.com/in/pauljweiss/",
-  },
 ];
 
 const diffs = [
@@ -67,7 +56,7 @@ export function WhyAtlas() {
           That experience is the foundation of every feature in the platform.
         </p>
 
-        <div className="mb-14 grid grid-cols-1 gap-5 md:grid-cols-2">
+        <div className="mb-14 grid max-w-[720px] grid-cols-1 gap-5">
           {leaders.map((l) => (
             <div
               key={l.name}

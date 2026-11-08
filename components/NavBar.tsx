@@ -91,7 +91,6 @@ export function NavBar() {
                   ["Atlas DESK", "Sell-side broker OMS/EMS", "/atlas-desk"],
                   ["Atlas TCA", "Standalone execution measurement", "/atlas-tca"],
                   ["Atlas Infrastructure", "White-label execution for platforms", "/atlas-infrastructure"],
-                  ["Atlas Pro", "In development · waitlist", "/pro"],
                 ].map(([name, sub, href]) => (
                   <a
                     key={href}
@@ -135,7 +134,7 @@ export function NavBar() {
       </div>
       {open ? (
         <div className="flex min-[900px]:hidden flex-col gap-2 border-t border-atlas-border bg-atlas-bg/98 px-4 py-4 backdrop-blur-xl">
-          {[["AtlasX", "/atlasx"], ["Atlas DESK", "/atlas-desk"], ["Atlas TCA", "/atlas-tca"], ["Atlas Infrastructure", "/atlas-infrastructure"], ["Atlas Pro", "/pro"]].map(([label, href]) => (
+          {[["AtlasX", "/atlasx"], ["Atlas DESK", "/atlas-desk"], ["Atlas TCA", "/atlas-tca"], ["Atlas Infrastructure", "/atlas-infrastructure"]].map(([label, href]) => (
             <a
               key={href}
               href={href}

@@ -55,9 +55,14 @@ export function TopOfBook() {
   // so the header reads as live between (5s) polls, not just on a poll.
   const [now, setNow] = useState<number | null>(null);
   useEffect(() => {
-    setNow(Date.now());
+    // First tick is deferred so the server HTML (now === null) hydrates
+    // cleanly and the effect body itself sets no state.
+    const first = setTimeout(() => setNow(Date.now()), 0);
     const id = setInterval(() => setNow(Date.now()), 1000);
-    return () => clearInterval(id);
+    return () => {
+      clearTimeout(first);
+      clearInterval(id);
+    };
   }, []);
 
   return (

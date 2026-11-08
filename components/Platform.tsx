@@ -24,7 +24,7 @@ const tabs = [
       "Illustrative execution schedule",
       "Multi-venue constraint selection",
     ],
-    image: "/screenshots/pre-trade.png",
+    image: "", // no current screenshot; renders PreTradeScreenMock
   },
   {
     label: "Trading",
@@ -62,7 +62,7 @@ const tabs = [
       "VWAP slippage benchmarking",
       "Exchange-level execution detail",
     ],
-    image: "/screenshots/post-trade-tca.png",
+    image: "", // no current screenshot; renders PostTradeTCAMock
   },
   {
     label: "Orders & Execution",
@@ -159,7 +159,7 @@ function PlatformVisual({ activeTab }: { activeTab: number }) {
   const [useMock, setUseMock] = useState(false);
   const tab = tabs[activeTab];
   const Mock = MOCKS[activeTab];
-  const images = Array.isArray(tab.image) ? tab.image : [tab.image];
+  const images = (Array.isArray(tab.image) ? tab.image : [tab.image]).filter(Boolean);
 
   // The Consolidated Order Book tab shows the live top-of-book widget rather
   // than a static screenshot.
@@ -173,7 +173,7 @@ function PlatformVisual({ activeTab }: { activeTab: number }) {
 
   return (
     <div className="relative min-h-[320px] overflow-hidden rounded-lg border border-atlas-border bg-atlas-bg p-6">
-      {useMock && Mock ? (
+      {(useMock || images.length === 0) && Mock ? (
         <Mock />
       ) : (
         <div className="flex flex-col gap-4">
