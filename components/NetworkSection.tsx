@@ -10,7 +10,7 @@ const STEPS = [
     side: "AtlasX · buy side",
     color: "#3b82f6",
     t: "Order entered, routed direct to broker",
-    d: "A fund's trader picks “Direct to broker” on the AtlasX ticket — same blotter, same analytics, broker execution.",
+    d: "A fund's trader picks “Direct to broker” on the AtlasX ticket: same blotter, same analytics, broker execution.",
   },
   {
     side: "Atlas DESK · sell side",
@@ -28,7 +28,7 @@ const STEPS = [
     side: "AtlasX · buy side",
     color: "#3b82f6",
     t: "Fills stream back to the client",
-    d: "Executions relay to the fund's own blotter in real time — with the same post-trade measurement applied to every fill.",
+    d: "Executions relay to the fund's own blotter in real time, with the same post-trade measurement applied to every fill.",
   },
 ];
 
@@ -82,7 +82,7 @@ export function NetworkSection() {
         </div>
 
         <p className="mb-0 mt-8 text-center text-[12px] text-atlas-gray-dark">
-          Built and working today — the directed-order round trip runs
+          Built and working today: the directed-order round trip runs
           end-to-end in the Atlas demo environment.{" "}
           <Link href="/atlasx" className="text-atlas-accent no-underline hover:underline">
             Explore AtlasX

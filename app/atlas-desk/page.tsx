@@ -9,7 +9,7 @@ import { SectionLabel } from "@/components/SectionLabel";
 export const metadata: Metadata = {
   title: "Atlas DESK: Sell-Side Broker OMS/EMS | Atlas Digital Markets",
   description:
-    "The broker platform for crypto desks and OTC dealers: low-touch/high-touch rules engine, principal and agency workflows, internal crossing, inventory auto-hedging, and per-client pricing — running today.",
+    "The broker platform for crypto desks and OTC dealers: low-touch/high-touch rules engine, principal and agency workflows, internal crossing, inventory auto-hedging, and per-client pricing, running today.",
   alternates: { canonical: "/atlas-desk" },
   openGraph: {
     images: [{ url: "/og/og-atlas-desk-v2.png", width: 1200, height: 630 }],
@@ -25,11 +25,11 @@ const PILLARS = [
   },
   {
     t: "Net, cross, cover",
-    d: "Opposing client flow crosses internally — two commissioned trades, not one net entry — and only the residual is covered in the market, on the broker's own keys.",
+    d: "Opposing client flow crosses internally as two commissioned trades, not one net entry, and only the residual is covered in the market, on the broker's own keys.",
   },
   {
     t: "Inventory that hedges itself",
-    d: "Per-symbol bands with OFF / MANUAL / AUTO modes. Breach the band and the desk auto-hedges — with a kill-switch that halts everything in one click.",
+    d: "Per-symbol bands with OFF / MANUAL / AUTO modes. Breach the band and the desk auto-hedges, with a kill-switch that halts everything in one click.",
   },
   {
     t: "Your clients, your pricing",
@@ -56,8 +56,8 @@ export default function AtlasDeskPage() {
             </h1>
             <p className="mb-0 mt-5 max-w-[640px] text-[15.5px] leading-relaxed text-atlas-gray">
               For crypto brokers and OTC desks: one workbench that takes client
-              flow from quote to cover — rules engine, blotter, netting,
-              inventory, treasury — deployed per broker, on your own
+              flow from quote to cover: rules engine, blotter, netting,
+              inventory and treasury, deployed per broker, on your own
               infrastructure, with your clients as tenants. This is the working
               software, not a mock-up.
             </p>
@@ -68,7 +68,7 @@ export default function AtlasDeskPage() {
             <ProductShot
               src="/screenshots/v2/desk-hero.png"
               alt="Atlas DESK workbench: held-order queue, central blotter, consolidated book, desk P&L, inventory, netting"
-              caption="The desk workbench — held queue, all-client blotter, consolidated book, P&L, street book, inventory bands, netting"
+              caption="The desk workbench: held queue, all-client blotter, consolidated book, P&L, street book, inventory bands, netting"
               priority
             />
           </section>
@@ -92,7 +92,7 @@ export default function AtlasDeskPage() {
               <p className="mt-3 text-[14px] leading-relaxed text-atlas-gray">
                 Click any order and the drawer shows the whole story: the client
                 leg with quoted price, markup, commission and the rule decision
-                that executed it — and the cover leg with per-venue child fills
+                that executed it, and the cover leg with per-venue child fills
                 and the captured spread. Principal book-at-quote or agency
                 work-the-order, the economics are always explicit.
               </p>
@@ -100,7 +100,7 @@ export default function AtlasDeskPage() {
                 {[
                   "Client leg: quote, markup bps, commission, rule decision",
                   "Cover leg: venue fills, average price, one-click cover",
-                  "Captured spread computed per order — your P&L, itemized",
+                  "Captured spread computed per order: your P&L, itemized",
                 ].map((f) => (
                   <li key={f} className="flex items-start gap-2.5">
                     <span className="mt-0.5 flex h-[18px] w-[18px] flex-shrink-0 items-center justify-center rounded bg-[rgba(6,182,212,0.14)] text-[10px] font-bold text-atlas-cyan">
@@ -114,7 +114,7 @@ export default function AtlasDeskPage() {
             <ProductShot
               src="/screenshots/v2/desk-drawer.png"
               alt="Atlas DESK order drawer: client leg with markup and commission, cover leg with cover-in-market action"
-              caption="The order drawer — client leg economics and the cover leg, one click from covered"
+              caption="The order drawer: client leg economics and the cover leg, one click from covered"
             />
           </section>
 
@@ -123,14 +123,14 @@ export default function AtlasDeskPage() {
             <ProductShot
               src="/screenshots/v2/desk-admin.png"
               alt="Atlas DESK broker admin: system health, client onboarding, kill switch, hedge bands, venue funding treasury"
-              caption="The broker console — onboard a client in one form, set hedge bands, fund venues, and the kill-switch"
+              caption="The broker console: onboard a client in one form, set hedge bands, fund venues, and the kill-switch"
             />
             <div>
               <h2 className="font-display m-0 text-2xl font-bold">
                 You are the operator
               </h2>
               <p className="mt-3 text-[14px] leading-relaxed text-atlas-gray">
-                Atlas DESK deploys per broker — your instance, your keys, your
+                Atlas DESK deploys per broker: your instance, your keys, your
                 clients. Onboard a client firm in one form with default pricing.
                 Set the hold-above threshold, hedge bands, and per-client
                 markups. Watch every service on one health board. And when you
@@ -138,7 +138,7 @@ export default function AtlasDeskPage() {
               </p>
               <ul className="mt-4 flex flex-col gap-2 text-[13.5px] text-atlas-offwhite">
                 {[
-                  "Per-broker deployment — no shared tenancy, ever",
+                  "Per-broker deployment: no shared tenancy, ever",
                   "Client onboarding, entitlements, prefunded ledgers",
                   "Treasury: venue funding with min/top-up automation",
                   "Full audit trail on every desk action",
@@ -161,8 +161,8 @@ export default function AtlasDeskPage() {
               Plugged into the buy side
             </h2>
             <p className="mt-3 max-w-[760px] text-[14px] leading-relaxed text-atlas-gray">
-              Funds running AtlasX can route orders directly to your desk —
-              they appear in your blotter tagged ATLASX, priced by your rules,
+              Funds running AtlasX can route orders directly to your desk.
+              They appear in your blotter tagged ATLASX, priced by your rules,
               covered by your workflow. One engine, every side of the trade:{" "}
               <Link href="/#network" className="text-atlas-accent no-underline hover:underline">
                 see how the network works

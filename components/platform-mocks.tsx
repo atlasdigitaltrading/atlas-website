@@ -68,7 +68,7 @@ export function TradingScreenMock() {
             <div
               className={`mb-0.5 text-[6px] text-atlas-gray-dark ${font}`}
             >
-              Order Book — {v}
+              Order Book · {v}
             </div>
             {[0, 1, 2].map((j) => (
               <div

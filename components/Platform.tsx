@@ -16,7 +16,7 @@ import { TopOfBook } from "./TopOfBook";
 const tabs = [
   {
     label: "Pre-Trade Analytics",
-    desc: "Comprehensive pre-trade cost estimation powered by Almgren-Chriss impact models. Analyze spread, temporary impact, book depth walk, timing risk, and opportunity cost — broken down by basis points and USD. Includes per-venue 24h volume data and illustrative execution schedules for TWAP orders.",
+    desc: "Comprehensive pre-trade cost estimation powered by Almgren-Chriss impact models. Analyze spread, temporary impact, book depth walk, timing risk, and opportunity cost, broken down by basis points and USD. Includes per-venue 24h volume data and illustrative execution schedules for TWAP orders.",
     features: [
       "Almgren-Chriss cost decomposition",
       "Per-venue volume & ADV analysis",
@@ -41,13 +41,13 @@ const tabs = [
 
   {
     label: "Consolidated Order Book",
-    desc: "Atlas aggregates order book depth from every connected exchange into a single consolidated view, so you're always trading against the full market — not one venue's slice of it. Smart Order Routing works the consolidated book in real time, and every fill is benchmarked against it at the moment of execution.",
+    desc: "Atlas aggregates order book depth from every connected exchange into a single consolidated view, so you're always trading against the full market, not one venue's slice of it. Smart Order Routing works the consolidated book in real time, and every fill is benchmarked against it at the moment of execution.",
     features: [
       "Aggregated depth across all connected venues",
       "Live top-of-book across Binance, Coinbase, Kraken & more",
       "Smart Order Routing against the full market",
       "Fills benchmarked to the consolidated book, not one quote",
-      "Real, executable liquidity — not displayed depth",
+      "Real, executable liquidity, not displayed depth",
     ],
     image: "",
   },
@@ -124,14 +124,14 @@ const tabs = [
 ];
 
 const captions = [
-  "Pre-Trade analytics — cost estimation with execution schedule",
-  "Trading view — multi-venue charts, order books, CLOB, order ticket, trade history",
-  "Consolidated Order Book — live top-of-book aggregated across venues",
-  "Post-Trade TCA — strategy comparison, venue mix, slippage",
-  "Orders & Executions — fill tracking, multi-exchange routing",
-  "Exchange Information — venue volume, per-instrument detail",
-  "Portfolio — consolidated NAV, positions, PnL, and venue allocation",
-  "Margin — initial/maintenance margin, leverage, liquidation, stress-tests",
+  "Pre-Trade analytics: cost estimation with execution schedule",
+  "Trading view: multi-venue charts, order books, CLOB, order ticket, trade history",
+  "Consolidated Order Book: live top-of-book aggregated across venues",
+  "Post-Trade TCA: strategy comparison, venue mix, slippage",
+  "Orders & Executions: fill tracking, multi-exchange routing",
+  "Exchange Information: venue volume, per-instrument detail",
+  "Portfolio: consolidated NAV, positions, PnL, and venue allocation",
+  "Margin: initial/maintenance margin, leverage, liquidation, stress-tests",
 ];
 
 const MOCKS = [

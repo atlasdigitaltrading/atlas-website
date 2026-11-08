@@ -47,7 +47,7 @@ const advisors = [
 const diffs = [
   {
     t: "Pre-Trade ↔ Post-Trade Feedback Loop",
-    d: "Our pre-trade cost models are continuously calibrated from post-trade TCA outcomes. The more you trade, the more accurate your cost predictions become — a compounding moat.",
+    d: "Our pre-trade cost models are continuously calibrated from post-trade TCA outcomes. The more you trade, the more accurate your cost predictions become: a compounding moat.",
   },
   {
     t: "Venue-Agnostic Smart Routing",
@@ -59,7 +59,7 @@ const diffs = [
   },
   {
     t: "Transparent, Unconflicted",
-    d: "Atlas is a pure technology provider — no prop trading desk, no internalization, no conflicts of interest. Agency-only execution aligned with your best outcome.",
+    d: "Atlas is a pure technology provider: no prop trading desk, no internalization, no conflicts of interest. Agency-only execution aligned with your best outcome.",
   },
 ];
 
@@ -79,7 +79,7 @@ export function WhyAtlas() {
         </SectionHeading>
         <p className="mb-12 mt-5 max-w-[820px] text-[15px] leading-relaxed text-atlas-gray">
           Atlas is built by a team that spent decades on the institutional side
-          of electronic trading — building the platforms that route orders,
+          of electronic trading, building the platforms that route orders,
           measure execution quality, and help traders prove best execution.
           That experience is the foundation of every feature in the platform.
         </p>

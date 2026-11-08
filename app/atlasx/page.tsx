@@ -58,7 +58,7 @@ export default function AtlasXPage() {
               For hedge funds, asset managers, and proprietary trading firms.
               AtlasX runs a closed loop on every order: predict the cost, route
               against the prediction, measure what actually happened, and feed
-              the difference back into the models — per firm, per venue, per
+              the difference back into the models, per firm, per venue, per
               instrument. The longer you trade on it, the more accurately it
               executes for you.
             </p>
@@ -72,9 +72,9 @@ export default function AtlasXPage() {
                 Know the cost before you commit size
               </h2>
               <p className="mt-3 text-[14px] leading-relaxed text-atlas-gray">
-                Every order gets a five-component implicit-cost decomposition —
-                spread, temporary impact, book-depth walk, timing risk,
-                opportunity cost — calibrated to the venues and liquidity that
+                Every order gets a five-component implicit-cost decomposition:
+                spread, temporary impact, book-depth walk, timing risk and
+                opportunity cost, calibrated to the venues and liquidity that
                 order will actually meet. Beside it, the live tape read and
                 on-chain context: who is aggressing right now, and whether a
                 token unlock lands inside your horizon.
@@ -98,7 +98,7 @@ export default function AtlasXPage() {
             <ProductShot
               src="/screenshots/v2/onchain.png"
               alt="AtlasX On-Chain analytics: rates and carry, stablecoin liquidity, token unlocks, derivatives context"
-              caption="On-Chain context — rates & carry, stablecoin liquidity, unlock calendar — feeding the pre-trade ticket"
+              caption="On-Chain context: rates & carry, stablecoin liquidity and unlock calendar, feeding the pre-trade ticket"
               priority
             />
           </section>
@@ -113,9 +113,9 @@ export default function AtlasXPage() {
                 </h2>
                 <p className="mb-0 mt-3 max-w-[720px] text-[14px] leading-relaxed text-atlas-gray">
                   Consolidated books across the venues Atlas captures, smart
-                  order routing with execution algorithms — TWAP, VWAP, POV,
+                  order routing with execution algorithms (TWAP, VWAP, POV,
                   Implementation Shortfall, Arrival, Liquidity Seeker, Iceberg,
-                  Pegged and others — plus RFQ for block liquidity, and direct-to-broker
+                  Pegged and others), plus RFQ for block liquidity, and direct-to-broker
                   routing into the Atlas DESK network. Spot, perpetuals, and options,
                   with prediction markets and tokenized stocks on the same ticket.
                 </p>
@@ -124,7 +124,7 @@ export default function AtlasXPage() {
             <ProductShot
               src="/screenshots/trading.png"
               alt="AtlasX trading view: multi-venue chart, consolidated order book, smart order router ticket"
-              caption="The trading surface — multi-venue chart, consolidated book, SOR ticket with execution strategies"
+              caption="The trading surface: multi-venue chart, consolidated book, SOR ticket with execution strategies"
             />
           </section>
 
@@ -133,12 +133,12 @@ export default function AtlasXPage() {
             <ProductShot
               src="/screenshots/v2/flow.png"
               alt="AtlasX Flow analytics: morning read, verified taker order flow by venue, absorption"
-              caption="Flow & Microstructure — verified taker flow, venue markout league, absorption. Real market tape, never simulation"
+              caption="Flow & Microstructure: verified taker flow, venue markout league, absorption. Real market tape, never simulation"
             />
             <div>
               <LoopRail active={2} />
               <h2 className="font-display m-0 text-2xl font-bold">
-                Measure the market — and yourself
+                Measure the market, and yourself
               </h2>
               <p className="mt-3 text-[14px] leading-relaxed text-atlas-gray">
                 The same measurement stack behind our public{" "}
@@ -146,14 +146,14 @@ export default function AtlasXPage() {
                   Market Intelligence
                 </Link>{" "}
                 feed, wired into the desk: verified taker flow (aggressor side
-                derived against each venue&rsquo;s own mid — reported side
+                derived against each venue&rsquo;s own mid; reported side
                 fields are not trusted), per-venue markout, book absorption.
                 And for your own orders: implementation-shortfall decomposition,
                 per-venue attribution, and markouts on every fill.
               </p>
               <ul className="mt-4 flex flex-col gap-2 text-[13.5px] text-atlas-offwhite">
                 {[
-                  "Market-wide venue markout league — where aggressive flow gets hurt least",
+                  "Market-wide venue markout league: where aggressive flow gets hurt least",
                   "Post-trade TCA: predicted vs realized, component by component",
                   "Full order lifecycle audit trail, drillable to each child fill",
                 ].map((f) => (
@@ -177,13 +177,13 @@ export default function AtlasXPage() {
             </h2>
             <p className="mt-3 max-w-[760px] text-[14px] leading-relaxed text-atlas-gray">
               After every execution, the difference between predicted and
-              realized cost flows back into the models — automatically, per
+              realized cost flows back into the models, automatically, per
               firm, per venue, per instrument pair. No analyst step, no weekly
               refit. Pooled models calibrated on everyone&rsquo;s data and
               applied to no one in particular are a reasonable start and a poor
               finish: the cost that matters is the cost on the venues{" "}
               <em>you</em> trade, at the sizes <em>you</em> trade. That only
-              comes from closing the loop — and it is why AtlasX gets more
+              comes from closing the loop, and it is why AtlasX gets more
               accurate for your desk the longer you run on it.
             </p>
           </section>
