@@ -61,8 +61,8 @@ export function Hero() {
           for Institutional Trading
         </h1>
 
-        <p className="font-display mx-auto mb-4 max-w-[760px] text-[clamp(18px,2vw,26px)] font-semibold leading-snug tracking-tight text-atlas-offwhite">
-          Equities, options and digital assets on one engine.
+        <p className="font-display mx-auto mb-4 max-w-[820px] text-[clamp(17px,1.8vw,24px)] font-semibold leading-snug tracking-tight text-atlas-offwhite">
+          Equities, options, digital assets, tokenized stocks and prediction markets on&nbsp;one&nbsp;engine.
         </p>
 
         <p className="mx-auto mb-9 max-w-[660px] text-[clamp(15px,1.4vw,18px)] leading-relaxed text-atlas-gray">

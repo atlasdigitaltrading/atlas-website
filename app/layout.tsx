@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 const siteTitle =
   "Atlas Digital Markets | Execution Intelligence for Institutional Trading";
 const siteDescription =
-  "Execution intelligence for institutional trading: equities, options and digital assets on one engine. AtlasX for the buy side, Atlas DESK for the sell side, Atlas TCA as standalone measurement, and Atlas Infrastructure behind partner platforms. Models that calibrate to each firm's own execution flow, so execution gets better the more you trade.";
+  "Execution intelligence for institutional trading: equities, options, digital assets, tokenized stocks and prediction markets on one engine. AtlasX for the buy side, Atlas DESK for the sell side, Atlas TCA as standalone measurement, and Atlas Infrastructure behind partner platforms. Models that calibrate to each firm's own execution flow, so execution gets better the more you trade.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://atlasdigitaltrading.com"),
