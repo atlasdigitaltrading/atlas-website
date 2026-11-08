@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Counter } from "./Counter";
 import { EVENT, isEventLive } from "@/lib/event";
 import { ANNOUNCEMENT, isAnnouncementLive } from "@/lib/announcement";
 
@@ -96,11 +95,8 @@ export function Hero() {
           ).map((s, i) => (
             <div key={i} className="text-center">
               <div className="font-display text-[clamp(26px,2.8vw,38px)] font-extrabold tracking-tight text-atlas-accent">
-                {typeof s.v === "number" ? (
-                  <Counter end={s.v} suffix={s.s} />
-                ) : (
-                  s.v
-                )}
+                {s.v}
+                {s.s}
               </div>
               <div className="mt-1 text-xs font-medium text-atlas-gray-darker">
                 {s.l}
