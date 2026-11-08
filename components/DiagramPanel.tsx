@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 // Diagrams from the platform overview are light-background artwork. Rather
-// than recolouring them, they sit on a deliberate light panel, framed like a
+// than recoloring them, they sit on a deliberate light panel, framed like a
 // spec sheet set into the dark page.
 export function DiagramPanel({
   src,
