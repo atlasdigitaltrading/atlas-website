@@ -16,6 +16,34 @@ const leaders = [
   },
 ];
 
+// Advisors, not employees. The founder card above is the only operating
+// role shown. Roles and credentials as supplied 2026-11-08; LinkedIn URLs
+// as supplied (profiles are login-walled, so titles could not be checked
+// against LinkedIn itself).
+const advisors = [
+  {
+    name: "Raji Khabbaz",
+    role: "Advisor, Capital Formation",
+    credentials:
+      "UC Berkeley, Harvard MBA. 25+ years in M&A, VC and private equity at Morgan Stanley, Gleacher & Co. and Harris & Harris Group; co-founded three alternative asset managers.",
+    linkedin: "https://www.linkedin.com/in/raji-khabbaz-44a03472/",
+  },
+  {
+    name: "Keith Yanowitz",
+    role: "Advisor, Strategy and Business Development",
+    credentials:
+      "Wharton, Columbia MBA. Institutional finance and crypto-markets background; commercial strategy and business development.",
+    linkedin: "https://www.linkedin.com/in/keithyanowitz/",
+  },
+  {
+    name: "Patrick Toolis",
+    role: "Advisor, Machine Learning and Agentic AI",
+    credentials:
+      "Stanford BS and MS (Computer Science). 20+ years as senior engineer and quantitative strategist at Instinet, Cboe, Microsoft and American Express.",
+    linkedin: "https://www.linkedin.com/in/patrick-toolis-4598a81/",
+  },
+];
+
 const diffs = [
   {
     t: "Pre-Trade ↔ Post-Trade Feedback Loop",
@@ -56,7 +84,7 @@ export function WhyAtlas() {
           That experience is the foundation of every feature in the platform.
         </p>
 
-        <div className="mb-14 grid max-w-[720px] grid-cols-1 gap-5">
+        <div className="mx-auto mb-10 grid max-w-[720px] grid-cols-1 gap-5">
           {leaders.map((l) => (
             <div
               key={l.name}
@@ -78,6 +106,32 @@ export function WhyAtlas() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-atlas-accent no-underline hover:underline"
+              >
+                LinkedIn Profile →
+              </a>
+            </div>
+          ))}
+        </div>
+
+        <h3 className="font-display mb-4 text-center text-sm font-bold uppercase tracking-[0.14em] text-atlas-gray">
+          Advisors
+        </h3>
+        <div className="mb-14 grid grid-cols-1 gap-5 md:grid-cols-3">
+          {advisors.map((a) => (
+            <div
+              key={a.name}
+              className="flex flex-col rounded-xl border border-atlas-border bg-atlas-card p-[18px]"
+            >
+              <div className="text-[14px] font-bold text-atlas-white">{a.name}</div>
+              <div className="mt-1 text-[12px] font-semibold text-atlas-accent">{a.role}</div>
+              <p className="m-0 mt-2.5 flex-1 text-[12.5px] leading-relaxed text-atlas-gray">
+                {a.credentials}
+              </p>
+              <a
+                href={a.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-atlas-accent no-underline hover:underline"
               >
                 LinkedIn Profile →
               </a>

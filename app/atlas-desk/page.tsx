@@ -175,10 +175,10 @@ export default function AtlasDeskPage() {
           <div className="flex flex-wrap items-center justify-between gap-4 rounded-[14px] border border-atlas-border bg-atlas-card px-7 py-6">
             <div>
               <div className="font-display text-lg font-bold">
-                First broker POCs are onboarding now.
+                Available for broker pilots.
               </div>
               <div className="mt-1 text-[13px] text-atlas-gray">
-                A working desk in a day on your infrastructure — bring your
+                A working desk in a day on your infrastructure. Bring your
                 venue keys and a client list.
               </div>
             </div>
